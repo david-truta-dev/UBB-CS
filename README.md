@@ -18,21 +18,21 @@
 
 *  Sem 2<br />
 
-	📌  [Data Structures & Algorithms](https://github.com/andrei-blaj/ubb/tree/master/sem2/SDA) <br />
-	📌  [Dynamic Systems](https://github.com/andrei-blaj/ubb/tree/master/sem2/Sisteme%20Dinamice) <br />
-	📌  [Graphs](https://github.com/andrei-blaj/ubb/tree/master/sem2/Algoritmica%20Grafelor) <br />
-	📌  [Geometry](https://github.com/andrei-blaj/ubb/tree/master/sem2/Geometrie) <br />
-	📌  [Object Oriented Programming](https://github.com/andrei-blaj/ubb/tree/master/sem2/OOP) <br />
-	📌  [Operating Systems](https://github.com/andrei-blaj/ubb/tree/master/sem2/OS) <br />
+	📌  [Data Structures & Algorithms](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/dsa) <br />
+	📌  [Dynamic Systems](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/ds) <br />
+	📌  [Graphs](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/ga) <br />
+	📌  [Geometry](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/geometry) <br />
+	📌  [Object Oriented Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/oop) <br />
+	📌  [Operating Systems](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/os) <br />
 
 <br />
 <br />
 
 *  Sem 3<br />
 
-	📌  [Advanced Programming Methods](https://github.com/andrei-blaj/ubb/tree/master/sem3/map) <br />
-	📌  [Functional & Logic Programming](https://github.com/andrei-blaj/ubb/tree/master/sem3/plf) <br />
-	📌  [Databases](https://github.com/andrei-blaj/ubb/tree/master/sem3/db) <br />
-	📌  [Networks](https://github.com/andrei-blaj/ubb/tree/master/sem3/networks) <br />
-	📌  [Probability & Statistics](https://github.com/andrei-blaj/ubb/tree/master/sem3/probstat) <br />
+	📌  [Advanced Programming Methods]() <br />
+	📌  [Functional & Logic Programming]() <br />
+	📌  [Databases]() <br />
+	📌  [Networks]() <br />
+	📌  [Probability & Statistics]() <br />
 
