@@ -1,0 +1,56 @@
+section {
+    padding: 20px 0px;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    width: 80%;
+  min-width: 690px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 5px;
+}
+
+#showData{
+    margin: 10px auto;
+}
+
+nav > h1{
+    float:left;
+    position: relative;
+    bottom:5px;
+}
+
+#logIn{
+    float:right;
+}
+
+input + h5{
+margin-top: 15px;
+}
+
+table{
+    margin: 0px auto;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+}
+td, th{
+    padding: 10px 20px;
+}
+
+#start, #end{
+    width: 100px;
+}
+
+select{
+    height: 20px;
+    width: 100px;
+}
+
+hr{
+    margin: 20px 0;
+    width: 100%;
+}

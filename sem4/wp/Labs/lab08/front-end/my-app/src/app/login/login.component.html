@@ -1,0 +1,20 @@
+<section id="loginForm">
+    <h3>Log in:</h3>
+    <form >
+        <div id="username">
+            <label for="usernameInput">Username</label>
+            <input id="usernameInput" type="text" name="username" >
+            <span class="error"></span>
+        </div>
+        <div id="password">
+            <label for="passwordInput">Password</label>
+            <input id="passwordInput" type="password" name="password">
+            <span class="error"></span>
+        </div>
+        <button id="loginBtn" routerLink="/admin-view" >Log in</button>
+    </form>
+    <button id="loggedoutBtn" routerLink="/normal-view">Continue without logging in</button>
+</section>
+<script>
+    console.log('admin drace');
+</script>

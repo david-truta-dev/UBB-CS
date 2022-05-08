@@ -1,0 +1,78 @@
+<section>
+    <nav id="navbarSection">
+        <h1>This is my news app</h1>
+        <button id="logOut" routerLink="/normal-view">Log Out</button>
+        <p> Admin User </p>
+    </nav>
+    <hr>
+    <section id="crudSection">
+        <h5>Add/Update a Row:</h5>
+            <input id="newsId" type="number" #newsId>
+            <input id="titleInput" class="textInput" type="text" #titleInput>
+            <input id="dateInput" type="date" #dateInput>
+            <select name="category" id="categoryInput" #categoryInput>
+                <option value="politics">politics</option>
+                <option value="society">society</option>
+                <option value="health">health</option>
+                <option value="sports">sports</option>
+            </select>
+            <input id="contentInput" class="textInput" type="text" #contentInput>
+            <input id="prodId" type="number" #prodId>
+            <button 
+                id="addUpdateBtn" 
+                (click)="postNews(newsId.value, titleInput.value, dateInput.value, categoryInput.value, contentInput.value, prodId.value)">
+                Add/Update
+            </button>
+    </section>
+    <hr>
+    <section id="newsSection">
+        <div id="tableContainer">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Text</th>
+                    <th>Prod. ID</th>
+                </tr>
+                <tr *ngFor="let new of news | async">
+                    <td>{{new.idnews}}</td>
+                    <td>{{new.title}}</td>
+                    <td>{{new.date}}</td>
+                    <td>{{new.category}}</td>
+                    <td>{{new.text}}</td>
+                    <td>{{new.idproducer }}</td>
+
+                </tr>
+            </table>
+        </div>
+        <button id="showData" (click)="getAllNews()">Show all the news</button>
+    </section>
+    <hr>
+    <section id="filtersSection">
+        <h5>Filter by date:</h5>
+        <label for="start">Start date:</label>
+        <input type="date" id="start" name="news-start"
+        value="2000-01-01"
+        min="2000-01-01" max="2100-01-01" #start>
+        <br>
+        <label for="end">End date:</label>
+        <input type="date" id="end" name="news-end"
+        value="2023-01-01"
+        min="2000-01-01" max="2100-01-01" #end>
+        <h5>Filter by category:</h5>
+        <select name="category" id="category" #category>
+            <option value="noCategory">----------------</option>
+            <option value="politics">politics</option>
+            <option value="society">society</option>
+            <option value="health">health</option>
+            <option value="sports">sports</option>
+        </select>
+        <br>
+        <button id="showFilteredData" (click)="applyFilters(start.value, end.value, category.value)">Show filtered news</button>
+    </section>
+</section>
+<script>
+    console.log('admin drace');
+</script>

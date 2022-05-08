@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./lab06.css">
+    <title>Lab06</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h3>Solve the following task using only the jQuery library (production version, jquery.min.js, or developement version, jquery.js); YOU ARE NOT ALLOWED TO USE ANY OTHER JS LIBRARY, PLUGIN OR EXTENSION BESIDES THE JQUERY LIBRARY. Write a web page which contains a table with 5 lines and 5 columns. Besides these 5 columns there are 2 special columns, one on the left side and another one on the right side containing buttons. If the user clicks on a button from the left column, the row of the table which contains that button will be deleted and all the rows above that row will be shifted down with one row. If the user clicks on a button from the right column, a new editable table row is added just bellow the current row. The user can edit this row and if all the cells from this row are filled with data, the row becomes read-only (like the rest of the rows in the table).</h3>
+    <div>
+        <table>
+            <tr>
+                <td><button onclick="specialLeft(this)"></button></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>e</td>
+                <td><button onclick="specialRight(this)"></button></td>
+            </tr>
+            <tr>
+                <td><button onclick="specialLeft(this)"></button></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>e</td>
+                <td><button onclick="specialRight(this)"></button></td>
+            </tr>
+            <tr>
+                <td><button onclick="specialLeft(this)"></button></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>e</td>
+                <td><button onclick="specialRight(this)"></button></td>
+            </tr>
+            <tr>
+                <td><button onclick="specialLeft(this)"></button></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>e</td>
+                <td><button onclick="specialRight(this)"></button></td>
+            </tr>
+            <tr>
+                <td><button onclick="specialLeft(this)"></button></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>e</td>
+                <td><button onclick="specialRight(this)"></button></td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <script src="lab06.js"></script>
+</body>
+</html>

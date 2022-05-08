@@ -1,0 +1,100 @@
+body {
+  margin: 20px;
+  text-align: center;
+  background-color: rgb(233, 233, 233);
+}
+
+h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+img {
+  display: block;
+  border: px solid rgb(192, 192, 192);
+  border-radius: 15px;
+}
+
+.pushable {
+  background: hsl(340deg 100% 32%);
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.front1 {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  background: hsl(345deg 100% 47%);
+  color: white;
+  transform: translateY(-6px);
+  transition: transform 150ms;
+}
+
+.pushable:hover .front1 {
+  transform: translateY(-2px);
+}
+
+.pushable2 {
+  background: rgb(0, 39, 214);
+  border: none;
+  border-radius: 30px;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.front2 {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 30px;
+  font-size: 1.25rem;
+  background: rgb(0, 2, 134);
+  color: white;
+  transform: translateY(-4px);
+  will-change: transform;
+  transition: transform 150ms;
+}
+
+.pushable2:focus2:not(:focus-visible) {
+  outline: none;
+}
+
+.pushable2:hover .front2 {
+  transform: translateY(-6px);
+}
+
+.mainImg {
+  display: none;
+  width: 800px;
+}
+
+.smallImg {
+  position: absolute;
+  top: 750px;
+  background: transparent;
+  border: none;
+}
+
+.smallImg:hover + .mainImg {
+  display: inline;
+}
+
+#pic1 {
+  left: 4%;
+}
+
+#pic2 {
+  left: 29%;
+}
+
+#pic3 {
+  left: 54%;
+}
+
+#pic4 {
+  left: 79%;
+}

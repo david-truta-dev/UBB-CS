@@ -1,0 +1,11 @@
+C:\.Files\College\DBMS\Labs\A2\A2\bin\Debug\A2.exe.config
+C:\.Files\College\DBMS\Labs\A2\A2\bin\Debug\A2.exe
+C:\.Files\College\DBMS\Labs\A2\A2\bin\Debug\A2.pdb
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.csproj.AssemblyReference.cache
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.csproj.SuggestedBindingRedirects.cache
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.Form1.resources
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.Properties.Resources.resources
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.csproj.GenerateResource.cache
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.csproj.CoreCompileInputs.cache
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.exe
+C:\.Files\College\DBMS\Labs\A2\A2\obj\Debug\A2.pdb

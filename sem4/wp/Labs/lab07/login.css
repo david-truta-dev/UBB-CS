@@ -1,0 +1,46 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 5px;
+}
+
+#loginForm {
+  border: 1px solid gray;
+  background-color: rgb(241, 241, 241);
+  border-radius: 10px;
+  padding: 20px 0px;
+  margin: 100px auto;
+  width: 20%;
+  min-width: 200px;
+  text-align: center;
+}
+
+form > div > input {
+  border-radius: 5px;
+  background-color: rgb(252, 252, 252);
+}
+
+.error{
+  color: red;
+  font-size: 12px;
+  display: block;
+}
+
+#loggedoutBtn{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: rgb(11, 83, 184);
+}
+
+#loggedoutBtn:active{
+  color: rgb(10, 59, 126);
+  text-decoration: underline;
+  font-weight: 500;
+}
