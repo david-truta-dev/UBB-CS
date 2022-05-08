@@ -35,9 +35,9 @@
 
 *  Sem 4 - 😐 <br />
 
-	🍞  [Software Engineering](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/se) <br />
-	⚠️  [Artificial Intelligence](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/ai) <br />
-	🌐  [Web Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/wp) <br />
+	🏢  [Software Engineering](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/se) <br />
+	🍃  [Artificial Intelligence](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/ai) <br />
+	✈️  [Web Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/wp) <br />
 	😡  [DBMSs](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/dbms) <br />
-	🎲  [SDI](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/mpp) <br />
+	🍆  [SDI](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/mpp) <br />
 
