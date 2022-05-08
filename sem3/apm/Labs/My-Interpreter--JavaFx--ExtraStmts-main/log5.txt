@@ -1,0 +1,136 @@
+PrgStateId:1
+Stack: string varf
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: varf=test.in; openRFile(varf); int varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf)
+SymTable: {varf=}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: varf=test.in
+SymTable: {varf=}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: openRFile(varf); int varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf)
+SymTable: {varf=test.in}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: openRFile(varf)
+SymTable: {varf=test.in}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf)
+SymTable: {varf=test.in}
+Out: []
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int varc
+SymTable: {varf=test.in}
+Out: []
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf)
+SymTable: {varf=test.in, varc=0}
+Out: []
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: readFile(varf, varc)
+SymTable: {varf=test.in, varc=0}
+Out: []
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(varc); readFile(varf, varc); print(varc); closeRFile(varf)
+SymTable: {varf=test.in, varc=15}
+Out: []
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(varc)
+SymTable: {varf=test.in, varc=15}
+Out: []
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: readFile(varf, varc); print(varc); closeRFile(varf)
+SymTable: {varf=test.in, varc=15}
+Out: [15]
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: readFile(varf, varc)
+SymTable: {varf=test.in, varc=15}
+Out: [15]
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(varc); closeRFile(varf)
+SymTable: {varf=test.in, varc=50}
+Out: [15]
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(varc)
+SymTable: {varf=test.in, varc=50}
+Out: [15]
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: closeRFile(varf)
+SymTable: {varf=test.in, varc=50}
+Out: [15, 50]
+FileTable{test.in=java.io.BufferedReader@1e113ea4}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:
+SymTable: {varf=test.in, varc=50}
+Out: [15, 50]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------

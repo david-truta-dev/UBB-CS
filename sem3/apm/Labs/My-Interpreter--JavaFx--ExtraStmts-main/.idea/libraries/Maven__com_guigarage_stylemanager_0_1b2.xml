@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.guigarage:stylemanager:0.1b2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/guigarage/stylemanager/0.1b2/stylemanager-0.1b2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/guigarage/stylemanager/0.1b2/stylemanager-0.1b2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/guigarage/stylemanager/0.1b2/stylemanager-0.1b2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

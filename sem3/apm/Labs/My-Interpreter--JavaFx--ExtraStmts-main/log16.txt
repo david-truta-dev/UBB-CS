@@ -1,0 +1,184 @@
+PrgStateId:1
+Stack: Ref(int) a
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: Ref(int) b; int v; new(a, 0); new(b, 0); wH(a, 1); wH(b, 2); v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: Ref(int) b
+SymTable: {a=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int v; new(a, 0); new(b, 0); wH(a, 1); wH(b, 2); v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(0, int), b=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int v
+SymTable: {a=(0, int), b=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(a, 0); new(b, 0); wH(a, 1); wH(b, 2); v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(0, int), b=(0, int), v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(a, 0)
+SymTable: {a=(0, int), b=(0, int), v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(b, 0); wH(a, 1); wH(b, 2); v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(1, int), b=(0, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=0}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(b, 0)
+SymTable: {a=(1, int), b=(0, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=0}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: wH(a, 1); wH(b, 2); v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=0, 2=0}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: wH(a, 1)
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=0, 2=0}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: wH(b, 2); v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=1, 2=0}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: wH(b, 2)
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=1, 2=0}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: v=rH(a) < rH(b) ? 100 : 200; print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: v=rH(a) < rH(b) ? 100 : 200
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (rH(a) < rH(b)): v=100; else: v=200
+SymTable: {a=(1, int), b=(2, int), v=0}
+Out: []
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(v); v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(1, int), b=(2, int), v=100}
+Out: []
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(v)
+SymTable: {a=(1, int), b=(2, int), v=100}
+Out: []
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: v=rH(b)-2 > rH(a) ? 100 : 200; print(v)
+SymTable: {a=(1, int), b=(2, int), v=100}
+Out: [100]
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: v=rH(b)-2 > rH(a) ? 100 : 200
+SymTable: {a=(1, int), b=(2, int), v=100}
+Out: [100]
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (rH(b)-2 > rH(a)): v=100; else: v=200
+SymTable: {a=(1, int), b=(2, int), v=100}
+Out: [100]
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(v)
+SymTable: {a=(1, int), b=(2, int), v=200}
+Out: [100]
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:
+SymTable: {a=(1, int), b=(2, int), v=200}
+Out: [100, 200]
+FileTable{}
+Heap:{1=1, 2=2}
+
+-----------------------------------------------------------------------------------

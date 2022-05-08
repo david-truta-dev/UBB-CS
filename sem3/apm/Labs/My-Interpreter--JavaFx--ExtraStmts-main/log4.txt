@@ -1,0 +1,136 @@
+PrgStateId:1
+Stack: bool a
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: a=false; bool b; b=true; int c; print(c);  if (a or b): c=1;  if (a and b): c=2; print(c)
+SymTable: {a=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: a=false
+SymTable: {a=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: bool b; b=true; int c; print(c);  if (a or b): c=1;  if (a and b): c=2; print(c)
+SymTable: {a=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: bool b
+SymTable: {a=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: b=true; int c; print(c);  if (a or b): c=1;  if (a and b): c=2; print(c)
+SymTable: {a=false, b=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: b=true
+SymTable: {a=false, b=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int c; print(c);  if (a or b): c=1;  if (a and b): c=2; print(c)
+SymTable: {a=false, b=true}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int c
+SymTable: {a=false, b=true}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(c);  if (a or b): c=1;  if (a and b): c=2; print(c)
+SymTable: {a=false, b=true, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(c)
+SymTable: {a=false, b=true, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (a or b): c=1;  if (a and b): c=2; print(c)
+SymTable: {a=false, b=true, c=0}
+Out: [0]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (a or b): c=1
+SymTable: {a=false, b=true, c=0}
+Out: [0]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (a and b): c=2; print(c)
+SymTable: {a=false, b=true, c=1}
+Out: [0]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (a and b): c=2
+SymTable: {a=false, b=true, c=1}
+Out: [0]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(c)
+SymTable: {a=false, b=true, c=1}
+Out: [0]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:
+SymTable: {a=false, b=true, c=1}
+Out: [0, 1]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------

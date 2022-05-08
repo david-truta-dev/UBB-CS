@@ -1,0 +1,40 @@
+PrgStateId:1
+Stack: int v
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: v=4; while(v > 0) { print(v); v=v-1 }; print(v); 
+SymTable: {v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: v=4
+SymTable: {v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: while(v > 0) { print(v); v=v-1 }; print(v); 
+SymTable: {v=4}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: while(v > 0) { print(v); v=v-1 }
+SymTable: {v=4}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------

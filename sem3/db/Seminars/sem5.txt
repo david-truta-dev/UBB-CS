@@ -1,0 +1,19 @@
+INDEXES in SQL Server (Part 1)
+
+- indexes are strucutured stored on the disk and are associated with a view or table. They are used to optimize
+ querries, delete statements, join, etc...
+- poor indexing slows down an app, fast indexing speeds it up
+
+  - General syntax: 
+
+	CREATE [UNIQUE] [CLUSTERED] [NONCLUSTERED] 
+
+	INDEX Index_name 
+
+	ON <object_name_table_or_view> (column [ASC| DESC], …) 
+
+	[INCLUDE (col_name , …)] 
+
+	[WHERE <filter_condition>] 
+
+	[WITH (index_option, …)] 

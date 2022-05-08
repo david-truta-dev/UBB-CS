@@ -1,0 +1,32 @@
+
+%-----------------------------------------------------------------
+
+appen([],X,[X]).
+appen(X,Y,R):- append(X, [Y], R).
+
+
+%
+%flow model : (i,i,i,i,i,i), (i,i,i,i,i,o)
+sumOfConsAux(N, NR, _, _, []):-
+    NR > float_integer_part(N/2)+2,!.
+sumOfConsAux(N, NR, S, T, R):-
+    S < N, !,
+    NNR is NR+1,
+    NS is NR + S,
+    appen(T,NR,L),
+    sumOfConsAux(N, NNR, NS, L, R).
+sumOfConsAux(N, NR, S, [H|T], R):-
+    S > N, !,
+    NS is S - H,
+    sumOfConsAux(N, NR, NS, T, R).
+sumOfConsAux(N, NR, S, [H|T], [[H|T]|R]):-
+    S =:= N, !,
+    NS is S-H+NR,
+    appen(T,NR,L),
+    NNR is NR+1,
+    sumOfConsAux(N, NNR, NS, L, R).
+
+
+%
+%flow model: (i,i), (i,o)
+sumOfCons(N, R):- sumOfConsAux(N,1,0,[],R).

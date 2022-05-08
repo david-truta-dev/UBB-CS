@@ -1,0 +1,24 @@
+PrgStateId:1
+Stack: Ref(int) v
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(v, 20); print(rH(v)); wH(v, 30); print(rH(v)+5)
+SymTable: {v=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(v, 20)
+SymTable: {v=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------

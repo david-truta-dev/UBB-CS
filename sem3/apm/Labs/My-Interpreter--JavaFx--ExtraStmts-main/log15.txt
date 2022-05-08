@@ -1,0 +1,144 @@
+PrgStateId:1
+Stack: int a
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int b; int c; a=1; b=2; c=5; Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } ; print(300)
+SymTable: {a=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int b
+SymTable: {a=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int c; a=1; b=2; c=5; Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } ; print(300)
+SymTable: {a=0, b=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: int c
+SymTable: {a=0, b=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: a=1; b=2; c=5; Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } ; print(300)
+SymTable: {a=0, b=0, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: a=1
+SymTable: {a=0, b=0, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: b=2; c=5; Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } ; print(300)
+SymTable: {a=1, b=0, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: b=2
+SymTable: {a=1, b=0, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: c=5; Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } ; print(300)
+SymTable: {a=1, b=2, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: c=5
+SymTable: {a=1, b=2, c=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } ; print(300)
+SymTable: {a=1, b=2, c=5}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: Switch(a*10) { case(b*c) : { print(a); print(b) } case(10) : { print(100); print(200) } default : { print(300) } } 
+SymTable: {a=1, b=2, c=5}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:  if (a*10 == b*c): print(a); print(b); else:  if (a*10 == 10): print(100); print(200); else: print(300)
+SymTable: {a=1, b=2, c=5}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(a)
+SymTable: {a=1, b=2, c=5}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(b)
+SymTable: {a=1, b=2, c=5}
+Out: [1]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(300)
+SymTable: {a=1, b=2, c=5}
+Out: [1, 2]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:
+SymTable: {a=1, b=2, c=5}
+Out: [1, 2, 300]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------

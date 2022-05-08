@@ -1,0 +1,32 @@
+Subiect teoretic:
+
+ La teoretic au fost 5 min sa copiezi exercitiile si 20 min sa le rezolvi. La practic am avut, cred, 2 ore si jumatate
+ La teoretic intrebarile au fost:
+1) Diferenta dintre functiile statice si non-static
+2) Folosind stream-uri, sa elimini dintr-o lista elementele care nu se divid cu 4, sa iei succesorul numerelor ramase si sa faci suma modulo 2.
+3) Ce este un semaphore in Java?
+
+
+
+
+
+EXAMEN MAP 
+
+sa fim prezenti mai repede cu 30 minute de examen
+
+2 parti:
+- teoretica 30 min, close book. 4 subiecte: 1 intrebare object oriented, 1 problema cu wild cards (ne da un cod si sa completam tipurile generice si sa explicam de ce am folosit), 1 problema java functional (filter, map, reduce), 
+1 intrebare despre concurenta
+- practic 2:30, 2 probleme, open book. una simpla (o noua expresie/ un nou statement, care nu modifica program state)4.5p, una mai complicata 4.5p. sa facem doua proiecte separate pentru cele 2. trebuie sa compileze si ruleze fara erori. 
+un mecanism de sincronizare mari sanse. adaugam un nou statement, o noua functionalitate, o noua structura de date, o noua expresie, chestii de genu. nu va trebui sa extindem typecheckerul. sa fim siguri ca nu avem probleme de racing. 
+
+Daca termini teoreticul mai repede, poti incepe practicul mai repede.
+
+for Practical do (for a better grade - optional):
+-Procedures
+-Semaphore
+-CountSemaphore
+-ToySemaphore
+-CountDownLatch
+-Lock 
+-CyclicBarrier

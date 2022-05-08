@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="1000.0" style="-fx-background-color: #2b343b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ExecuteController">
+   <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="153.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="148.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="494.0" minWidth="10.0" prefWidth="196.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="496.0" minWidth="10.0" prefWidth="290.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="193.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="173.0" minHeight="-Infinity" prefHeight="56.0" valignment="CENTER" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="430.0" minHeight="-Infinity" prefHeight="189.0" valignment="CENTER" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="230.0" minHeight="-Infinity" prefHeight="195.0" valignment="CENTER" vgrow="ALWAYS" />
+   </rowConstraints>
+   <children>
+      <Button mnemonicParsing="false" onAction="#backToSelectPane" styleClass="dark-blue" stylesheets="@../style.css" text="Back" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+        <Text fill="#d3d3d3" strokeType="OUTSIDE" strokeWidth="0.0" text="My Interpreter" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+        </Text>
+      <Button fx:id="runOneStepBtn" mnemonicParsing="false" onAction="#runOneStep" prefHeight="82.0" prefWidth="157.0" styleClass="dark-blue" stylesheets="@../style.css" text="Run One Step" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <TableView fx:id="heapTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" stylesheets="@../style.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="heapAddressColumn" minWidth="-1.0" prefWidth="111.0" text="Address" />
+          <TableColumn fx:id="heapValueColumn" minWidth="-1.0" prefWidth="108.0" text="Value" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </TableView>
+      <ListView fx:id="prgStatesIds" prefHeight="200.0" prefWidth="200.0" styleClass="my-list-view" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin></ListView>
+      <ListView fx:id="fileTable" prefHeight="200.0" prefWidth="200.0" styleClass="my-list-view" stylesheets="@../style.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin></ListView>
+      <ListView fx:id="out" prefHeight="200.0" prefWidth="200.0" styleClass="my-list-view" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin></ListView>
+      <ListView fx:id="exeStack" prefHeight="182.0" prefWidth="577.0" styleClass="my-list-view" stylesheets="@../style.css" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin></ListView>
+      <TextArea fx:id="nrOfPrgStates" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@../style.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin></TextArea>
+      <TableView fx:id="symTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" stylesheets="@../style.css" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn fx:id="symTableName" minWidth="-1.0" prefWidth="111.0" text="Address" />
+            <TableColumn fx:id="symTableValue" minWidth="-1.0" prefWidth="108.0" text="Value" />
+         </columns>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </TableView>
+      <Text fx:id="exceptions" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Text>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+   </padding>
+</GridPane>

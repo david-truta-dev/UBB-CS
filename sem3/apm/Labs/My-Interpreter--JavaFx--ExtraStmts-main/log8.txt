@@ -1,0 +1,88 @@
+PrgStateId:1
+Stack: Ref(int) v
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(rH(rH(a)))
+SymTable: {v=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(v, 20)
+SymTable: {v=(0, int)}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: Ref(Ref(int)) a; new(a, v); new(v, 30); print(rH(rH(a)))
+SymTable: {v=(1, int)}
+Out: []
+FileTable{}
+Heap:{1=20}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: Ref(Ref(int)) a
+SymTable: {v=(1, int)}
+Out: []
+FileTable{}
+Heap:{1=20}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(a, v); new(v, 30); print(rH(rH(a)))
+SymTable: {a=(0, Ref(int)), v=(1, int)}
+Out: []
+FileTable{}
+Heap:{1=20}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(a, v)
+SymTable: {a=(0, Ref(int)), v=(1, int)}
+Out: []
+FileTable{}
+Heap:{1=20}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(v, 30); print(rH(rH(a)))
+SymTable: {a=(2, Ref(int)), v=(1, int)}
+Out: []
+FileTable{}
+Heap:{1=20, 2=(1, int)}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: new(v, 30)
+SymTable: {a=(2, Ref(int)), v=(1, int)}
+Out: []
+FileTable{}
+Heap:{1=20, 2=(1, int)}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack: print(rH(rH(a)))
+SymTable: {a=(2, Ref(int)), v=(3, int)}
+Out: []
+FileTable{}
+Heap:{1=20, 2=(1, int), 3=30}
+
+-----------------------------------------------------------------------------------
+PrgStateId:1
+Stack:
+SymTable: {a=(2, Ref(int)), v=(3, int)}
+Out: [20]
+FileTable{}
+Heap:{1=20, 2=(1, int), 3=30}
+
+-----------------------------------------------------------------------------------

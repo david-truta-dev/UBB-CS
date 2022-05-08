@@ -1,0 +1,68 @@
+INDEXES in SQL Server (Part 2)
+
+Recomandations:
+ - Every table should have a cl index
+ - The cl index as small as possible, selective, incereasing
+ - non-cl indexes on foreign keys and on columns frequently used in WHERE
+ - Covering indexes on the most frequently used queries
+ - no: index/col
+ - multi-col index: put first the most selective column
+
+Indexed Views:
+
+- Views do not hold the data and are not stored phisically on the disk.
+- We can create indexes just on materialized views.
+- Indexed Views have a bunch of options for example(google them):
+	- ANSI_NULLS ON 
+	- ANSI_PADDING ON
+	- ANSI_WARNINGS ON
+	- ARITHABORT ON
+	- CONCAT_NULL_YIELDS_NULL ON
+	- QUOTED_IDENTIFIER ON
+	- NUMERIC_ROUNDABORT ON
+- They also have some restrictions:
+1) The Indexed View definition can’t reference other views, or tables in other databases.
+
+2) The Indexed View definition can’t have COUNT, MIN, MAX, TOP, outer joins, and some  other keywords. 
+
+3) You can’t modify the underlying tables and columns. The view is created with the WITH SCHEMABINDING option.
+ SHEMABINDING  means that as long as that schemabound object exists as a schemabound object  you are limited in 
+changes that can be made to the tables that it refers to.
+
+4) Predicting the sql query optimizer is not an exact science. SQL Server Enterprise Edition automatically 
+considers the unique clustered index as an option for a query – but if it finds a  more suitable index, 
+that will be used. You could force the sql optimizer to use the index through the WITH NOEXPAND hint – but 
+using Hints should come with a health warning.
+
+5) Using OLTP with indexed views may create performance problems. 
+In a database system with high levels of  insert, updates and deletes, 
+this can become a bottleneck. Every data change that occurs in the base table is reflected into the Indexed View.  
+If you want to see for  yourself, check the Execution Plan.
+
+IMPORTANT : WARNINGS HAVE SEVERETY LEVEL IN RANGE [1,18], THE ONES ABOVE 10 SHOULD HAVE A TRY-CATCH BLOCK.
+            SQL SERVER STORES DATA IN PAGES !!!
+
+Fragmentation: 
+
+1) Internal:
+	a) Records are not stored in a contiguous area of memory.
+	b) The fullnes of a page depends on time.
+	c) ...
+
+2) External:...
+
+3) Logical:...
+
+Reduce fragmentation:
+	-Heap : Create a cl index on it and then drop it
+		Creating the cl index => the records will get redistributed
+	-Indexed table: If Avg fragmentation > 5% anda <= 30%: Rerder the leaf pages of the index: ALTER INDEX name REORGANIZE
+					     >30% : Rebuild the index / Drop and recreating the index.
+	-Drop and recreate the index => all the data is going to be redistributed int o full data pages.
+	-CREATE INDEX name WITH (FILLFACTOR = 70)....
+
+
+T-SQL Control of Flow Language:
+
+- In computer science, control flow is the order in which individual statements, instructions or function calls of an
+ imperative program are executed or evaluated.

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="420.0" prefWidth="492.0" spacing="5.0" style="-fx-background-color: #2b343b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SelectController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Text fill="#d3d3d3" strokeType="OUTSIDE" strokeWidth="0.0" text="My Interpreter">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#d3d3d3" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Program">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <ListView fx:id="programs" prefHeight="250.0" prefWidth="200.0" styleClass="my-list-view" stylesheets="@../style.css" />
+      <Text fx:id="typerchecker" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Text>
+      <Button contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#execute" styleClass="dark-blue" stylesheets="@../style.css" text="Execute" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+   </children>
+
+</VBox>

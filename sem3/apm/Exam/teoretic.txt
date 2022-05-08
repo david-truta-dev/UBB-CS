@@ -1,0 +1,163 @@
+Checked vs unchecked exceptions
+checked: These are the exceptions that are checked at compile time
+unchecked: These are the exceptions that are not checked at compile time.
+In Java exceptions under Error and RuntimeException classes are unchecked exceptions, everything else under throwable is checked. 
+
+Overriding vs overloading
+When two of the same methods in the same class have the same name but different 
+parameters it's called OVERLOADING but when the signature is the same in the superclass
+and the child class, it's called OVERRIDING
+1.Override implements Runtime Polymorphism whereas Overloading implements Compile time
+polymorphism
+2.Overriding occurs between superclass and subclass whereas overloading happens between
+the methods of the same class
+3.Overriding methods have the same signature (same name and arguments). Overloaded method
+names are the same but parameters are different
+
+Interface vs Abstract class
+An abstract class permits you to make functionality that subclasses can implement or override whereas an interface only permits you to state functionality but not to implement it. A class can extend only one abstract class while a class can implement multiple interfaces.
+Interfaces do not have access modifiers. Everything defined inside the interface is assumed public whereas abstract classes can have an access modifier
+The interface cannot contain data fields whereas class can
+An interface cannot declare constructors whereas abstract class can
+In an interface abstract keyword is optional but in abstract class it is mandatory for declaring methods as abstract 
+
+Static vs non static methods
+A static method is a method that belongs to a class, but it does not belong to an instance of that class and this method can be called without the instance or object of that class
+A static method can only access static data members and static methods of another class or same class but cannot access non-static methods and variables
+A non-static method can access static data members and static methods as well as non-static members and methods of another class or same class, also can change the values of any static data member
+We don’t need the object of a class in which the static method is defined to call the static method whereas we need a class object to call a non-static method
+In the static method, the method use compile-time or early binding
+In a non-static method, the method use runtime or dynamic binding
+In the static method, we cannot override a static method, because of early binding. 
+
+Static field vs non static
+Static fields are shared among all instances of a class. Non static variables are
+specific to that instance of a class
+Static variables can be accessed by static and non static methods whereas non static
+variables cannot be accessed inside a static method
+For static variables, at declaration a single copy is created and shared among all
+objects at class level whereas a non static variable exists only within the block in
+which the variable is declared (can only be accessed within that block)
+
+
+What is abstract class
+It is a restricted class that cannot be instantiated (cannot be used to create object) and therefore must
+be inherited from another class to access it
+It is declared using abstract and can have both abstract and regular methods
+Side note: abstract method: has no implementation, declared using keywork abstract.
+If a class has an abstract method then the whole class must be declared abstract and when
+such a class is subclassed it must provide implementation for all abstract methods or
+be declared abstract as well
+
+
+CLASS VS INTERFACE
+class is created using keyword class and interface using interface
+A class can be instantiated whereas an interface can not
+Classes do not support multiple inheritance whereas interface does.
+A class can inherit another class but an interface can not
+A class can be inherited by another one using keyword 'extends', an interface using
+keyword 'implements' or by another interface using 'extends'
+All variables and methods in a class must be declared as public
+All methods of an interface must be implemented in the subclass or the subclassed must
+be declared abstract
+
+Reference type vs primitive type
+Primitive types are the basic types int,long, boolean,char,float,double,short,byte.
+Reference types are the ones used to point objects String, Thread, File etc. They are not pointers,
+but a handle to an object which is created in heap memory
+Primitive types always have a value and can never be null unlike reference types.
+When compared using == operator in the case of primitive types their values are
+compared whereas for primitive types their address is compared
+Primitive values are created on the stack whereas reference ones in the heap
+
+GENERIC ARRAY IN JAVA
+They cannot be created using new 
+Arrays store and check type information at runtime. Generics check for type errors 
+at compile time and dont have type information at runtime
+considering 
+private T[] elems;
+public MyArray(Class<E> classz, int capacity){
+	elems=(T[])Array.newInstance(classz,capacity);
+}
+we hereby specify the type of the object inside the new array and then the capacity of the array
+They cannot be created directly due to the missing information at runtime of its 
+component type
+
+WILDCARDS
+The question mark is known as the wildcard in generic programming. It represents an unknown type
+There are:
+Upper bounded wildcards: we can only read elements of the type(or superclass of the type) given by the upper bound
+declared using the wildcard character ?
+followed by the extends keyword, followed by its upper bound:
+List <? extends Number> list
+Lower bounded wildcards:we can write elements of type(orr subclasses of the type) given by the lower bound
+? followed by super followed by its lower bound: 
+List<? super Integer>
+Unbounded wildcards: specified using only the wildcard character ? 
+List<?> list
+
+What is a buffer, buffer operation,stream
+A buffer is a linear finite sequence of a specific primitive type (into which you can write data, which you can later read again). Aside from its 
+content, the essential properties of a buffer are its capacity,limit and position.
+The capacity is a certain fixed size of elements. The capacity is never negative and never changes
+The limit : in write mode is how much data you can write into the buffer and in read is how much data can be read.
+A buffer's limit is never negative and is never greater than its capacity
+A buffer's position is the index of the next element to be read or written. The position is never negative and is never greater than its limit
+In write mode it is initially at position 0 and when a byte long has been written
+into the buffer the position is advanced to the next cell.
+In read mode when flipping the buffer from write to read, the position is reset to 0. Data is read from position and doing so advances the position 
+
+Buffer operations ???
+Reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.
+Writes text to a character-output stream, buffering characters so as to provide for the efficient writing of single characters, arrays, and strings.
+
+Streams
+A sequence of elements supporting sequential and parallel aggregate operations.
+a stream is a conceptually fixed data structure in which elements are computed on demand.
+Pipelining: Many stream operations return a stream themselves. This allows operations to be chained to form a larger pipeline. This enables certain optimizations, such as laziness and short-circuiting
+Internal iteration: stream operations do the iteration behind the scenes for you.
+Streams support SQL-like operations and common operations from functional programing languages, such as filter, map, reduce, find, match, sorted, and so on.
+
+Threads vs processes
+A program in execution is often referred as process. A thread is a subset(part) of the process.
+A process consists of multiple threads. A thread is a smallest part of the process that can execute concurrently with other parts(threads) of the process.
+A process has its own address space. A thread uses the process’s address space and shares it with the other threads of that process.
+A thread can communicate with other thread (of the same process) directly by using methods like wait(), notify(), notifyAll(). A process can communicate with other process by using inter-process communication.
+New threads are easily created. However the creation of new processes require duplication of the parent process.
+Threads have control over the other threads of the same process. A process does not have control over the sibling process, it has control over its child processes only.
+
+
+What is multithreading
+In Java, Multithreading refers to a process of executing two or more threads simultaneously for maximum utilization of the CPU. A thread in Java is a lightweight process requiring fewer resources to create and share the process resources.
+
+
+Possible states of a thread
+NEW, // after new Thread(), but before start().
+RUNNABLE, // after start(), when running or ready
+BLOCKED, // blocked by monitor lock // blocked by a synchronized method/block
+WAITING, // waiting for to be notified; no time out set // wait(), join()
+TIMED_WAITING, // waiting for to be notified; time out set
+// sleep(time), wait(time), join(time)
+TERMINATED // complete execution or after stop()
+
+
+Thread Synchronization
+Synchronization in Java is the capability to control the access of multiple threads to any shared resource.
+There are two types of thread synchronization mutual exclusive and inter-thread communication.
+wait(), notify()and notifyAll()control the synchronization of threads.
+
+
+What is a monitor model?
+A monitor is a synchronization mechanism that allows threads to have:
+
+mutual exclusion – only one thread can execute the method at a certain point in time, using locks
+cooperation – the ability to make threads wait for certain conditions to be met, using wait-set
+Monitors provide three main features to the concurrent programming:
+
+only one thread at a time has mutually exclusive access to a critical code section
+threads running in a monitor could be blocked while they’re waiting for certain conditions to be met
+one thread can notify other threads when conditions they’re waiting on are met
+
+
+
+

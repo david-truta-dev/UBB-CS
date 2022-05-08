@@ -1,0 +1,72 @@
+PrgStateId:2
+Stack: bool a
+SymTable: {}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack: int v; a=true;  if (a): v=2; else: v=3; print(v)
+SymTable: {a=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack: int v
+SymTable: {a=false}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack: a=true;  if (a): v=2; else: v=3; print(v)
+SymTable: {a=false, v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack: a=true
+SymTable: {a=false, v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack:  if (a): v=2; else: v=3; print(v)
+SymTable: {a=true, v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack:  if (a): v=2; else: v=3
+SymTable: {a=true, v=0}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack: print(v)
+SymTable: {a=true, v=2}
+Out: []
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
+PrgStateId:2
+Stack:
+SymTable: {a=true, v=2}
+Out: [2]
+FileTable{}
+Heap:{}
+
+-----------------------------------------------------------------------------------
