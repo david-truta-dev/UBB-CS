@@ -1,0 +1,13 @@
+100,Alice,45
+101,Bob,34
+102,Eve,68
+103,Carla,56
+104,James,55
+105,Johnny,33
+106,Miguel,36
+107,Robby,90
+108,Lawrence,89
+109,Hillary,88
+110,Terry,40
+111,Dave,60
+112,Andrea,59

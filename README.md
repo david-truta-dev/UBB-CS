@@ -1,7 +1,7 @@
 ## UNI *UBB-CS* ##
 
-> ### To whoever finds this, I hope it helps :) ###
->> [ Click me! ](https://www.youtube.com/watch?v=iik25wqIuFo)
+> ### To whoever finds this repo, I hope it helps :) ###
+>> [ surprise ;) ](https://www.youtube.com/watch?v=iik25wqIuFo)
 
 <br />
 

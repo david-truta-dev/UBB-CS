@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0f54ee94-0e7f-44f2-92e0-3eb9ca9f48fb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="f7695724-2648-470a-b7b3-f3fbd48687be" />
+  <component name="ProjectId" id="1jsCdjlF4KX7ubpMSOj1XFJYWQc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyCoverageOptionsProvider">
+    <option name="myUseBundledCoveragePy" value="true" />
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="a678-917-Truta-David" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for BookServiceTest.BookServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="a678-917-Truta-David" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;BookServiceTest.BookServiceTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for ClientServiceTest.ClientServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="a678-917-Truta-David" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;ClientServiceTest.ClientServiceTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for RentalServiceTest.RentalServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="a678-917-Truta-David" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;RentalServiceTest.RentalServiceTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in RentalServiceTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="a678-917-Truta-David" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/RentalServiceTest.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Unittests for RentalServiceTest.RentalServiceTest" />
+        <item itemvalue="Python tests.Unittests for ClientServiceTest.ClientServiceTest" />
+        <item itemvalue="Python tests.Unittests for BookServiceTest.BookServiceTest" />
+        <item itemvalue="Python tests.Unittests in RentalServiceTest.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f54ee94-0e7f-44f2-92e0-3eb9ca9f48fb" name="Default Changelist" comment="" />
+      <created>1604583501872</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604583501872</updated>
+      <workItem from="1604583503026" duration="1874000" />
+      <workItem from="1604590004756" duration="13650000" />
+      <workItem from="1604650827896" duration="1594000" />
+      <workItem from="1604653844008" duration="47000" />
+      <workItem from="1604654200425" duration="5953000" />
+      <workItem from="1604661670288" duration="2258000" />
+      <workItem from="1604773491881" duration="9796000" />
+      <workItem from="1604785452264" duration="706000" />
+      <workItem from="1604845830811" duration="3903000" />
+      <workItem from="1604852962707" duration="2000" />
+      <workItem from="1604854957745" duration="599000" />
+      <workItem from="1604908974034" duration="68000" />
+      <workItem from="1605042973709" duration="3130000" />
+      <workItem from="1605046208495" duration="35000" />
+      <workItem from="1605088696910" duration="18095000" />
+      <workItem from="1605126615541" duration="2040000" />
+      <workItem from="1605189585340" duration="105000" />
+      <workItem from="1605197918191" duration="273000" />
+      <workItem from="1605198395356" duration="549000" />
+      <workItem from="1605254518873" duration="1441000" />
+      <workItem from="1605260418368" duration="999000" />
+      <workItem from="1605276961607" duration="4527000" />
+      <workItem from="1605351941508" duration="2593000" />
+      <workItem from="1605445490715" duration="855000" />
+      <workItem from="1605593326980" duration="5999000" />
+      <workItem from="1605602553997" duration="1823000" />
+      <workItem from="1605716406187" duration="3344000" />
+      <workItem from="1605859487696" duration="106000" />
+      <workItem from="1605912110886" duration="247000" />
+      <workItem from="1606066616766" duration="5920000" />
+      <workItem from="1606122475445" duration="18790000" />
+      <workItem from="1606197117441" duration="3144000" />
+      <workItem from="1606466634494" duration="18000" />
+      <workItem from="1606470949033" duration="380000" />
+      <workItem from="1606474853657" duration="10000" />
+      <workItem from="1606563898416" duration="606000" />
+      <workItem from="1606564871562" duration="10332000" />
+      <workItem from="1606642177050" duration="1414000" />
+      <workItem from="1606653482612" duration="11564000" />
+      <workItem from="1606837759774" duration="893000" />
+      <workItem from="1607069486189" duration="77000" />
+      <workItem from="1607090675401" duration="2559000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="271" y="108" key="#Inspections" timestamp="1604595851290">
+      <screen x="0" y="0" width="1289" height="859" />
+    </state>
+    <state x="271" y="108" key="#Inspections/0.0.1289.859@0.0.1289.859" timestamp="1604595851290" />
+    <state x="546" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606563903738">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="546" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1606563903738" />
+    <state x="375" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604651195394">
+      <screen x="0" y="0" width="1289" height="859" />
+    </state>
+    <state x="375" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1289.859@0.0.1289.859" timestamp="1604651195394" />
+    <state x="820" y="483" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1605720802679">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="820" y="483" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1605720802679" />
+    <state x="675" y="247" key="FileChooserDialogImpl" timestamp="1607069562281">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="2931" y="247" key="FileChooserDialogImpl/0.0.1289.859/2256.0.2048.1152@2256.0.2048.1152" timestamp="1604909041110" />
+    <state x="425" y="184" key="FileChooserDialogImpl/0.0.1289.859@0.0.1289.859" timestamp="1604653889291" />
+    <state x="675" y="247" key="FileChooserDialogImpl/0.0.2048.1152@0.0.2048.1152" timestamp="1607069562281" />
+    <state width="2005" height="238" key="GridCell.Tab.0.bottom" timestamp="1607093184745">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="2005" height="521" key="GridCell.Tab.0.bottom/0.0.1289.859/2256.0.2048.1152@2256.0.2048.1152" timestamp="1604783296107" />
+    <state width="1246" height="701" key="GridCell.Tab.0.bottom/0.0.1289.859@0.0.1289.859" timestamp="1605046129322" />
+    <state width="2005" height="238" key="GridCell.Tab.0.bottom/0.0.2048.1152@0.0.2048.1152" timestamp="1607093184745" />
+    <state width="2005" height="238" key="GridCell.Tab.0.center" timestamp="1607093184745">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="2005" height="521" key="GridCell.Tab.0.center/0.0.1289.859/2256.0.2048.1152@2256.0.2048.1152" timestamp="1604783296107" />
+    <state width="1246" height="701" key="GridCell.Tab.0.center/0.0.1289.859@0.0.1289.859" timestamp="1605046129321" />
+    <state width="2005" height="238" key="GridCell.Tab.0.center/0.0.2048.1152@0.0.2048.1152" timestamp="1607093184745" />
+    <state width="2005" height="238" key="GridCell.Tab.0.left" timestamp="1607093184745">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="2005" height="521" key="GridCell.Tab.0.left/0.0.1289.859/2256.0.2048.1152@2256.0.2048.1152" timestamp="1604783296107" />
+    <state width="1246" height="701" key="GridCell.Tab.0.left/0.0.1289.859@0.0.1289.859" timestamp="1605046129321" />
+    <state width="2005" height="238" key="GridCell.Tab.0.left/0.0.2048.1152@0.0.2048.1152" timestamp="1607093184745" />
+    <state width="2005" height="238" key="GridCell.Tab.0.right" timestamp="1607093184745">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="2005" height="521" key="GridCell.Tab.0.right/0.0.1289.859/2256.0.2048.1152@2256.0.2048.1152" timestamp="1604783296107" />
+    <state width="1246" height="701" key="GridCell.Tab.0.right/0.0.1289.859@0.0.1289.859" timestamp="1605046129321" />
+    <state width="2005" height="238" key="GridCell.Tab.0.right/0.0.2048.1152@0.0.2048.1152" timestamp="1607093184745" />
+    <state width="2005" height="392" key="GridCell.Tab.1.bottom" timestamp="1607092574454">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="1246" height="275" key="GridCell.Tab.1.bottom/0.0.1289.859@0.0.1289.859" timestamp="1604603691572" />
+    <state width="2005" height="392" key="GridCell.Tab.1.bottom/0.0.2048.1152@0.0.2048.1152" timestamp="1607092574454" />
+    <state width="2005" height="392" key="GridCell.Tab.1.center" timestamp="1607092574454">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="1246" height="275" key="GridCell.Tab.1.center/0.0.1289.859@0.0.1289.859" timestamp="1604603691572" />
+    <state width="2005" height="392" key="GridCell.Tab.1.center/0.0.2048.1152@0.0.2048.1152" timestamp="1607092574454" />
+    <state width="2005" height="392" key="GridCell.Tab.1.left" timestamp="1607092574454">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="1246" height="275" key="GridCell.Tab.1.left/0.0.1289.859@0.0.1289.859" timestamp="1604603691572" />
+    <state width="2005" height="392" key="GridCell.Tab.1.left/0.0.2048.1152@0.0.2048.1152" timestamp="1607092574454" />
+    <state width="2005" height="392" key="GridCell.Tab.1.right" timestamp="1607092574454">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state width="1246" height="275" key="GridCell.Tab.1.right/0.0.1289.859@0.0.1289.859" timestamp="1604603691572" />
+    <state width="2005" height="392" key="GridCell.Tab.1.right/0.0.2048.1152@0.0.2048.1152" timestamp="1607092574454" />
+    <state x="533" y="221" key="SettingsEditor" timestamp="1605198723287">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="533" y="221" key="SettingsEditor/0.0.2048.1152@0.0.2048.1152" timestamp="1605198723287" />
+    <state x="700" y="186" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606570145281">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="700" y="186" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2048.1152@0.0.2048.1152" timestamp="1606570145281" />
+    <state x="582" y="211" key="refactoring.ChangeSignatureDialog" timestamp="1604651392415">
+      <screen x="0" y="0" width="1289" height="859" />
+    </state>
+    <state x="582" y="211" key="refactoring.ChangeSignatureDialog/0.0.1289.859@0.0.1289.859" timestamp="1604651392415" />
+    <state x="307" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1604659087033">
+      <screen x="0" y="0" width="1289" height="859" />
+    </state>
+    <state x="307" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1289.859@0.0.1289.859" timestamp="1604659087033" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_for_RentalServiceTest_RentalServiceTest.coverage" NAME="Unittests for RentalServiceTest.RentalServiceTest Coverage Results" MODIFIED="1606660258661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_for_BookServiceTest_BookServiceTest.coverage" NAME="Unittests for BookServiceTest.BookServiceTest Coverage Results" MODIFIED="1606648973827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$menu.coverage" NAME="menu Coverage Results" MODIFIED="1605043279699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_in_RentalServiceTest_py.coverage" NAME="Unittests in RentalServiceTest.py Coverage Results" MODIFIED="1606200793482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_in_ClientServiceTest_py.coverage" NAME="Unittests in ClientServiceTest.py Coverage Results" MODIFIED="1606200780622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_for_ClientServiceTest_ClientServiceTest_test_find_client.coverage" NAME="Unittests for ClientServiceTest.ClientServiceTest.test_find_client Coverage Results" MODIFIED="1606142950472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_in_BookServiceTest_py.coverage" NAME="Unittests in BookServiceTest.py Coverage Results" MODIFIED="1606200731646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_for_BookServiceTest_BookServiceTest_test_find_book.coverage" NAME="Unittests for BookServiceTest.BookServiceTest.test_find_book Coverage Results" MODIFIED="1606142675177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$Unittests_for_ClientServiceTest_ClientServiceTest.coverage" NAME="Unittests for ClientServiceTest.ClientServiceTest Coverage Results" MODIFIED="1606648983753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/a678_917_Truta_David$main.coverage" NAME="main Coverage Results" MODIFIED="1607093184737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+  </component>
+</project>
