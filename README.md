@@ -3,8 +3,6 @@
 > ### To whoever finds this repo, I hope it helps :) ###
 >> [ surprise ;) ](https://www.youtube.com/watch?v=iik25wqIuFo)
 
-<br />
-
 * Sem 1<br />
 
 	📌  [Algebra](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/algebra) <br />
@@ -14,18 +12,16 @@
 	📌  [Analysis](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/analysis) <br />
 
 <br />
-<br />
 
 *  Sem 2<br />
 
 	📌  [Data Structures & Algorithms](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/dsa) <br />
-	📌  [Dynamic Systems](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/ds) <br />
-	📌  [Graphs](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/ga) <br />
-	📌  [Geometry](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/geometry) <br />
-	📌  [Object Oriented Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/oop) <br />
-	📌  [Operating Systems](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/os) <br />
+	📌  [Dynamic Systems](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/ds) <br />
+	📌  [Graphs](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/ga) <br />
+	📌  [Geometry](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/geometry) <br />
+	📌  [Object Oriented Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/oop) <br />
+	📌  [Operating Systems](https://github.com/917-Truta-David/UBB-CS/tree/master/sem2/os) <br />
 
-<br />
 <br />
 
 *  Sem 3<br />
