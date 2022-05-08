@@ -1,0 +1,78 @@
+     1                                  bits 32 ;assembling for the 32 bits architecture
+     2                                  global start
+     3                                  
+     4                                  ; we ask the assembler to give global visibility to the symbol called start 
+     5                                  ;(the start label will be the entry point in the program) 
+     6                                  extern exit ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
+     7                                  import exit msvcrt.dll  ; we specify the external library that defines the symbol
+     8                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+     9                                  
+    10                                  ; our variables are declared here (the segment is called data) 
+    11                                  segment data use32 class=data
+    12                                  
+    13 00000000 78563412CDAB561244-         sir DD 12345678h, 1256ABCDh, 12AB4344h
+    13 00000009 43AB12             
+    14                                      len equ ($ - sir)/4 ; length of second loop
+    15 0000000C <res 00000003>              res resb len
+    16                                      
+    17                                  segment code use32 class=code
+    18                                  start:
+    19                                  ;    A string of doublewords is given. Order in decreasing order the string of the low words (least significant) from these doublewords. The high words (most significant) remain unchanged.
+    20                                  ;   Example:
+    21                                  ;   being given
+    22                                  ;       sir DD 12345678h 1256ABCDh, 12AB4344h
+    23                                  ;   the result will be
+    24                                  ;       1234ABCDh, 12565678h, 12AB4344h. 
+    25                                      
+    26 00000000 B903000000                  mov ecx, len
+    27 00000005 E34A                        jecxz empty
+    28 00000007 BF[0C000000]                mov edi, res
+    29                                      
+    30                                      Iloopstart:
+    31                                          
+    32                                          ; This loop puts the low words in their place
+    33 0000000C BE[00000000]                    mov esi, sir
+    34 00000011 8B15[00000000]                  mov edx, [sir]
+    35 00000017 51                              push ecx
+    36                                          
+    37 00000018 B903000000                      mov ecx, len
+    38                                          Jloopstart:
+    39 0000001D AD                                  lodsd
+    40                                              
+    41 0000001E 6639D0                              cmp ax, dx
+    42 00000021 7205                                JB bigger  ; jump if ax < dx
+    43 00000023 8B56FC                                  mov edx, [esi - 4]
+    44 00000026 89F3                                    mov ebx, esi
+    45                                              bigger:
+    46                                              
+    47 00000028 E2F3                            Loop Jloopstart
+    48                                          
+    49                                          ; we are going to have the addres of the maximal value of the low word from SIR in EBX - 4
+    50                                          ; and the value in DX
+    51                                          
+    52 0000002A 66C743FC0000                    mov word [ebx-4], 0
+    53 00000030 59                              pop ecx
+    54 00000031 6689D0                          mov ax, dx
+    55 00000034 AB                              stosd ; store in RES the maximal word  
+    56                                          
+    57 00000035 E2D5                        Loop Iloopstart
+    58                                          
+    59 00000037 BE[00000000]                mov esi, sir
+    60 0000003C BF[0C000000]                mov edi, res
+    61 00000041 B903000000                  mov ecx, len
+    62                                      
+    63                                      Cloopstart:
+    64                                          ; This loop puts the high words in their place
+    65 00000046 AD                                  lodsd
+    66 00000047 C1C810                              ror eax, 16
+    67                                              
+    68 0000004A 83C702                              add edi, 2
+    69 0000004D 66AB                                stosw 
+    70                                               
+    71 0000004F E2F5                        Loop Cloopstart
+    72                                          
+    73                                      empty:
+    74                                      
+    75                                      ; call exit(0) ), 0 represents status code: SUCCESS
+    76 00000051 6A00                        push dword 0 ; saves on stack the parameter of the function exit
+    77 00000053 FF15[00000000]              call [exit] ; function exit is called in order to end the execution of the program

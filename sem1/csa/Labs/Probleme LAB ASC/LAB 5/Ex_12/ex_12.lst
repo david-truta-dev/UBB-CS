@@ -1,0 +1,50 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Two character strings S1 and S2 are given. Obtain the string D by concatenating the elements found on even positions in S2 and the elements found on odd positions in S1.
+    11                                  segment data use32 class=data
+    12 00000000 616263646566                s1 db 'a', 'b', 'c', 'd', 'e', 'f'
+    13                                      len_s1 equ $ - s1
+    14 00000006 3132333435                  s2 db '1', '2', '3', '4', '5'
+    15                                      len_s2 equ $ - s2
+    16 0000000B FF                          separator db -1
+    17 0000000C <res 0000000B>              d resb len_s1 + len_s2
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 BB00000000                      mov ebx, 0 ; ebx will point tot the last free element from string d
+    21                                          
+    22 00000005 B901000000                      mov ecx, 1
+    23                                          parse_s2:
+    24 0000000A 83F905                              cmp ecx, len_s2
+    25 0000000D 7312                                jae fin_of_parsing_of_s2
+    26                                              
+    27 0000000F 8A81[06000000]                      mov al, [s2 + ecx]
+    28 00000015 8883[0C000000]                      mov [d + ebx], al
+    29 0000001B 43                                  inc ebx
+    30                                              
+    31 0000001C 83C102                              add ecx, 2
+    32 0000001F EBE9                                jmp parse_s2
+    33                                              
+    34                                          fin_of_parsing_of_s2:
+    35                                          
+    36 00000021 B900000000                      mov ecx, 0
+    37                                          parse_s1:
+    38 00000026 83F906                              cmp ecx, len_s1
+    39 00000029 7312                                jae fin_of_parsing_of_s1
+    40                                              
+    41 0000002B 8A81[00000000]                      mov al, [s1 + ecx]
+    42 00000031 8883[0C000000]                      mov [d + ebx], al
+    43 00000037 43                                  inc ebx
+    44                                              
+    45 00000038 83C102                              add ecx, 2
+    46 0000003B EBE9                                jmp parse_s1
+    47                                              
+    48                                          fin_of_parsing_of_s1:
+    49 0000003D 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    50 0000003F FF15[00000000]                  call    [exit]       ; call exit to terminate the program

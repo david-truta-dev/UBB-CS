@@ -1,0 +1,41 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  
+     7                                  extern exit               
+     8                                  import exit msvcrt.dll   
+     9                                  
+    10                                  ; Given the words A and B, compute the doubleword C as follows:
+    11                                  ; the bits 0-4 of C are the same as the bits 11-15 of A
+    12                                  ; the bits 5-11 of C have the value 1
+    13                                  ; the bits 12-15 of C are the same as the bits 8-11 of B
+    14                                  ; the bits 16-31 of C are the same as the bits of A
+    15                                  segment data use32 class=data
+    16                                      ; a has 16 bits
+    17 00000000 <res 00000004>              c resd 1
+    18 00000004 0054                        a dw 0101010000000000b
+    19 00000006 8005                        b dw 0000010110000000b
+    20                                      
+    21                                  ; our code starts here
+    22                                  segment code use32 class=code
+    23                                      start:
+    24 00000000 66A1[04000000]                  mov ax, [a] ; the bits 16-31 of C are the same as the bits of A
+    25 00000006 66C12D[04000000]0B              shr word [a], 11
+    26 0000000E 8025[04000000]1F                and byte [a], 00011111b
+    27 00000015 8A1D[04000000]                  mov bl, [a]
+    28 0000001B 881D[00000000]                  mov byte [c], bl
+    29 00000021 66810D[00000000]E0-             or word [c], 111111100000b
+    29 00000029 0F                 
+    30 0000002A 66C12D[06000000]08              shr word [b], 8 
+    31 00000032 668325[06000000]0F              and word [b], 1111b
+    32 0000003A 66C125[06000000]0C              shl word [b], 12
+    33 00000042 668B1D[06000000]                mov bx, word [b]
+    34 00000049 66091D[00000000]                or word [c], bx
+    35 00000050 66A3[01000000]                  mov word [c + 1], ax
+    36                                          
+    37                                          
+    38                                          
+    39 00000056 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    40 00000058 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

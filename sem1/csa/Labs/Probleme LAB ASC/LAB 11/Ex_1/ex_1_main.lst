@@ -1,0 +1,26 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  import printf msvcrt.dll
+    13                                  segment data use32 class=data
+    14 00000000 10110000                    a dd 4368
+    15 00000004 546865206865782072-         print_format db "The hex repres of a is: %x", 0
+    15 0000000D 6570726573206F6620-
+    15 00000016 612069733A20257800 
+    16                                  ; our code starts here
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 FF35[00000000]                  push dword [a]
+    20 00000006 68[04000000]                    push dword print_format
+    21 0000000B FF15[00000000]                  call [printf]
+    22                                          ; exit(0)
+    23 00000011 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    24 00000013 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

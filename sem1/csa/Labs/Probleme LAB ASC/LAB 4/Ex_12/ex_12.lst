@@ -1,0 +1,39 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Given the words A and B, compute the doubleword C as follows:
+    11                                  
+    12                                  
+    13                                  segment data use32 class=data
+    14 00000000 <res 00000004>              c resd 1
+    15 00000004 AD01                        a dw 0110101101b
+    16 00000006 EA1A                        b dw 01101011101010b
+    17                                      
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 C605[00000000]00                mov byte [c], 0 ; the bits 0-6 of C have the value 0
+    21                                          
+    22 00000007 66A1[04000000]                  mov ax, [a]
+    23 0000000D 6683E007                        and ax, 111b
+    24 00000011 66C1E007                        shl ax, 7
+    25 00000015 660905[00000000]                or word [c], ax ; the bits 7-9 of C are the same as the bits 0-2 of A
+    26                                          
+    27 0000001C 66A1[06000000]                  mov ax, [b]
+    28 00000022 66C1E808                        shr ax, 8
+    29 00000026 6683E03F                        and ax, 111111b
+    30 0000002A 66C1E00A                        shl ax, 10
+    31 0000002E 660905[00000000]                or word [c], ax ; the bits 10-15 of C are the same as the bits 8-13 of B
+    32                                          
+    33 00000035 66C705[02000000]FF-             mov word [c + 2], -1 ; the bits 16-31 of C have the value 1
+    33 0000003D FF                 
+    34                                         
+    35                                         ; c has the value 80 6A FF FFh
+    36                                         
+    37 0000003E 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    38 00000040 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

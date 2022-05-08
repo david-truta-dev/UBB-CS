@@ -1,0 +1,42 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Two byte string S1 and S2 are given, having the same length. Obtain the string D by intercalating the elements of the two strings
+    11                                  segment data use32 class=data
+    12 00000000 01030507                    s1 db 1, 3, 5, 7
+    13 00000004 02060904                    s2 db 2, 6, 9, 4
+    14                                      common_len equ $ - s2
+    15 00000008 FF                          separator db -1
+    16                                      len_of_d equ common_len * 2
+    17 00000009 <res 00000008>              d resb len_of_d
+    18                                      
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 BE[00000000]                    mov esi, s1
+    22 00000005 BF[04000000]                    mov edi, s2
+    23 0000000A B900000000                      mov ecx, 0 
+    24                                          
+    25                                          while_ecx_smaller_than_len_of_d:
+    26 0000000F 83F908                              cmp ecx, len_of_d
+    27 00000012 7417                                je fin
+    28                                          
+    29 00000014 8A06                                mov al, [esi]
+    30 00000016 8881[09000000]                      mov [d + ecx], al
+    31                                              
+    32 0000001C 8A07                                mov al, [edi]
+    33 0000001E 8881[0A000000]                      mov [d + ecx + 1], al
+    34                                              
+    35 00000024 46                                  inc esi
+    36 00000025 47                                  inc edi
+    37 00000026 83C102                              add ecx, 2
+    38 00000029 EBE4                                jmp while_ecx_smaller_than_len_of_d
+    39                                              
+    40                                          fin:
+    41 0000002B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    42 0000002D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

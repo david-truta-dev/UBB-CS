@@ -1,0 +1,59 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf, scanf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  import printf msvcrt.dll
+    12                                  import scanf msvcrt.dll
+    13                                                            
+    14                                  ; our data is declared here (the variables needed by our program)
+    15                                  segment data use32 class=data
+    16 00000000 <res 00000001>              a resb 1
+    17 00000001 <res 00000001>              b resb 1
+    18 00000002 <res 00000001>              c resb 1
+    19 00000003 <res 0000000C>              result resb 12
+    20 0000000F 256400                      format_signed db "%d", 0
+    21 00000012 613D00                      message_a_format db "a=", 0
+    22 00000015 623D00                      message_b_format db "b=", 0
+    23 00000018 633D00                      message_c_format db "c=", 0
+    24                                      
+    25                                  ; our code starts here
+    26                                  segment code use32 class=code
+    27                                      start:
+    28 00000000 68[12000000]                    push message_a_format
+    29 00000005 FF15[00000000]                  call [printf]
+    30 0000000B 83C404                          add esp, 4 * 1
+    31                                          
+    32 0000000E 68[00000000]                    push dword a
+    33 00000013 68[0F000000]                    push dword format_signed
+    34 00000018 FF15[00000000]                  call [scanf]
+    35 0000001E 83C408                          add esp, 4 * 2
+    36                                          
+    37                                          
+    38 00000021 68[15000000]                    push message_b_format
+    39 00000026 FF15[00000000]                  call [printf]
+    40 0000002C 83C404                          add esp, 4 * 1
+    41                                          
+    42 0000002F 68[01000000]                    push dword b
+    43 00000034 68[0F000000]                    push dword format_signed
+    44 00000039 FF15[00000000]                  call [scanf]
+    45 0000003F 83C408                          add esp, 4 * 2
+    46                                          
+    47                                          
+    48 00000042 68[18000000]                    push message_c_format
+    49 00000047 FF15[00000000]                  call [printf]
+    50 0000004D 83C404                          add esp, 4 * 1
+    51                                          
+    52 00000050 68[02000000]                    push dword c
+    53 00000055 68[0F000000]                    push dword format_signed
+    54 0000005A FF15[00000000]                  call [scanf]
+    55 00000060 83C408                          add esp, 4 * 2
+    56                                          
+    57                                          ; exit(0)
+    58 00000063 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    59 00000065 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

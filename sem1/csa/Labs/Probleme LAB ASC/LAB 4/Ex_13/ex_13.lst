@@ -1,0 +1,51 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Given 4 bytes, compute in AX the sum of the integers represented by the bits 4-6 of the 4 bytes.
+    11                                  segment data use32 class=data
+    12 00000000 2F                          a db 0101111b ; bits 4 - 6 represent the integer number: 2
+    13 00000001 7F                          b db 1111111b ; bits 4 - 6 represent the integer number: 7
+    14 00000002 4F                          c db 1001111b ; bits 4 - 6 represent the integer number: 4
+    15 00000003 1F                          d db 0011111b ; bits 4 - 6 represent the integer number: 1
+    16                                  segment code use32 class=code
+    17                                      start:
+    18 00000000 66B80000                        mov ax, 0
+    19 00000004 66BB0000                        mov bx, 0
+    20                                          
+    21 00000008 8A1D[00000000]                  mov bl, [a]
+    22 0000000E C0EB04                          shr bl, 4
+    23 00000011 80E307                          and bl, 111b
+    24                                          
+    25 00000014 6601D8                          add ax, bx
+    26 00000017 66BB0000                        mov bx, 0
+    27                                          
+    28 0000001B 8A1D[01000000]                  mov bl, [b]
+    29 00000021 C0EB04                          shr bl, 4
+    30 00000024 80E307                          and bl, 111b
+    31                                          
+    32 00000027 6601D8                          add ax, bx
+    33 0000002A 66BB0000                        mov bx, 0
+    34                                          
+    35 0000002E 8A1D[02000000]                  mov bl, [c]
+    36 00000034 C0EB04                          shr bl, 4
+    37 00000037 80E307                          and bl, 111b
+    38                                          
+    39 0000003A 6601D8                          add ax, bx
+    40 0000003D 66BB0000                        mov bx, 0
+    41                                          
+    42 00000041 8A1D[03000000]                  mov bl, [d]
+    43 00000047 C0EB04                          shr bl, 4
+    44 0000004A 80E307                          and bl, 111b
+    45                                          
+    46 0000004D 6601D8                          add ax, bx
+    47                                          
+    48                                          ; the value of AX will be 14
+    49                                          
+    50 00000050 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    51 00000052 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

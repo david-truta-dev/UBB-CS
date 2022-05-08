@@ -1,0 +1,35 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Given a byte string S of length l, obtain the string D of length l-1 as D(i) = S(i) * S(i+1) (each element of D is the product of two consecutive elements of S)
+    11                                  segment data use32 class=data
+    12 00000000 01020304                   s db 1, 2, 3, 4
+    13                                     len_s equ $ - s
+    14 00000004 <res 00000004>             d resb len_s
+    15                                     
+    16                                  segment code use32 class=code
+    17                                      start:
+    18 00000000 B900000000                      mov ecx, 0
+    19                                          
+    20                                          while_ecx_smaller_than_len_s:
+    21 00000005 83F904                              cmp ecx, len_s
+    22 00000008 7417                                je fin
+    23                                              
+    24 0000000A 8A81[00000000]                      mov al, [s + ecx]
+    25 00000010 8A99[01000000]                      mov bl, [s + ecx + 1]
+    26 00000016 F6E3                                mul bl
+    27                                              
+    28 00000018 8881[04000000]                      mov byte [d + ecx], al
+    29                                              
+    30 0000001E 41                                  inc ecx
+    31 0000001F EBE4                                jmp while_ecx_smaller_than_len_s
+    32                                              
+    33                                          fin:
+    34 00000021 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    35 00000023 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

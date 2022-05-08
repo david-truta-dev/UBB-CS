@@ -1,0 +1,90 @@
+     1                                  bits 32 ;assembling for the 32 bits architecture
+     2                                  global start
+     3                                  
+     4                                  ; we ask the assembler to give global visibility to the symbol called start 
+     5                                  ;(the start label will be the entry point in the program) 
+     6                                  extern exit, fopen, fclose, fread, printf ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
+     7                                  import exit msvcrt.dll  ; we specify the external library that defines the symbol
+     8                                  import fopen msvcrt.dll
+     9                                  import fread msvcrt.dll
+    10                                  import printf msvcrt.dll
+    11                                  import fclose msvcrt.dll
+    12                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+    13                                  
+    14                                  ; our variables are declared here (the segment is called data) 
+    15                                  segment data use32 class=data
+    16                                  
+    17 00000000 7200                        accessMode db 'r', 0
+    18 00000002 6C616238706231382E-         fileName db 'lab8pb18.txt', 0
+    18 0000000B 74787400           
+    19 0000000F <res 00000004>              fileDescriptor resd 1
+    20                                      len equ 100
+    21 00000013 <res 00000064>              textFromFile resb len
+    22 00000077 00000000                    numberWords dd 0
+    23 0000007B 546865206E756D6265-         displayMessage db 'The number of words is %d.', 0
+    23 00000084 72206F6620776F7264-
+    23 0000008D 732069732025642E00 
+    24                                      
+    25                                  segment code use32 class=code
+    26                                  start:
+    27                                  
+    28                                  ;    A text file is given. The text contains letters, spaces and points. Read the content of the file, determine the number of words and display the result on the screen.
+    29                                  
+    30                                  
+    31                                      ; inLoop: if (is space or dot AND previous char is a letter): nrWords++
+    32                                      ; outsideLoop:   if (last char is letter): nrWords++
+    33                                     
+    34 00000000 68[00000000]                push dword accessMode
+    35 00000005 68[02000000]                push dword fileName
+    36 0000000A FF15[00000000]              call [fopen]
+    37 00000010 83C408                      add esp, 4*2
+    38 00000013 A3[0F000000]                mov [fileDescriptor], eax
+    39                                      
+    40 00000018 FF35[0F000000]              push dword [fileDescriptor]
+    41 0000001E 6A64                        push dword len
+    42 00000020 6A01                        push dword 1
+    43 00000022 68[13000000]                push dword textFromFile
+    44 00000027 FF15[00000000]              call [fread]
+    45                                      
+    46 0000002D 89C1                        mov ecx, eax
+    47 0000002F 8A99[12000000]              mov bl, [textFromFile + ecx-1]
+    48 00000035 49                          dec ecx
+    49                                      loop1:
+    50 00000036 8A91[12000000]                  mov dl, [textFromFile + ecx-1] ; dl = i-1, bl = i
+    51 0000003C 80FA2E                          cmp dl, '.'
+    52 0000003F 7405                            jz Ok
+    53 00000041 80FA20                          cmp dl, ' '
+    54 00000044 7511                            jnz notOk
+    55                                          Ok:
+    56 00000046 80FB2E                          cmp bl, '.'
+    57 00000049 740C                            jz notOk
+    58 0000004B 80FB20                          cmp bl, ' '             
+    59 0000004E 7407                            jz notOk ;          if (bl letter AND dl not letter):  numberWords += 1  
+    60                                          
+    61 00000050 8005[77000000]01                    add byte[numberWords], 1
+    62                                          
+    63                                          notOk:
+    64 00000057 88D3                            mov bl, dl
+    65 00000059 E2DB                        loop loop1
+    66                                      ; Checking the first char is letter:
+    67 0000005B 8A1D[13000000]              mov bl, byte[textFromFile]
+    68 00000061 80FB2E                      cmp bl, '.'
+    69 00000064 740C                        jz notLetter
+    70 00000066 80FB20                      cmp bl, ' '
+    71 00000069 7407                        jz notLetter
+    72                                          ; If it's a letter, increase number of words
+    73 0000006B 8005[77000000]01                add byte[numberWords], 1
+    74                                      notLetter:
+    75                                      
+    76                                      ;Closing the file:
+    77 00000072 FF35[0F000000]              push dword [fileDescriptor]
+    78 00000078 FF15[00000000]              call [fclose]
+    79 0000007E 83C404                      add esp, 4
+    80                                      
+    81                                      ;Printing the result:
+    82 00000081 FF35[77000000]              push dword[numberWords]
+    83 00000087 68[7B000000]                push dword displayMessage
+    84 0000008C FF15[00000000]              call [printf]
+    85                                      
+    86 00000092 6A00                        push dword 0 ; saves on stack the parameter of the function exit
+    87 00000094 FF15[00000000]              call [exit] ; function exit is called in order to end the execution of the program

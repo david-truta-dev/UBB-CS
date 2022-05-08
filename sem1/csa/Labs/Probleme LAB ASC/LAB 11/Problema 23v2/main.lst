@@ -1,0 +1,70 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit,scanf,printf,convert               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll
+     9                                  import scanf msvcrt.dll
+    10                                  import printf msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    11                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    12                                  
+    13                                  ; our data is declared here (the variables needed by our program)
+    14                                  segment data use32 class=data
+    15                                      ;#24: Sa se citeasca un sir s1 (care contine doar litere mici). Folosind un alfabet (definit in segmentul de date), determinati si afisati sirul s2 obtinut prin substituirea fiecarei litere a sirului s1 cu liter
+    16                                      ;Alfabetul: OPQRSTUVWXYZABCDEFGHIJKLMN
+    17                                      ;Sirul s1:  anaaremere
+    18                                      ;Sirul s2:  OBOOFSASFS
+    19                                      
+    20 00000000 4F5051525354555657-         alphabet db "OPQRSTUVWXYZABCDEFGHIJKLMN",0
+    20 00000009 58595A414243444546-
+    20 00000012 4748494A4B4C4D4E00 
+    21 0000001B <res 00000064>              s1 resb 100
+    22 0000007F <res 00000064>              s2 resb 100
+    23                                      
+    24 000000E3 456E74657220737472-         m1 db "Enter string:",0
+    24 000000EC 696E673A00         
+    25 000000F1 54686520636F6E7665-         m2 db "The converted string is:",0
+    25 000000FA 727465642073747269-
+    25 00000103 6E672069733A00     
+    26                                      
+    27 0000010A 257300                      format db "%s",0
+    28                                      
+    29                                  ; our code starts here
+    30                                  segment code use32 class=code
+    31                                      start:
+    32                                          ; ...
+    33                                          ;getting input
+    34 00000000 68[E3000000]                    push dword m1
+    35 00000005 FF15[00000000]                  call [printf]
+    36 0000000B 83C404                          add esp, 4*1
+    37                                          
+    38 0000000E 68[1B000000]                    push dword s1
+    39 00000013 68[0A010000]                    push dword format
+    40 00000018 FF15[00000000]                  call [scanf]
+    41 0000001E 83C408                          add esp, 4*2
+    42                                          
+    43                                          ;calling the function
+    44                                          
+    45 00000021 68[1B000000]                    push dword s1
+    46 00000026 68[7F000000]                    push dword s2
+    47 0000002B 68[00000000]                    push dword alphabet
+    48 00000030 E8(00000000)                    call convert  
+    49 00000035 83C40C                          add esp, 4*3
+    50                                          
+    51                                          ;printing result
+    52 00000038 68[F1000000]                    push dword m2
+    53 0000003D FF15[00000000]                  call [printf]
+    54 00000043 83C404                          add esp, 4*1
+    55                                          
+    56 00000046 68[7F000000]                    push dword s2
+    57 0000004B 68[0A010000]                    push dword format
+    58 00000050 FF15[00000000]                  call [printf]
+    59 00000056 83C408                          add esp, 4*2
+    60                                          
+    61                                          
+    62                                          
+    63                                          ; exit(0)
+    64 00000059 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    65 0000005B FF15[00000000]                  call    [exit]       ; call exit to terminate the program

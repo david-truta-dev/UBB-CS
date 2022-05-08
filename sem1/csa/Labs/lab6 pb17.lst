@@ -1,0 +1,57 @@
+     1                                  bits 32 ;assembling for the 32 bits architecture
+     2                                  global start
+     3                                  
+     4                                  ; we ask the assembler to give global visibility to the symbol called start 
+     5                                  ;(the start label will be the entry point in the program) 
+     6                                  extern exit ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
+     7                                  import exit msvcrt.dll  ; we specify the external library that defines the symbol
+     8                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+     9                                  
+    10                                  ; our variables are declared here (the segment is called data) 
+    11                                  segment data use32 class=data
+    12                                  
+    13 00000000 78563412CDAB561244-         sir DD 12345678h, 1256ABCDh, 12AB4344h
+    13 00000009 43AB12             
+    14                                      l1 equ ($ - sir)/4 ; length of second loop
+    15                                      l2 equ l1 - 1 ; length of first loop
+    16                                      
+    17                                  segment code use32 class=code
+    18                                  start:
+    19                                  ;    A string of doublewords is given. Order in decreasing order the string of the low words (least significant) from these doublewords. The high words (most significant) remain unchanged.
+    20                                  ;   Example:
+    21                                  ;   being given
+    22                                  ;       sir DD 12345678h 1256ABCDh, 12AB4344h
+    23                                  ;   the result will be
+    24                                  ;       1234ABCDh, 12565678h, 12AB4344h. 
+    25                                      
+    26 00000000 E337                        jecxz empty ; if string is empy jump to empty label
+    27                                      
+    28 00000002 BE00000000                  mov esi, 0 ; mov 0 in esi
+    29                                      Iloopstart:
+    30 00000007 89F7                            mov edi, esi 
+    31 00000009 47                              inc edi ; edi = esi + 1
+    32                                          
+    33                                          Jloopstart:
+    34 0000000A 8B04B5[00000000]                    mov eax, [sir + esi*4] ; eax gets the value from the address (sir + i*4)
+    35 00000011 8B1CBD[00000000]                    mov ebx, [sir + edi*4] ; ebx gets the value from the address (sir + j*4)
+    36                                              
+    37 00000018 6639D8                              cmp ax, bx
+    38 0000001B 7710                                JA bigger  ; jump if ax > bx
+    39                                                  ; exchange lower word value from address (sir + i*4) with lower word value from (sir + j*4)
+    40 0000001D 66891CB5[00000000]                      mov word [sir + esi*4],bx
+    41 00000025 668904BD[00000000]                      mov word [sir + edi*4],ax
+    42                                              bigger:
+    43                                              
+    44 0000002D 47                                  inc edi; edi += 1
+    45 0000002E 83FF03                              cmp edi, l1; sets ZF to 1 if they have the same length as l1
+    46 00000031 75D7                            JNZ Jloopstart ; jumps if ZF is 0
+    47                                          
+    48 00000033 46                              inc esi ; esi += 1
+    49 00000034 83FE02                          cmp esi,l2 ; sets ZF to 1 if they have the same length as l2
+    50 00000037 75CE                        JNZ Iloopstart
+    51                                      
+    52                                      empty:
+    53                                      
+    54                                      ; call exit(0) ), 0 represents status code: SUCCESS
+    55 00000039 6A00                        push dword 0 ; saves on stack the parameter of the function exit
+    56 0000003B FF15[00000000]              call [exit] ; function exit is called in order to end the execution of the program

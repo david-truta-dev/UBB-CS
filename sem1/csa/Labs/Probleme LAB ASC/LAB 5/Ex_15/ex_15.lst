@@ -1,0 +1,54 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll   
+     9                                  
+    10                                  ; Two byte strings A and B are given. Obtain the string R by concatenating the elements of B in reverse order and the odd elements of A
+    11                                  segment data use32 class=data
+    12 00000000 02010303040206              a db  2, 1, 3, 3, 4, 2, 6
+    13                                      len_a equ $ - a
+    14 00000007 040507060201                b db  4, 5, 7, 6, 2, 1
+    15                                      len_b equ $ - b
+    16 0000000D FF                          separator db -1
+    17 0000000E <res 0000000D>              r resb len_a + len_b
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 BB00000000                      mov ebx, 0
+    21                                          
+    22 00000005 BE[07000000]                    mov esi, b
+    23 0000000A 83C605                          add esi, len_b - 1
+    24                                          
+    25 0000000D B906000000                      mov ecx, len_b
+    26 00000012 FD                              std
+    27                                          
+    28                                          parse_string_b_in_reverse_order:
+    29 00000013 AC                                  lodsb ; move the byte from DS:ESI into AL
+    30                                              
+    31 00000014 8883[0E000000]                      mov [r + ebx], al
+    32                                              
+    33 0000001A 43                                  inc ebx
+    34 0000001B E2F6                                loop parse_string_b_in_reverse_order
+    35                                          
+    36 0000001D B900000000                      mov ecx, 0
+    37                                          parse_string_a_for_odd_elements:
+    38 00000022 83F907                              cmp ecx, len_a
+    39 00000025 7414                                je fin
+    40                                              
+    41 00000027 8A81[00000000]                      mov al, [a + ecx]
+    42 0000002D A801                                test al, 1
+    43 0000002F 7407                                jz last_command_of_parse_for_odd
+    44                                              
+    45 00000031 8883[0E000000]                      mov [r + ebx], al
+    46 00000037 43                                  inc ebx
+    47                                              
+    48                                              last_command_of_parse_for_odd:
+    49 00000038 41                                  inc ecx
+    50 00000039 EBE7                                jmp parse_string_a_for_odd_elements
+    51                                          
+    52                                          fin:
+    53 0000003B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    54 0000003D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

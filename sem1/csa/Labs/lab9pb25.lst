@@ -1,0 +1,46 @@
+     1                                  bits 32 ;assembling for the 32 bits architecture
+     2                                  global start
+     3                                  
+     4                                  ; we ask the assembler to give global visibility to the symbol called start 
+     5                                  ;(the start label will be the entry point in the program) 
+     6                                  extern exit, fopen, fclose, scanf, fprintf, printf ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
+     7                                  import exit msvcrt.dll  ; we specify the external library that defines the symbol
+     8                                  import fopen msvcrt.dll
+     9                                  import scanf msvcrt.dll
+    10                                  import printf msvcrt.dll
+    11                                  import fprintf msvcrt.dll
+    12                                  import fclose msvcrt.dll
+    13                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+    14                                  
+    15                                  ; our variables are declared here (the segment is called data) 
+    16                                  segment data use32 class=data
+    17                                      
+    18 00000000 257300                      format db '%s', 0
+    19 00000003 496E74726F75647563-         message db 'Introuduce a string of signed numbers in base:', 0
+    19 0000000C 65206120737472696E-
+    19 00000015 67206F66207369676E-
+    19 0000001E 6564206E756D626572-
+    19 00000027 7320696E2062617365-
+    19 00000030 3A00               
+    20 00000032 <res 00000064>              input resb 100
+    21                                      
+    22                                  segment code use32 class=code
+    23                                  start:
+    24                                  
+    25                                  ;    Read a string of signed numbers in base 10 from keyboard. Determine the minimum value of the string and write it in the file min.txt (it will be created) in 16 base.
+    26                                  
+    27 00000000 68[03000000]                push message
+    28 00000005 FF15[00000000]              call[printf]
+    29 0000000B 83C404                      add esp, 4
+    30                                      
+    31                                      
+    32                                      
+    33 0000000E 68[32000000]                push input
+    34 00000013 68[00000000]                push format
+    35 00000018 FF15[00000000]              call [scanf]
+    36 0000001E 83C408                      add esp, 4*2
+    37                                          
+    38                                      
+    39                                      
+    40 00000021 6A00                        push dword 0 ; saves on stack the parameter of the function exit
+    41 00000023 FF15[00000000]              call [exit] ; function exit is called in order to end the execution of the program

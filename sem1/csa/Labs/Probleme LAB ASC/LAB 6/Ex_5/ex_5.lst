@@ -1,0 +1,83 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; Two byte strings s1 and s2 are given. Build the byte string d such that, for every byte s2[i] in s2, d[i] contains either the position of byte s2[i] in s1, either the value of 0
+    12                                  segment data use32 class=data
+    13 00000000 072137132E                  s1 db  7, 33, 55, 19, 46
+    14                                      len_1 equ $-s1
+    15 00000005 2115070D1B1337012E          s2 db 33, 21, 7, 13, 27, 19, 55, 1, 46 
+    16                                      len_2 equ $-s2
+    17 0000000E <res 00000009>              d resb len_2
+    18                                      
+    19                                  
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23                                          ;Here is how my "code segment" would look in C++ (I use this scheme because it's mutch easier to build my program in Assembly after I have this)
+    24                                          ; for (i = 0; i < len(s2) ; i++)
+    25                                          ;  { 
+    26                                          ;   for( j = 0; j< len(s1) ; j++)
+    27                                          ;       if(s2[i] == s1[j]) 
+    28                                          ;         {  
+    29                                          ;           d[i] = j + 1;
+    30                                          ;           break;
+    31                                          ;         }
+    32                                          ;   if(j == len(s1))
+    33                                          ;       d[i] = 0
+    34                                          ;  }
+    35                                          
+    36                                          ; Obs.: the comments which have '...' represent the meaning of that instruction in my C++ scheme
+    37 00000000 BE[05000000]                    mov esi, s2 ; esi will contain the start memory address of s2 
+    38 00000005 BF[00000000]                    mov edi, s1 ; edi will contain the start memory address of s1
+    39 0000000A BB[0E000000]                    mov ebx, d ; ebx will contaion the start memory address of d
+    40                                          
+    41 0000000F B909000000                      mov ecx, len_2
+    42                                          
+    43 00000014 E32B                            jecxz fin
+    44 00000016 FC                              cld; clear direction flag so we can parse the string from beggining to end
+    45                                          
+    46                                          loop_in_s2:
+    47 00000017 AC                                  lodsb ; (move the byte from DS:ESI into AL ('al = s2[i]')
+    48                                              
+    49 00000018 51                                  push ecx
+    50 00000019 B905000000                          mov ecx, len_1
+    51 0000001E BF[00000000]                        mov edi, s1
+    52                                              
+    53 00000023 E308                                jecxz append_0
+    54                                              
+    55 00000025 FC                                  cld ; clear direction flag so we can parse the string from beggining to end
+    56                                              loop_in_s1:
+    57 00000026 8A17                                    mov dl, byte [edi]
+    58 00000028 AE                                      scasb ; compares AL and the byte from ES:EDI ('if(s2[i] == s1[j])')
+    59 00000029 7408                                    jz append_position
+    60                                                  
+    61 0000002B E2F9                                    loop loop_in_s1
+    62                                  
+    63                                              
+    64                                              append_0:
+    65 0000002D C60300                                  mov byte [ebx], 0 ; 'd[i] = 0'
+    66 00000030 43                                      inc ebx
+    67 00000031 EB0B                                    jmp fin_of_loop_in_s2
+    68                                              
+    69                                              append_position:
+    70 00000033 81EF[00000000]                      sub edi, s1
+    71 00000039 89FA                                mov edx, edi
+    72 0000003B 8813                                mov byte [ebx], dl ; 'd[i] = j + 1;'
+    73 0000003D 43                                  inc ebx
+    74                                              
+    75                                          
+    76                                          fin_of_loop_in_s2:
+    77 0000003E 59                                  pop ecx
+    78 0000003F E2D6                                loop loop_in_s2
+    79                                          
+    80                                          fin:
+    81                                          ; exit(0)
+    82 00000041 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    83 00000043 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

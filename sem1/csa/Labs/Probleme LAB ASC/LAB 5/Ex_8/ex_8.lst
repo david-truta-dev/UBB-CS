@@ -1,0 +1,43 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll   
+     9                                  
+    10                                  ; A character string S is given. Obtain the string D that contains all capital letters of the string S
+    11                                  segment data use32 class=data
+    12 00000000 614162423225784D            s db 'a', 'A', 'b', 'B', '2', '%', 'x', 'M'
+    13                                      len_of_s equ $ - s
+    14 00000008 FF                          separator db -1
+    15 00000009 <res 00000008>              d resb len_of_s
+    16                                      
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 B900000000                      mov ecx, 0
+    20 00000005 BB00000000                      mov ebx, 0
+    21                                          
+    22                                          while_ecx_smaller_than_len_of_s:
+    23 0000000A 83F908                              cmp ecx, len_of_s
+    24 0000000D 7418                                je fin
+    25                                          
+    26 0000000F 8A81[00000000]                      mov al, [s + ecx]
+    27                                              
+    28 00000015 3C41                                cmp al, 'A'
+    29 00000017 720B                                jb fin_of_while
+    30                                              
+    31 00000019 3C5A                                cmp al, 'Z'
+    32 0000001B 7707                                ja fin_of_while
+    33                                              
+    34 0000001D 8883[09000000]                      mov [d + ebx], al
+    35 00000023 43                                  inc ebx
+    36                                              
+    37                                              fin_of_while:
+    38 00000024 41                                      inc ecx
+    39 00000025 EBE3                                    jmp while_ecx_smaller_than_len_of_s
+    40                                              
+    41                                          fin:    
+    42 00000027 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    43 00000029 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

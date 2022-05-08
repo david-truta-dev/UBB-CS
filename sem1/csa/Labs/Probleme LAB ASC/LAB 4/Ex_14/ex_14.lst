@@ -1,0 +1,43 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ;Given the doubleword A, obtain the integer number n represented on the bits 14-17 of A. Then obtain the doubleword B by rotating A n positions to the left. Finally, obtain the byte C as follows:
+    11                                  ; the bits 0-5 of C are the same as the bits 1-6 of B
+    12                                  ; the bits 6-7 of C are the same as the bits 17-18 of B
+    13                                  
+    14                                  segment data use32 class=data
+    15 00000000 00000111                  a dd 0x11010000  
+    16 00000004 <res 00000004>            b resd 1
+    17 00000008 <res 00000001>            c resb 1
+    18 00000009 <res 00000001>            n resb 1
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 A1[00000000]                    mov eax, [a]
+    22 00000005 C1E80E                          shr eax, 14
+    23 00000008 83E00F                          and eax, 1111b
+    24 0000000B A2[09000000]                    mov byte [n], al ; obtain the integer number n represented on the bits 14-17 of A
+    25                                          
+    26 00000010 8A0D[09000000]                  mov cl, [n]
+    27 00000016 A1[00000000]                    mov eax, [a]
+    28 0000001B D3C0                            rol eax, cl
+    29 0000001D A3[04000000]                    mov dword [b], eax ; obtain the doubleword B by rotating A n positions to the left
+    30                                          
+    31 00000022 A1[04000000]                    mov eax, [b]
+    32 00000027 D1E8                            shr eax, 1
+    33 00000029 83E03F                          and eax, 111111b
+    34 0000002C 0805[08000000]                  or byte [c], al
+    35                                          
+    36 00000032 A1[04000000]                    mov eax, [b]
+    37 00000037 C1E811                          shr eax, 17
+    38 0000003A 83E003                          and eax, 11b
+    39 0000003D C1E006                          shl eax, 6
+    40 00000040 0805[08000000]                  or byte [c], al
+    41                                          
+    42 00000046 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    43 00000048 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

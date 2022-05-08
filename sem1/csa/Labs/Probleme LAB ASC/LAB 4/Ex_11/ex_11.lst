@@ -1,0 +1,32 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Given the byte A and the word B, compute the byte C as follows:
+    11                                  ; the bits 0-3 are the same as the bits 2-5 of A
+    12                                  ; the bits 4-7 are the same as the bits 6-9 of B.
+    13                                  segment data use32 class=data
+    14 00000000 <res 00000001>              c resb 1
+    15 00000001 E6                          a db 11100110b
+    16 00000002 AE1E                        b dw 1111010101110b
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 A0[01000000]                    mov al, [a]
+    20 00000005 C0E802                          shr al, 2
+    21 00000008 240F                            and al, 1111b
+    22 0000000A 0805[00000000]                  or byte [c], al ; the bits 0-3 are the same as the bits 2-5 of A
+    23                                          
+    24 00000010 66A1[02000000]                  mov ax, [b]
+    25 00000016 66C1E806                        shr ax, 6
+    26 0000001A 6683E00F                        and ax, 1111b
+    27 0000001E 66C1E004                        shl ax, 4
+    28 00000022 0805[00000000]                  or byte [c], al ; the bits 4-7 are the same as the bits 6-9 of B.
+    29                                          
+    30                                          ; c has the value A9h
+    31 00000028 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    32 0000002A FF15[00000000]                  call    [exit]       ; call exit to terminate the program

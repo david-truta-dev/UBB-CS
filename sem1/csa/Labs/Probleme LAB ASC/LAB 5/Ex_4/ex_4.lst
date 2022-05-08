@@ -1,0 +1,44 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll   
+     9                                  
+    10                                  ;Two byte strings S1 and S2 are given, having the same length. Obtain the string D in the following way: each element found on the even positions of D is the sum of the corresponding elements from S1 and S2, and eac
+    11                                  segment data use32 class=data
+    12 00000000 01020304                    s1 db 1, 2, 3, 4
+    13 00000004 05060708                    s2 db 5, 6, 7, 8
+    14                                      common_len equ $ - s2
+    15 00000008 <res 00000004>              d resb common_len
+    16                                      
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 B900000000                      mov ecx, 0 ; ecx - is a general index for parsing the s string
+    20                                          
+    21                                          while_ecx_smaller_than_common_len:
+    22 00000005 83F904                              cmp ecx, common_len
+    23 00000008 7425                                je fin
+    24                                              
+    25 0000000A 8A81[00000000]                      mov al, [s1 + ecx]
+    26                                              
+    27 00000010 F7C101000000                        test ecx, 1
+    28 00000016 7408                                jz odd_position
+    29                                              ; if it's not 0 the the position is even (the indexing start from 0)
+    30 00000018 2A81[04000000]                          sub al, [s2 + ecx]
+    31 0000001E EB06                                    jmp fin_of_while
+    32                                              
+    33                                              odd_position:
+    34 00000020 0281[04000000]                          add al, [s2 + ecx]
+    35                                                  
+    36                                              fin_of_while:
+    37 00000026 8881[08000000]                          mov [d + ecx], al
+    38                                                  
+    39 0000002C 41                                      inc ecx
+    40 0000002D EBD6                                    jmp while_ecx_smaller_than_common_len
+    41                                              
+    42                                          fin:
+    43 0000002F 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    44 00000031 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

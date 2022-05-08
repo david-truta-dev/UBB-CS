@@ -1,0 +1,65 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  
+    11                                  ; A byte string S is given. Obtain the string D1 which contains all the even numbers of S and the string D2 which contains all the odd numbers of S.
+    12                                  segment data use32 class=data
+    13 00000000 010503080209                s db 1, 5, 3, 8, 2, 9
+    14                                      len_s equ $ - s
+    15 00000006 FF                          separator_1 db -1
+    16 00000007 <res 00000006>              d1 resb len_s
+    17 0000000D FF                          separator_2 db -1
+    18 0000000E <res 00000006>              d2 resb len_s
+    19                                      
+    20                                  segment code use32 class=code
+    21                                      start:
+    22 00000000 B900000000                      mov ecx, 0
+    23 00000005 BB00000000                      mov ebx, 0
+    24                                          parse_s_to_search_for_even_numbers:
+    25 0000000A 83F906                              cmp ecx, len_s
+    26 0000000D 7416                                je fin_of_first_parsing
+    27                                              
+    28 0000000F 8A81[00000000]                      mov al, [s + ecx]
+    29 00000015 A801                                test al, 1
+    30 00000017 7402                                jz even_number
+    31 00000019 EB07                                jmp last_commands_of_first_parsing
+    32                                              
+    33                                              even_number:
+    34 0000001B 8883[07000000]                          mov byte [d1 + ebx], al
+    35 00000021 43                                      inc ebx
+    36                                              
+    37                                              last_commands_of_first_parsing:
+    38 00000022 41                                      inc ecx
+    39 00000023 EBE5                                    jmp parse_s_to_search_for_even_numbers
+    40                                              
+    41                                          fin_of_first_parsing:
+    42 00000025 BAFFFFFFFF                      mov edx, -1
+    43 0000002A B900000000                      mov ecx, 0
+    44 0000002F BB00000000                      mov ebx, 0
+    45                                          parse_s_to_search_for_odd_numbers:
+    46 00000034 83F906                              cmp ecx, len_s
+    47 00000037 7416                                je fin_of_second_parsing
+    48                                              
+    49 00000039 8A81[00000000]                      mov al, [s + ecx]
+    50 0000003F A801                                test al, 1
+    51 00000041 7502                                jnz odd_number
+    52 00000043 EB07                                jmp last_commands_of_second_parsing
+    53                                              
+    54                                              odd_number:
+    55 00000045 8883[0E000000]                          mov byte [d2 + ebx], al
+    56 0000004B 43                                      inc ebx
+    57                                              
+    58                                              last_commands_of_second_parsing:
+    59 0000004C 41                                      inc ecx
+    60 0000004D EBE5                                    jmp parse_s_to_search_for_odd_numbers
+    61                                          
+    62                                          fin_of_second_parsing:
+    63                                          
+    64 0000004F 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    65 00000051 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

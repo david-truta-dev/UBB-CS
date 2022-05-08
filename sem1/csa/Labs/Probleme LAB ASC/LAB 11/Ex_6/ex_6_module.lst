@@ -1,0 +1,35 @@
+     1                                  bits 32
+     2                                  global concatenate_string
+     3                                  segment data use32 class=data
+     4                                      
+     5                                  segment code use32 class=code
+     6                                      concatenate_string:
+     7 00000000 8B742404                        mov esi, [esp + 4] ; string1
+     8 00000004 8B7C2408                        mov edi, [esp + 8] ; string2
+     9 00000008 8B44240C                        mov eax, [esp + 12]
+    10 0000000C B900000000                      mov ecx, 0
+    11                                          
+    12                                          while_byte_esi_differ_from_0:
+    13                                          
+    14 00000011 8A1C0E                              mov bl, byte [esi + ecx]
+    15 00000014 80FB00                              cmp bl, 0
+    16 00000017 7406                                je fin_of_first_while
+    17                                              
+    18 00000019 881C08                              mov byte [eax + ecx], bl
+    19 0000001C 41                                  inc ecx
+    20 0000001D EBF2                                jmp while_byte_esi_differ_from_0
+    21                                              
+    22                                          fin_of_first_while:
+    23                                          
+    24                                              while_byte_edi_differ_from_0:
+    25                                              
+    26 0000001F 8A1C0F                                  mov bl, byte [edi + ecx]
+    27 00000022 80FB00                                  cmp bl, 0
+    28 00000025 7406                                    je fin_of_second_while
+    29                                                  
+    30 00000027 881C08                                  mov byte [eax + ecx], bl
+    31 0000002A 41                                      inc ecx
+    32 0000002B EBF2                                    jmp while_byte_edi_differ_from_0
+    33                                                  
+    34                                          fin_of_second_while:
+    35 0000002D C3                              ret

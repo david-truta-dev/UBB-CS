@@ -1,0 +1,47 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; A byte string s is given. Build the byte string d such that every byte d[i] is equal to the count of ones in the corresponding byte s[i] of s
+    11                                  segment data use32 class=data
+    12 00000000 0519377F                    s db 5, 25, 55, 127
+    13                                      len_s equ $ - s
+    14 00000004 <res 00000004>              d resb len_s 
+    15                                      
+    16                                  segment code use32 class=code
+    17                                      start:
+    18 00000000 BE[00000000]                    mov esi, s
+    19 00000005 BF[04000000]                    mov edi, d
+    20                                          
+    21 0000000A FC                              cld
+    22 0000000B B904000000                      mov ecx, len_s
+    23                                          parse_s_to_obtain_r:
+    24 00000010 AC                                  lodsb ; move the byte from DS:ESI into AL
+    25 00000011 B300                                mov bl, 0
+    26 00000013 F8                                  clc
+    27                                              while_al_bigger_than_0:
+    28 00000014 3C00                                    cmp al, 0
+    29 00000016 7408                                    je fin_of_while
+    30                                                  
+    31 00000018 D0E8                                    shr al, 1
+    32 0000001A 7302                                    jnc don_t_add_1
+    33                                                  
+    34 0000001C FEC3                                    inc bl
+    35                                                  
+    36                                                  don_t_add_1:
+    37 0000001E EBF4                                        jmp while_al_bigger_than_0
+    38                                                  
+    39                                              fin_of_while:
+    40                                              
+    41 00000020 88D8                                mov al, bl
+    42 00000022 AA                                  stosb ; move the byte from AL into ES:EDI
+    43                                              
+    44 00000023 E2EB                                loop parse_s_to_obtain_r
+    45                                          
+    46 00000025 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    47 00000027 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

@@ -1,0 +1,51 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; A byte string S is given. Obtain the string D by concatenating the elements found on the even positions of S and then the elements found on the odd positions of S.
+    12                                  segment data use32 class=data
+    13 00000000 0102030405060708            s db 1, 2, 3, 4, 5, 6, 7, 8
+    14                                      len_s equ $ - s
+    15 00000008 FF                          separator db -1
+    16 00000009 <res 00000008>              d resb len_s
+    17                                      
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 B900000000                      mov ecx, 0
+    21 00000005 BB00000000                      mov ebx, 0
+    22                                          
+    23                                          parse_string_s_odd_pos:
+    24 0000000A 83F908                              cmp ecx, len_s 
+    25 0000000D 7312                                jae fin_of_first_parsing
+    26                                              
+    27 0000000F 8A81[00000000]                      mov al, [s + ecx]
+    28 00000015 8883[09000000]                      mov [d + ebx], al
+    29                                              
+    30 0000001B 43                                  inc ebx
+    31 0000001C 83C102                              add ecx, 2
+    32 0000001F EBE9                                jmp parse_string_s_odd_pos
+    33                                              
+    34                                          fin_of_first_parsing:
+    35                                          
+    36 00000021 B901000000                      mov ecx, 1
+    37                                          parse_string_s_even_pos:
+    38 00000026 83F908                              cmp ecx, len_s 
+    39 00000029 7312                                jae fin_of_second_parsing
+    40                                              
+    41 0000002B 8A81[00000000]                      mov al, [s + ecx]
+    42 00000031 8883[09000000]                      mov [d + ebx], al
+    43                                              
+    44 00000037 43                                  inc ebx
+    45 00000038 83C102                              add ecx, 2
+    46 0000003B EBE9                                jmp parse_string_s_even_pos
+    47                                              
+    48                                          fin_of_second_parsing:
+    49                                          
+    50 0000003D 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    51 0000003F FF15[00000000]                  call    [exit]       ; call exit to terminate the program

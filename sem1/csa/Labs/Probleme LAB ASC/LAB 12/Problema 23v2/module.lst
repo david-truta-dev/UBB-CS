@@ -1,0 +1,21 @@
+     1                                  bits 32 
+     2                                  segment data use32 class=data
+     3                                  segment code use32 public code
+     4                                  global convert
+     5                                      convert:
+     6 00000000 8B5C2404                        mov ebx,[esp+4]
+     7 00000004 8B7C2408                        mov edi,[esp+8]
+     8 00000008 8B74240C                        mov esi,[esp+12]
+     9                                          
+    10                                          start_loop:
+    11 0000000C 803E00                          cmp [esi],byte 0
+    12 0000000F 740D                            jz fin
+    13 00000011 AC                              lodsb
+    14 00000012 83E861                          sub eax, 61h
+    15 00000015 89DA                            mov edx, ebx
+    16 00000017 01C2                            add edx, eax
+    17 00000019 8A02                            mov al, [edx]
+    18 0000001B AA                              stosb
+    19 0000001C EBEE                            jmp start_loop
+    20                                          fin:
+    21 0000001E C3                              ret

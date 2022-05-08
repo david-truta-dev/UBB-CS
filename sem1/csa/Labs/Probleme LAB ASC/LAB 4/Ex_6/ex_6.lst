@@ -1,0 +1,46 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll  
+     9                                  
+    10                                  ; Given the word A, obtain the integer number n represented on the bits 0-2 of A. Then obtain the word B by rotating A n positions to the right. Compute the doubleword C:
+    11                                  ; the bits 8-15 of C have the value 0
+    12                                  ; the bits 16-23 of C are the same as the bits of 2-9 of B
+    13                                  ; the bits 24-31 of C are the same as the bits of 7-14 of A
+    14                                  ; the bits 0-7 of C have the value 1
+    15                                  segment data use32 class=data
+    16 00000000 <res 00000004>              c resd 1
+    17 00000004 8654                        a dw 101010010000110b
+    18 00000006 <res 00000002>              b resw 1 ; 0001100101010010 - 52 19h
+    19 00000008 <res 00000001>              n resb 1
+    20                                  segment code use32 class=code
+    21                                      start:
+    22 00000000 A0[04000000]                    mov al, [a]
+    23 00000005 2407                            and al, 111b
+    24 00000007 A2[08000000]                    mov byte [n], al
+    25                                          
+    26 0000000C 8A0D[08000000]                  mov cl, [n]
+    27 00000012 66A1[04000000]                  mov ax, [a]
+    28 00000018 66D3C8                          ror ax, cl
+    29 0000001B 66A3[06000000]                  mov word [b], ax ;obtain the word B
+    30                                          
+    31 00000021 C605[01000000]00                mov byte [c + 1], 0 ; the bits 8-15 of C have the value 0
+    32                                          
+    33 00000028 66A1[06000000]                  mov ax, [b]
+    34 0000002E 66C1E802                        shr ax, 2
+    35 00000032 A2[02000000]                    mov byte [c + 2], al ; the bits 16-23 of C are the same as the bits of 2-9 of B
+    36                                          
+    37 00000037 66A1[04000000]                  mov ax, [a]
+    38 0000003D 66C1E807                        shr ax, 7
+    39 00000041 A2[03000000]                    mov byte [c + 3], al ; the bits 24-31 of C are the same as the bits of 7-14 of A
+    40                                          
+    41                                          
+    42 00000046 C605[00000000]FF                mov byte [c], -1 ; the bits 0-7 of C have the value 1
+    43                                          
+    44                                          
+    45 0000004D 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    46 0000004F FF15[00000000]                  call    [exit]       ; call exit to terminate the program

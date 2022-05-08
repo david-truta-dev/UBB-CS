@@ -1,0 +1,28 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; Replace the bits 0-3 of the byte B by the bits 8-11 of the word A.
+    11                                  
+    12                                  segment data use32 class=data
+    13 00000000 FF                          b db -1
+    14 00000001 0009                        a dw 100100000000b
+    15                                      
+    16                                  segment code use32 class=code
+    17                                      start:
+    18 00000000 66A1[01000000]                  mov ax, [a]
+    19 00000006 66C1E808                        shr ax, 8
+    20 0000000A 6683E00F                        and ax, 1111b
+    21                                          
+    22 0000000E 8025[00000000]F0                and byte [b], 11110000b
+    23 00000015 0805[00000000]                  or byte [b], al
+    24                                          
+    25                                          ; b has the value F9h
+    26                                          
+    27 0000001B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    28 0000001D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

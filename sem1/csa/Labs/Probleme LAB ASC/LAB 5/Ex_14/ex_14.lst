@@ -1,0 +1,63 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ;A byte string S is given. Obtain the string D1 which contains all the positive numbers of S and the string D2 which contains all the negative numbers of S
+    11                                  segment data use32 class=data
+    12 00000000 0103FEFB03F80500            s db 1, 3, -2, -5, 3, -8, 5, 0
+    13                                      len_s equ $ - s
+    14 00000008 00                          separator_1 db 0
+    15 00000009 <res 00000008>              d1 resb len_s
+    16 00000011 00                          separator_2 db 0
+    17 00000012 <res 00000008>              d2 resb len_s
+    18                                      
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 B900000000                      mov ecx, 0
+    22 00000005 BB00000000                      mov ebx, 0
+    23                                          
+    24                                          parse_s_for_positive_numbers:
+    25 0000000A 83F908                              cmp ecx, len_s
+    26 0000000D 7414                                je fin_of_parse_for_positive
+    27                                              
+    28 0000000F 8A81[00000000]                      mov al, [s + ecx]
+    29 00000015 3C00                                cmp al, 0
+    30 00000017 7C07                                jl last_command_of_parse_for_positive
+    31                                              
+    32 00000019 8883[09000000]                      mov [d1 + ebx], al
+    33 0000001F 43                                  inc ebx
+    34                                              
+    35                                              last_command_of_parse_for_positive:
+    36 00000020 41                                      inc ecx
+    37 00000021 EBE7                                    jmp parse_s_for_positive_numbers
+    38                                                  
+    39                                          fin_of_parse_for_positive:
+    40                                          
+    41                                          
+    42                                          
+    43 00000023 B900000000                      mov ecx, 0
+    44 00000028 BB00000000                      mov ebx, 0
+    45                                          
+    46                                          parse_s_for_negative_numbers:
+    47 0000002D 83F908                              cmp ecx, len_s
+    48 00000030 7414                                je fin_of_parse_for_negative
+    49                                              
+    50 00000032 8A81[00000000]                      mov al, [s + ecx]
+    51 00000038 3C00                                cmp al, 0
+    52 0000003A 7F07                                jg last_command_of_parse_for_negative
+    53                                              
+    54 0000003C 8883[12000000]                      mov [d2 + ebx], al
+    55 00000042 43                                  inc ebx
+    56                                              
+    57                                              last_command_of_parse_for_negative:
+    58 00000043 41                                      inc ecx
+    59 00000044 EBE7                                    jmp parse_s_for_negative_numbers
+    60                                                  
+    61                                          fin_of_parse_for_negative:
+    62 00000046 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    63 00000048 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

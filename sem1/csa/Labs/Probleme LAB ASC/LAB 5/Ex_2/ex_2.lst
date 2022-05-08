@@ -1,0 +1,62 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ;Given a character string S, obtain the string D containing all special characters (!@#$%^&*) of the string S
+    11                                  segment data use32 class=data
+    12 00000000 2B4023314033242A21          s db '+', '@', '#', '1', '@', '3', '$', '*', '!'
+    13                                      len_s equ $ - s
+    14 00000009 FF                          separator db 0xFF
+    15 0000000A <res 00000009>              d resb len_s
+    16                                  segment code use32 class=code
+    17                                      start:
+    18 00000000 B900000000                      mov ecx, 0 ; ecx - is a general index for parsing the s string
+    19 00000005 BB00000000                      mov ebx, 0 ; ebx - is the index which point to the the next free element of d
+    20                                          while_ecx_smaller_than_len_s:
+    21 0000000A 83F909                              cmp ecx, len_s
+    22 0000000D 745A                                je fin
+    23                                              
+    24 0000000F 80B9[00000000]21                    cmp byte [s + ecx], '!'
+    25 00000016 7441                                je add_char
+    26                                              
+    27 00000018 80B9[00000000]40                    cmp byte [s + ecx], '@'
+    28 0000001F 7438                                je add_char
+    29                                              
+    30 00000021 80B9[00000000]23                    cmp byte [s + ecx], '#'
+    31 00000028 742F                                je add_char
+    32                                              
+    33 0000002A 80B9[00000000]24                    cmp byte [s + ecx], '$'
+    34 00000031 7426                                je add_char
+    35                                              
+    36 00000033 80B9[00000000]25                    cmp byte [s + ecx], '%'
+    37 0000003A 741D                                je add_char
+    38                                              
+    39 0000003C 80B9[00000000]5E                    cmp byte [s + ecx], '^'
+    40 00000043 7414                                je add_char
+    41                                              
+    42 00000045 80B9[00000000]26                    cmp byte [s + ecx], '&'
+    43 0000004C 740B                                je add_char
+    44                                              
+    45 0000004E 80B9[00000000]2A                    cmp byte [s + ecx], '*'
+    46 00000055 7402                                je add_char
+    47                                              
+    48 00000057 EB0D                                jmp fin_of_while
+    49                                              
+    50                                              add_char:
+    51 00000059 8A81[00000000]                          mov al, [s + ecx]
+    52 0000005F 8883[0A000000]                          mov [d + ebx] , al
+    53 00000065 43                                      inc ebx
+    54                                                  
+    55                                              fin_of_while:
+    56 00000066 41                                      inc ecx
+    57 00000067 EBA1                                    jmp while_ecx_smaller_than_len_s
+    58                                              
+    59                                              
+    60                                          fin:
+    61 00000069 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    62 0000006B FF15[00000000]                  call    [exit]       ; call exit to terminate the program

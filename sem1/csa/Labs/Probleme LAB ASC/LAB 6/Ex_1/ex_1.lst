@@ -1,0 +1,59 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; An array with doublewords containing packed data (4 bytes written as a single doubleword) is given. Write an asm program in order to obtain a new array of doublewords, where each doubleword will be composed by the
+    11                                  segment data use32 class=data
+    12 00000000 78567F12CDABCDAB            s dd 127F5678h, 0ABCDABCDh
+    13 00000008 00000000                    s_terminator dd 0
+    14                                      len_s equ $ - s
+    15 0000000C <res 0000000C>              r resd len_s / 4
+    16 00000018 <res 00000004>              aux resd 1
+    17 0000001C <res 00000004>              res_aux resd 1
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 BE[00000000]                    mov esi, s
+    21 00000005 BF[0C000000]                    mov edi, r
+    22                                          
+    23 0000000A FC                              cld
+    24                                          
+    25                                          parse_string_s_to_obtain_r:
+    26 0000000B AD                                  lodsd ; move the dword from DS:ESI into EAX
+    27                                              
+    28 0000000C 83F800                              cmp eax, 0
+    29 0000000F 745D                                je fin
+    30                                              
+    31                                              
+    32 00000011 A3[18000000]                        mov [aux], eax
+    33                                              
+    34 00000016 660FBE05[18000000]                  movsx ax, byte [aux]
+    35 0000001E 660FBE1D[1A000000]                  movsx bx, byte [aux + 2]
+    36 00000026 6601D8                              add ax, bx
+    37 00000029 8825[1E000000]                      mov byte [res_aux + 2], ah
+    38 0000002F A2[1F000000]                        mov byte [res_aux + 3], al
+    39                                              
+    40 00000034 660FBE05[19000000]                  movsx ax, byte [aux + 1]
+    41 0000003C 660FBE1D[1B000000]                  movsx bx, byte [aux + 3]
+    42 00000044 6601D8                              add ax, bx
+    43 00000047 8825[1C000000]                      mov byte [res_aux], ah
+    44 0000004D A2[1D000000]                        mov byte [res_aux + 1], al
+    45                                              
+    46 00000052 A1[1C000000]                        mov eax, [res_aux]
+    47 00000057 AB                                  stosd ; move the dword form EAX into ES:EDI
+    48                                              
+    49 00000058 C705[18000000]0000-                 mov dword [aux], 0
+    49 00000060 0000               
+    50 00000062 C705[1C000000]0000-                 mov dword [res_aux], 0
+    50 0000006A 0000               
+    51                                              
+    52 0000006C EB9D                                jmp parse_string_s_to_obtain_r
+    53                                              
+    54                                          
+    55                                          fin:
+    56 0000006E 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    57 00000070 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

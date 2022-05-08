@@ -1,0 +1,87 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  
+    11                                  
+    12                                  segment data use32 class=data
+    13 00000000 32147586BCAD                s dw 1432h, 8675h, 0ADBCh
+    14                                      len_s equ $ - s
+    15 00000006 0000                        s_terminator dw 0
+    16 00000008 <res 0000000C>              r resd len_s / 2
+    17 00000014 00000000                    res_aux dd 0
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 BE[00000000]                    mov esi, s
+    21 00000005 BF[08000000]                    mov edi, r
+    22                                          
+    23 0000000A FC                              cld
+    24                                          
+    25                                          parse_s_to_obtain_r:
+    26 0000000B 66AD                                lodsw
+    27                                              
+    28 0000000D 6683F800                            cmp ax, 0
+    29 00000011 7464                                je fin
+    30 00000013 B900000000                          mov ecx, 0
+    31                                              
+    32                                              while_ax_greater_than_0:
+    33 00000018 6683F800                                cmp ax, 0
+    34 0000001C 7419                                    je fin_of_while
+    35                                                  
+    36 0000001E 6689C2                                  mov dx, ax
+    37 00000021 B400                                    mov ah, 0
+    38                                                  
+    39 00000023 B310                                    mov bl, 16
+    40 00000025 F6F3                                    div bl
+    41                                                  
+    42 00000027 88A1[14000000]                          mov byte [res_aux + ecx], ah
+    43 0000002D 41                                      inc ecx
+    44 0000002E 6689D0                                  mov ax, dx
+    45 00000031 66C1E804                                shr ax, 4
+    46 00000035 EBE1                                    jmp while_ax_greater_than_0
+    47                                                  
+    48                                              fin_of_while:    
+    49                                              
+    50                                              ;now we have to sort the bytes of the result (we will use bubble sort)
+    51                                              
+    52 00000037 BB00000000                          mov ebx, 0 ; ebx will act as i
+    53                                              
+    54                                              for_i_in_0_2:
+    55 0000003C 83FB03                                  cmp ebx, 3
+    56 0000003F 742E                                    je fin_of_sort
+    57                                                  
+    58 00000041 89D9                                    mov ecx, ebx ; ecx will act as j
+    59 00000043 41                                      inc ecx
+    60                                                  for_j_in_i_puls_1_3:
+    61 00000044 83F904                                      cmp ecx, 4
+    62 00000047 7423                                        je fin_of_j_loop
+    63                                                  
+    64 00000049 8A83[14000000]                              mov al, [res_aux + ebx]
+    65 0000004F 3A81[14000000]                              cmp al, [res_aux + ecx]
+    66 00000055 7612                                        jbe no_swap
+    67                                                      
+    68 00000057 8A91[14000000]                              mov dl, [res_aux + ecx]
+    69 0000005D 8893[14000000]                              mov [res_aux + ebx], dl
+    70 00000063 8881[14000000]                              mov [res_aux + ecx], al
+    71                                                      
+    72                                                      no_swap:
+    73 00000069 41                                          inc ecx
+    74 0000006A EBD8                                        jmp for_j_in_i_puls_1_3
+    75                                                      
+    76                                                  fin_of_j_loop: 
+    77 0000006C 43                                      inc ebx
+    78 0000006D EBCD                                    jmp for_i_in_0_2
+    79                                              
+    80                                              fin_of_sort:
+    81 0000006F A1[14000000]                            mov eax, [res_aux]
+    82 00000074 AB                                      stosd
+    83 00000075 EB94                                    jmp parse_s_to_obtain_r
+    84                                          
+    85                                          fin:
+    86 00000077 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    87 00000079 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

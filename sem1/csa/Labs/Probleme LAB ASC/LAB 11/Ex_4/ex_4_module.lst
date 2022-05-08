@@ -1,0 +1,13 @@
+     1                                  bits 32 
+     2                                  extern printf
+     3                                  segment data use32 class=data
+     4 00000000 546865206865782076-         hex_format db "The hex value is %x", 0
+     4 00000009 616C75652069732025-
+     4 00000012 7800               
+     5 00000014 256400                      dec_format db "%d", 0
+     6                                      
+     7                                  import printf msvcrt.dll
+     8                                  segment code use32 class=code
+     9                                     print_as_hexa:
+    10                                      
+    11                                      

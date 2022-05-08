@@ -1,0 +1,45 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll   
+     9                                  
+    10                                  
+    11                                  ;Given the byte A, obtain the integer number n represented on the bits 2-4 of A. Then obtain the byte B by rotating A n positions to the right. Compute the doubleword C as follows:
+    12                                  ;the bits 0-7 of C have the value 1
+    13                                  ;the bits 8-15 of C have the value 0
+    14                                  ;the bits 16-23 of C are the same as the bits of B
+    15                                  ;the bits 24-31 of C are the same as the bits of A
+    16                                  
+    17                                  segment data use32 class=data
+    18 00000000 <res 00000004>              c resd 1
+    19 00000004 A5                          a db 10100101b ; A5h
+    20 00000005 <res 00000001>              n resb 1 
+    21 00000006 <res 00000001>              b resb 1 ; 5 pos rotated a to right will be: D2
+    22                                      
+    23                                  ; our code starts here
+    24                                  segment code use32 class=code
+    25                                      start:
+    26 00000000 A0[04000000]                    mov al, [a]
+    27 00000005 C0E802                          shr al, 2
+    28 00000008 2407                            and al, 111b
+    29 0000000A A2[05000000]                    mov [n], al
+    30                                          
+    31 0000000F 8A0D[05000000]                  mov cl, [n]
+    32 00000015 A0[04000000]                    mov al, [a]
+    33 0000001A D2C8                            ror al, cl
+    34 0000001C A2[06000000]                    mov [b], al
+    35                                          
+    36 00000021 C605[00000000]FF                mov byte [c], 11111111b
+    37 00000028 C605[01000000]00                mov byte [c + 1], 0
+    38 0000002F A0[06000000]                    mov al, [b]
+    39 00000034 A2[02000000]                    mov [c + 2], al
+    40 00000039 A0[04000000]                    mov al, [a]
+    41 0000003E A2[03000000]                    mov [c + 3], al
+    42                                          
+    43                                          
+    44 00000043 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    45 00000045 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

@@ -1,0 +1,101 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    
+     9                                  
+    10                                  ; An array of doublewords, where each doubleword contains 2 values on a word (unpacked, so each nibble is preceded by a 0) is given. Write an asm program to create a new array of bytes which contain those values (pa
+    11                                  segment data use32 class=data
+    12 00000000 0A09020704030C0B08-         s dd 0702090Ah, 0B0C0304h, 05060108h
+    12 00000009 010605             
+    13                                      len_s equ $ - s
+    14 0000000C 00000000                    s_terminator dd 0
+    15 00000010 <res 00000006>              r resb len_s / 2
+    16 00000016 FF                          separator db 0xFF
+    17 00000017 <res 00000006>              sorted_r resb len_s / 2
+    18 0000001D 0000                        aux dw 0
+    19 0000001F 00                          res_aux_2 db 0
+    20 00000020 00                          res_aux_1 db 0
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 BE[00000000]                    mov esi, s
+    24 00000005 BF[10000000]                    mov edi, r
+    25                                          
+    26 0000000A FC                              cld
+    27                                          parse_s_to_obtaion_r:
+    28 0000000B AD                                  lodsd ; mov the dword from DS:ESI into EAX
+    29                                              
+    30 0000000C 83F800                              cmp eax, 0
+    31 0000000F 7447                                je fin_of_parsing
+    32                                              
+    33 00000011 66A3[1D000000]                      mov [aux], ax
+    34 00000017 8A1D[1E000000]                      mov bl, [aux + 1]
+    35 0000001D C0E304                              shl bl, 4
+    36 00000020 021D[1D000000]                      add bl, [aux]
+    37                                              
+    38 00000026 881D[1F000000]                      mov byte [res_aux_2], bl
+    39                                              
+    40 0000002C C1E810                              shr eax, 16
+    41 0000002F 66A3[1D000000]                      mov [aux], ax
+    42 00000035 8A1D[1E000000]                      mov bl, [aux + 1]
+    43 0000003B C0E304                              shl bl, 4
+    44 0000003E 021D[1D000000]                      add bl, [aux]
+    45                                              
+    46 00000044 881D[20000000]                      mov byte [res_aux_1], bl
+    47                                              
+    48 0000004A A0[20000000]                        mov al, [res_aux_1]
+    49 0000004F AA                                  stosb
+    50 00000050 A0[1F000000]                        mov al, [res_aux_2]
+    51 00000055 AA                                  stosb
+    52                                              
+    53 00000056 EBB3                                jmp parse_s_to_obtaion_r
+    54                                              
+    55                                          fin_of_parsing:
+    56                                          
+    57 00000058 BE[10000000]                    mov esi, r
+    58 0000005D BF[17000000]                    mov edi, sorted_r
+    59 00000062 B906000000                      mov ecx, len_s / 2
+    60                                          while_len:
+    61 00000067 A4                                  movsb
+    62 00000068 E2FD                                loop while_len
+    63                                          
+    64                                          
+    65 0000006A BA06000000                      mov edx, len_s / 2 ; edx will contain the length of r
+    66                                          
+    67 0000006F BE00000000                      mov esi, 0 ; ebx will act as i
+    68                                          
+    69                                          for_i_in_0_len_r_minus_1:
+    70 00000074 4A                                  dec edx
+    71 00000075 39D6                                cmp esi, edx
+    72 00000077 742A                                je fin
+    73 00000079 42                                  inc edx
+    74                                              
+    75                                              
+    76 0000007A 89F1                                mov ecx, esi
+    77 0000007C 41                                  inc ecx
+    78                                              for_j_in_i_plus_1_len_r:
+    79 0000007D 39D1                                    cmp ecx, edx
+    80 0000007F 741F                                    je fin_of_j_loop
+    81                                                  
+    82 00000081 8A86[17000000]                          mov al, [sorted_r + esi]
+    83 00000087 8A99[17000000]                          mov bl, [sorted_r + ecx]
+    84 0000008D 38D8                                    cmp al, bl
+    85 0000008F 7C0C                                    jl no_swap
+    86                                                  
+    87 00000091 889E[17000000]                          mov byte [sorted_r + esi], bl
+    88 00000097 8881[17000000]                          mov byte [sorted_r + ecx], al
+    89                                                  
+    90                                                  no_swap:
+    91 0000009D 41                                          inc ecx
+    92 0000009E EBDD                                        jmp for_j_in_i_plus_1_len_r
+    93                                                  
+    94                                              fin_of_j_loop:
+    95 000000A0 46                                      inc esi
+    96 000000A1 EBD1                                    jmp for_i_in_0_len_r_minus_1
+    97                                              
+    98                                          fin:
+    99 000000A3 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+   100 000000A5 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
