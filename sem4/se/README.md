@@ -1,2 +1,2 @@
 ## Software Engineering##
-[ Lab MAI Project ](https://github.com/Panik1-69/MAI)
+[ ManagingAcademicInfo Lab Project ](https://github.com/Panik1-69/MAI)
