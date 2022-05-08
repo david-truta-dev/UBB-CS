@@ -25,9 +25,19 @@
 
 *  Sem 3 - 😐 <br />
 
-	🍞  [Advanced Programming Methods]() <br />
-	⚠️  [Functional & Logic Programming]() <br />
-	😡  [Databases]() <br />
-	🌐  [Computer Networks]() <br />
-	🎲  [Probability & Statistics]() <br />
+	🍞  [Advanced Programming Methods](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/apm) <br />
+	⚠️  [Functional & Logic Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/flp) <br />
+	😡  [Databases](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/db) <br />
+	🌐  [Computer Networks](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/cn) <br />
+	🎲  [Probability & Statistics](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/ps) <br />
+
+<br />
+
+*  Sem 4 - 😐 <br />
+
+	🍞  [Software Engineering]() <br />
+	⚠️  [Artificial Intelligence]() <br />
+	🌐  [Web Programming]() <br />
+	😡  [DBMSs]() <br />
+	🎲  [SDI]() <br />
 
