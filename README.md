@@ -1,6 +1,6 @@
 ## *UBB-CS* ##
 
-[ ### To whoever finds this repo, I hope it helps :) ### ](https://www.youtube.com/watch?v=iik25wqIuFo)
+[ To whoever finds this repo, I hope it helps :) ](https://www.youtube.com/watch?v=iik25wqIuFo)
 
 * Sem 1<br />
 
