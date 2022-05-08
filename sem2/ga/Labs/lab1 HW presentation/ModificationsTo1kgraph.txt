@@ -1,0 +1,7 @@
+Modifications:
+
+remove vert 1
+remove edge (16,845)
+add edge (16, 0) 12
+add vertex 1000
+set cost (998, 218) 5

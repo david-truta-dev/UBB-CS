@@ -1,0 +1,11 @@
+1;18th century farm;farmstead;B1
+2;grain farm;farmstead;B2;A3;B3
+3;19th century farm;farmstead;A4;B4
+4;pottery;workshops;A5;A6;B6
+5;tanner;workshops;C6
+6;flower beds;botanical sector;D3;E3
+7;corn plantation;botanical sector;E4;E5
+8;17th century;houses;E1
+9;manor;houses;D1;C1;C2
+10;farm house;houses;C3;C4
+11;gift shop;office;E6

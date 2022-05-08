@@ -1,0 +1,38 @@
+1.=====================================================================================
+i=0
+n=$1
+for (( i=1; i<=n; i++ ))
+do
+        touch file_$i.txt
+        upper=$((i+5))
+        sed -n -E "${i},${upper}p" passwd.fake > file_$i.txt
+done
+
+2.====================================================================================
+path=`find . -type d -name $1`
+for file in `find $path -type f -name "*.txt"`
+do
+        sed -E -n "1,3p" $file
+done
+
+3.=======================================================================================                                                                        path=`find . -type d -name $1`
+path=`find . -type d -name $1`
+sum=0
+nrFiles=0
+for file in `find $path -type f -name "*.txt"`
+do
+        nrFiles=$((nrFiles+1))
+        nrLin=`awk 'END{print NR}' $file`
+        sum=$((sum+nrLin))
+done
+medie=$((sum/nrFiles))
+echo $medie
+
+4.========================================================================================
+path=`find . -type d -name $1`
+for file in `find $path -type f`
+do
+        if [ `grep -E -o "[0-9]{5,}" $file | wc -l` -gt 0 ]; then
+                echo $file
+        fi
+done

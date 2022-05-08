@@ -1,0 +1,96 @@
+REZOLVARI exercitii lab
+
+GREP:
+1.grep -E -i "frances" cinema.csv
+2.grep -E "^[a-zA-Z]+ Wiley" cinema.csv
+3.grep -E ",[ ]*L[ ]*," cinema.csv
+4.grep -E ",[ ]*1[ ]*," cinema.csv | grep -E -o "^[a-zA-Z]+ [a-zA-Z]+"
+5.grep -E "Cluj$" cinema.csv | grep -E -o "^[A-za-z]+ [A-Za-z]+" | sort -u
+6.grep -E "0744[0-9]{6,6}" cinema.csv | grep -E -o "^[A-za-z]+ [A-Za-z]+" | sort -u
+7.grep -E ",([^aeiou,]*[aeiou][^aeiou,]*){4,4}@yahoo.com" cinema.csv | grep -E -o "^[A-za-z]+ [A-Za-z]+" | sort -u
+8.grep -E "Cluj$" cinema.csv | grep -E -o "^[A-za-z]+ [A-Za-z]+" | sort -u | grep -c "^.*"
+9.grep -E "(,\<Gilau\> )|(,\<Floresti\> )" cinema.csv | grep -E -o "^[A-za-z]+ [A-Za-z]+" | sort -u
+10.grep -E -v "(,\<Sibiu\> )" cinema.csv | grep -E -o "^[A-za-z]+ [A-Za-z]+" | sort -u
+
+SED:
+1.sed -E -n "p" cinema.csv
+2.grep -E -n ".+$" cinema.csv | sed -E "/(^([16789][0-9]))/d" | sed -E "/^[0-9]:/d" | sed -E "/^5[1-9]/d"
+Tot la 2. sed -E -n "20,50p" cinema.csv
+3.sed -E "/^[a-zA-Z]+ Wiley/d" cinema.csv
+4.sed -E "/.{101,}/d" cinema.csv
+5.sed -E "s/[aeiou]/*/gi" cinema.csv
+6.sed -E "s/(^[a-zA-Z]+) ([a-zA-Z]+)/\2 \1/gi" cinema.csv
+7.sed -E "s/\<Cluj\>$/CJ/i" cinema.csv | sed -E "s/\<Alba\>$/AB/i" | sed -E "s/\<Sibiu\>$/SB/i" | sed -E "s/\<Bistrita-Nasaud\>$/BN/i" | sed -E "s/\<Bihor\>$/BH/i"
+8.sed -E "30i David Truta, 01/01/2021,A,1,0745010276,david_truta@yahoo.com,Zalau SJ" cinema.csv
+9.sed -E "s/o/0/g" cinema.csv | sed -E "s/e/3/g" | sed -E "s/g/9/g" | sed -E "s/a/@/g" | sed -E "s/B/8/g"
+10.sed -E "s/^Gregory/Grigore/g" cinema.csv
+11.sed -E "s/@fake.com/@faketaxi.ro/g" cinema.csv
+
+AWK:
+1.1.awk -F, '/frances|Frances /{print}' cinema.csv
+1.2.awk -F, '/ Wiley,/{print}' cinema.csv
+1.3.awk -F, '/,[ ]*L[ ]*,/{print}' cinema.csv
+1.4.awk -F, '/,[ ]*1[ ]*,/{print $1}' cinema.csv
+1.5.awk -F, '/Cluj$/{print $1}' cinema.csv | sort -u
+1.6.awk -F, '/0744[0-9]{6,6}/{print $1}' cinema.csv | sort -u
+1.7.awk -F, '/,([^aeiou,]*[aeiou][^aeiou,]*){4,4}@yahoo.com/{print $1}' cinema.csv | sort -u
+1.8.awk -F, '{print $1,$7}' cinema.csv | sort -u | awk -F, 'BEGIN{ numar=0 }  / Cluj$/{ numar += 1 } END{print numar}'
+1.9.awk -F, '/(,\<Gilau\> )|(,\<Floresti\> )/{print $1}' cinema.csv | sort -u
+1.10. awk -F, '$7 !~ /\<Sibiu\>/ {print $1}' cinema.csv | sort -u
+1.11.awk -F, '{print}' cinema.csv
+1.12.awk -F, 'NR <= 50 && NR>=20 { print }' cinema.csv
+1.13.awk -F, '$1 !~ / \<Wiley\>/ { print }' cinema.csv
+1.14.awk -F, ' /.{,100}/ { print }' cinema.csv
+1.15.
+1.16.
+1.17.
+1.18.
+1.19.
+1.20.
+1.21.
+2.awk -F, '$7 ~ /Bihor$/{print $1}' cinema.csv | sort -u | awk -F, 'END {print NR}'
+3.
+nano prog1.awk 
+Put this in prog1.awk:
+{ 
+	col = -1 
+	while (col <= NF){ 
+		col+=2 
+		printf "%s ",$(col)
+ 	} 
+	printf "\n" 
+}
+Then do this:
+awk -F, -f prog1.awk cinema.csv
+4.
+nano prog2.awk 
+Put this in prog2.awk:
+NR == 1{
+	x=$0
+	nrBilete = 0
+}
+{
+	if(x!= $0){
+		print x, nrBilete
+		nrBilete = 1
+		x = $0
+	} else nrBilete++
+}
+END {
+	print x, nrBilete
+}
+
+Then do this:
+grep -E -o "^[a-zA-Z]+ [a-zA-Z]+" | awk -F, -f prog2.awk cinema.csv
+5.
+nano prog3.awk 
+Put this in prog3.awk:
+{
+	count[$3]++
+}
+END{
+	for(word in count)print count[word], word
+}
+Then do this:
+sort cinema.csv | awk -F, -f prog3.awk | sort -r -n | sed -n "1,5p" | grep -o -E " .+$"
+

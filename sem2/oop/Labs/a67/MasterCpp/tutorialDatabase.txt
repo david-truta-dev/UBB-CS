@@ -1,0 +1,8 @@
+https://www.youtube.com/watch?v=zOjov-2OZ0E;Object Oriented Programming;GeeksCode;10;18;2323;0
+https://www.youtube.com/watch?v=_uQrJ0TkZlc;C++ Classes;LearnCodeFast;7;46;421;0
+https://www.youtube.com/watch?v=bJzb-RuUcMU;Data Structures and Algorithms;LitCode;9;13;2431;0
+https://www.youtube.com/watch?v=Z1Yd7upQsXY;HTML5;LearnCodeFast;4;43;7234;0
+https://www.youtube.com/watch?v=rfscVS0vtbw;Javascript;LitCode;11;32;1340;0
+https://www.youtube.com/watch?v=KJgsSFOSQv0;IA 32 8086;LowLevel;31;54;5213;0
+https://www.youtube.com/watch?v=MAlSjtxy5ak;Graphs;LitCode;13;42;1432;0
+linksafsagfasf;asfsa;asdfa;1;32;14213;0

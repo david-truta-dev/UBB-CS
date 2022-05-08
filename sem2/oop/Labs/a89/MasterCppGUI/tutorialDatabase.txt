@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=bJzb-RuUcMU;Data Structures and Algorithms;LitCode;9;13;2432;0
+https://www.youtube.com/watch?v=Z1Yd7upQsXY;HTML5;LearnCodeFast;4;43;7235;0
+https://www.youtube.com/watch?v=rfscVS0vtbw;Javascript;LitCode;11;32;1340;0
+https://www.youtube.com/watch?v=KJgsSFOSQv0;IA 32 8086;LowLevel;31;54;5213;0
+https://www.youtube.com/watch?v=MAlSjtxy5ak;Graphs;LitCode;13;42;1432;0
+linkkkkkk;titlu;presenteeeer;23;32;1523;0
+link2;tit;p;0;1;1;0
