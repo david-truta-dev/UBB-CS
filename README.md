@@ -29,5 +29,5 @@
 	📌  [Functional & Logic Programming]() <br />
 	📌  [Databases]() <br />
 	📌  [Networks]() <br />
-	📌  [Probability & Statistics]() <br />
+	:chart_with_upwards_trend:  [Probability & Statistics]() <br />
 
