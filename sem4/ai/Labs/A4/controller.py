@@ -1,93 +1,72 @@
-import time
-from random import randint
-
-from domain import Ant
+from domain.Map import Map
+from domain.Ant import Ant
+from utils import *
+from copy import deepcopy
+import numpy as np
 
 
 class Controller:
-    def __init__(self, repo):
-        self.repository = repo
-        self._energy = None
-        self._nrOfSensors = None
-        self._sensors = []
-        self._m = self.repository.map.n
-        self._n = self.repository.map.m
-        self._noOfAnts = 10
-        self._alpha = 1.9
-        self._beta = 0.9
-        self._q0 = 0.5
-        self._rho = 0.05
-        self._trace = None
-
-    def setDronePosition(self, x, y):
-        self.repository.setDronePositions(x, y)
-
-    def getDronePosition(self):
-        return self.repository.getDronePositions()
-
-    def setEnergy(self, e):
-        self._energy = e
-
-    def getEnergy(self):
-        return self._energy
-
-    def setNumberOfSensors(self, sensors):
-        self._nrOfSensors = sensors
-
-    def getNumberOfSensors(self):
-        return self._nrOfSensors
-
-    def setSensors(self, sensors):
-        self._sensors = sensors
-
-    def getSensors(self):
-        return self._sensors
-
-    def getSensorDetection(self):
-        res = []
-        for sensor in self._sensors:
-            forOneSensor = []
-            for value in range(6):
-                forOneSensor.append(self.repository.getDetectedSquares(sensor, value))
-            res.append(forOneSensor)
-        return res
+    def __init__(self):
+        self.map = Map()
+        self.pheromoneMatrix = []
+        for i in range(self.map.n):
+            self.pheromoneMatrix.append([])
+            for j in range(self.map.m):
+                self.pheromoneMatrix[-1].append([])
+                for direction in Util.v:
+                    neigh = [i + direction[0], j + direction[1]]
+                    if not self.map.isWall(neigh):
+                        if self.map.surface[neigh[0]][neigh[1]] == 2:
+                            self.pheromoneMatrix[-1][-1].append([5 for _ in range(Util.maxSensorCapacity + 1)])
+                        else:
+                            self.pheromoneMatrix[-1][-1].append([1.0] + [0 for _ in range(Util.maxSensorCapacity)])
+                    else:
+                        self.pheromoneMatrix[-1][-1].append([0 for _ in range(Util.maxSensorCapacity + 1)])
+        self.initialPheromoneMatrix = deepcopy(self.pheromoneMatrix)
 
     def epoch(self):
-        antSet = [Ant(self._n, self._m) for i in range(self._noOfAnts)]
-        for i in range(self._n * self._m):
-            # numarul maxim de iteratii intr-o epoca este lungimea solutiei
-            for x in antSet:
-                x.addMove(self._q0, self._trace, self._alpha, self._beta)
-        # actualizam trace-ul cu feromonii lasati de toate furnicile
-        dTrace = [1.0 / antSet[i].fitness() for i in range(len(antSet))]
-        for i in range(self._n * self._m):
-            for j in range(self._n * self._m):
-                self._trace[i][j] = (1 - self._rho) * self._trace[i][j]
-        for i in range(len(antSet)):
-            for j in range(len(antSet[i].path) - 1):
-                x = antSet[i].path[j]
-                y = antSet[i].path[j + 1]
-                self._trace[x][y] = self._trace[x][y] + dTrace[i]
-        # return best ant path
-        f = [[antSet[i].fitness(), i] for i in range(len(antSet))]
-        f = max(f)
-        return antSet[f[1]].path
+        population = []
+        for i in range(Util.numberOfAnts):
+            ant = Ant(self.map)
+            population.append(ant)
 
-    def computeShortestPath(self, sensor1, sensor2, noEpoch=50):
-        bestSol = []
-        self._trace = [[1 for i in range(self._n * self._m)] for j in range(self._n * self._m)]
-        for i in range(noEpoch):
-            sol = self.epoch().copy()
-            if len(sol) > len(bestSol):
-                bestSol = sol.copy()
+        for i in range(self.map.battery):
+            for ant in population:
+                ant.addMove(self.pheromoneMatrix)
+        for i in range(self.map.n):
+            for j in range(self.map.m):
+                for direction in Util.v:
+                    for spent in range(Util.maxSensorCapacity + 1):
+                        self.pheromoneMatrix[i][j][Util.v.index(direction)][spent] *= (1 - Util.rho)
+                        self.pheromoneMatrix[i][j][Util.v.index(direction)][spent] += Util.rho * \
+                                                                                      self.initialPheromoneMatrix[i][j][
+                                                                                          Util.v.index(direction)][
+                                                                                          spent]
 
+        bestAnt = population[max([[population[i].fitness(), i] for i in range(len(population))])[1]]
+        bestFitness = bestAnt.fitness()
 
-    def getShortestPathBetweenSensors(self):
-        res1 = {}
-        res2 = {}
-        for i in range(self._nrOfSensors):
-            for j in range(i + 1, self._nrOfSensors):
-                shortestPath = self.computeShortestPath(self._sensors[i], self._sensors[j])
-                res2[(self._sensors[i], self._sensors[j])] = shortestPath
-                res1[(self._sensors[i], self._sensors[j])] = len(shortestPath)
-        return res1, res2
+        for ant in population:
+            antFitness = ant.fitness()
+            for i in range(len(ant.path) - 1):
+                x = ant.path[i]
+                y = ant.path[i + 1]
+                directionIndex = Util.v.index((y[0] - x[0], y[1] - x[1]))
+                self.pheromoneMatrix[x[0]][x[1]][directionIndex][y[2]] += (antFitness + 1) / (bestFitness + 1)
+
+        return bestAnt, np.mean([ant.fitness() for ant in population])
+
+    def computeACO(self):
+        solution = None
+        fitnesses = []
+        for i in range(Util.numberOfEpochs):
+            if i % 60 == 0:
+                print()
+            print(i, end=" ")
+            current, fitness = self.epoch()
+            fitnesses.append(fitness)
+            # print(current.path)
+            if solution is None or solution.fitness() < current.fitness():
+                solution = current
+        print(solution.fitness())
+        return solution, fitnesses
