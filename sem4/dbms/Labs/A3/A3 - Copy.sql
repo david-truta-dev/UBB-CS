@@ -252,17 +252,17 @@ SELECT @@TRANCOUNT
 --- SOLUTION: serializable
 
 -- T1:
-Select * from client
-DELETE FROM Client WHERE fname = 'Marfcelus'
 
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+DELETE FROM Client WHERE ID = 99
+
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
 
 BEGIN TRAN
+	EXEC addLogConcurrencyIssue 'phantom read - before insert'
 
-	WAITFOR DELAY '00:00:03:000'
+	INSERT INTO Client (fname, lname) VALUES ('Marcelus', 'Purcelus')
 
-	INSERT INTO Client (fname, lname) VALUES ( 'Marcelus', 'Purcelus')
-
+	EXEC addLogConcurrencyIssue 'phantom read - after insert'
 
 COMMIT TRAN
 
@@ -270,20 +270,16 @@ COMMIT TRAN
 
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
 
---SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
 BEGIN TRAN
 
-	EXEC addLogConcurrencyIssue 'phantom read - before select'
 
 	SELECT * FROM Client
 
-	EXEC addLogConcurrencyIssue ' phantom read - between select'
-
-	WAITFOR DELAY '00:00:03:000'
+	WAITFOR DELAY '00:00:15:000'
 
 	SELECT * FROM Client
 
-	EXEC addLogConcurrencyIssue 'phantom read - after select'
 
 COMMIT TRAN
 
