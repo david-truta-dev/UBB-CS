@@ -38,10 +38,8 @@ class Controller:
                 for direction in Util.v:
                     for spent in range(Util.maxSensorCapacity + 1):
                         self.pheromoneMatrix[i][j][Util.v.index(direction)][spent] *= (1 - Util.rho)
-                        self.pheromoneMatrix[i][j][Util.v.index(direction)][spent] += Util.rho * \
-                                                                                      self.initialPheromoneMatrix[i][j][
-                                                                                          Util.v.index(direction)][
-                                                                                          spent]
+                        self.pheromoneMatrix[i][j][Util.v.index(direction)][spent] += \
+                            Util.rho * self.initialPheromoneMatrix[i][j][Util.v.index(direction)][spent]
 
         bestAnt = population[max([[population[i].fitness(), i] for i in range(len(population))])[1]]
         bestFitness = bestAnt.fitness()

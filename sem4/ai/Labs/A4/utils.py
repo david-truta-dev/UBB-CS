@@ -37,10 +37,10 @@ class Util:
     mapLength = 20
 
     initialPosition = (7, 12)
-    batteryCapacity = 75
+    batteryCapacity = 100
     numberOfSensors = 5
     numberOfAnts = 80
-    numberOfEpochs = 100
+    numberOfEpochs = 200
     alpha = 0.8
     beta = 1.5
     rho = 0.05

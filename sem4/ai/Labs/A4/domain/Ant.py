@@ -24,8 +24,6 @@ class Ant:
                         if not self.map.isWall(neigh):
                             marked[neigh[0]][neigh[1]] = 1
                             neighbours[direction] = neigh
-        print(marked)
-        print()
         return sum([sum(row) for row in marked])
 
     # def nextMoves(self, position):
