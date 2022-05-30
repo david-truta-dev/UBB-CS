@@ -1,5 +1,4 @@
 import csv
-import math
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -53,7 +52,7 @@ def computeMeanY(points):
     return np.mean([point[1] for point in points])
 
 
-def recomputeCentroid(clusters, centroids):
+def recomputeCentroid(clusters):
     newCentroids = []
 
     for centroid in clusters.keys():
@@ -79,11 +78,11 @@ def solve():
         centroids = selectInitialCentroids(points)
         # initialPlot(points, centroids)
         assignedLabel = assignPointsToCentroid(points, centroids)
-        newCentroids = recomputeCentroid(assignedLabel, centroids)
+        newCentroids = recomputeCentroid(assignedLabel)
         while not conditionToStopKMean(centroids, newCentroids):
             centroids = newCentroids
             assignedLabel = assignPointsToCentroid(points, centroids)
-            newCentroids = recomputeCentroid(assignedLabel, centroids)
+            newCentroids = recomputeCentroid(assignedLabel)
 
         interClusterDistance = min(
             [euclideanDistance(centroids[a], centroids[b]) for a in range(len(centroids)) for b in

@@ -3,7 +3,7 @@ import torch
 import myModel
 import math
 filePath = "myNet.pt"
-ann = myModel.Net(2, 100, 1)
+ann = myModel.Net(2, 128, 1)
 
 ann.load_state_dict(torch.load(filePath))
 ann.eval()
