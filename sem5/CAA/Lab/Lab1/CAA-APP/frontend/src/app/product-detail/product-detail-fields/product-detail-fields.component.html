@@ -1,0 +1,31 @@
+<mat-card class="details-card mt-3">
+  <mat-card-content>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="row mt-3 mb-3">
+            <div class="col-5"><span i18n>Name</span></div>
+            <div class="col-6">{{ product.name }}</div>
+          </div>
+          <div class="row mt-3 mb-3">
+            <div class="col-5"><span i18n>Category</span></div>
+            <div class="col-6">{{ product.categoryName }}</div>
+          </div>
+          <div class="row mt-3 mb-3">
+            <div class="col-5"><span i18n>Price</span></div>
+            <div class="col-6">{{ product.price }}</div>
+          </div>
+          <div class="row mt-3 mb-3">
+            <div class="col-5"><span i18n>Description</span></div>
+          </div>
+          <div class="row">
+            <div>{{ product.description }}</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <img mat-card-image [src]="product.imageUrl" id="productimage" />
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

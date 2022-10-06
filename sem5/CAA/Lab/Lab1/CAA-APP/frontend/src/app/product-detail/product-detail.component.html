@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="container" *ngIf="actualProduct">
+  <h1>
+    <span class="mat-headline">{{ actualProduct.name }}</span>
+    <div class="float-right">
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="authenticationService.isCustomer()"
+        type="button"
+        class="btn btn-lg btn-info btn-circle mr-2"
+        (click)="addToCart()"
+      >
+        <span i18n>Add to </span><i class="fa fa-shopping-cart"></i>
+      </button>
+      <a
+        *ngIf="authenticationService.isAdmin()"
+        [routerLink]="['/product', actualProduct.id, 'edit']"
+        ><button
+          mat-raised-button
+          color="accent"
+          class="btn btn-lg btn-success btn-circle"
+        >
+          <span i18n>Edit</span>
+        </button></a
+      >
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="authenticationService.isAdmin()"
+        type="button"
+        class="btn btn-lg btn-danger btn-circle ml-2"
+        data-toggle="modal"
+        data-target="#deleteModalCenter"
+      >
+        <span i18n>Delete</span>
+      </button>
+      <app-product-detail-delete-modal
+        *ngIf="authenticationService.isAdmin()"
+        [product]="actualProduct"
+        (deleteProduct)="deleteProduct()"
+      >
+      </app-product-detail-delete-modal>
+    </div>
+  </h1>
+  <a [routerLink]="['/products']"
+    ><button
+      mat-raised-button
+      color="basic"
+      type="button"
+      class="btn btn-sm btn-secondary btn-circle sm-2"
+    >
+      <i class="fa fa-arrow-left"></i> <span i18n> Return</span>
+    </button></a
+  >
+  <app-product-detail-fields
+    [product]="actualProduct"
+  ></app-product-detail-fields>
+</div>

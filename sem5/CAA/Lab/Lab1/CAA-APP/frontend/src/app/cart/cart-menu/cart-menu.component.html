@@ -1,0 +1,19 @@
+<div>
+  <h1 class="mat-headline" i18n>Shopping Cart</h1>
+  <a [routerLink]="['/products']"
+    ><button mat-raised-button color="basic" type="button">
+      <i class="fa fa-arrow-left"></i> <span i18n> Return</span>
+    </button></a
+  >
+  <div class="float-right">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="checkout.emit()"
+    >
+      <span i18n>Checkout</span>
+    </button>
+  </div>
+</div>
+<mat-divider class="mt-5 mb-5"></mat-divider>

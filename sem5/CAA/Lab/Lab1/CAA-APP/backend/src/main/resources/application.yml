@@ -1,0 +1,27 @@
+ro:
+  msg:
+    learning:
+      shop:
+        routematrix:
+          key: TrBIVkFCj32FLA7CX0Dyyfls0sbD6mab
+          url: http://www.mapquestapi.com/directions/v2/routematrix?key=
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8080/auth/user/me
+
+spring:
+  datasource:
+    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/postgres
+    username: ${POSTGRES_USER}
+  flyway:
+    clean-on-validation-error: true
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+# Strategy Pattern -> possible values are 'single location', 'most abundant' and 'proximity'
+strategy: proximity

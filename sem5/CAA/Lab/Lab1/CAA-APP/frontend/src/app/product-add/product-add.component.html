@@ -1,0 +1,7 @@
+<app-header></app-header>
+<h1 class="mat-headline"><span i18n>Add Product</span></h1>
+
+<app-product-fields
+  [product]="product"
+  (saveProduct)="saveProduct($event)"
+></app-product-fields>

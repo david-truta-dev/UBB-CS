@@ -1,0 +1,27 @@
+<table
+  mat-table
+  [dataSource]="productHeaders"
+  class="mat-elevation-z8"
+  id="productstable"
+>
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef><span i18n>Category</span></th>
+    <td mat-cell *matCellDef="let productHeader">
+      {{ productHeader.categoryName }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef><span i18n>Product Name</span></th>
+    <td mat-cell *matCellDef="let productHeader">
+      <a [routerLink]="['/product', productHeader.id]" class="md-accent">{{
+        productHeader.name
+      }}</a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef><span i18n>Price</span></th>
+    <td mat-cell *matCellDef="let productHeader">{{ productHeader.price }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['category', 'name', 'price']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['category', 'name', 'price']"></tr>
+</table>

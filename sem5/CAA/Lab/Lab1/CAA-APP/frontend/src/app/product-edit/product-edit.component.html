@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="container" *ngIf="actualProduct">
+  <h1>{{ actualProduct.name }}</h1>
+  <app-product-fields
+    [product]="actualProduct"
+    (saveProduct)="saveProduct($event)"
+  ></app-product-fields>
+</div>

@@ -1,0 +1,157 @@
+<app-header></app-header>
+<div class="container">
+  <mat-form-field class="form-group">
+    <mat-label for="name"><span i18n>Name</span></mat-label>
+    <input
+      matInput
+      type="text"
+      id="name"
+      required
+      minlength="4"
+      [(ngModel)]="product.name"
+      name="name"
+      #name="ngModel"
+    />
+    <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors.required">
+        <span i18n>Name is required.</span>
+      </div>
+      <div *ngIf="name.errors.minlength">
+        <span i18n>Name must be at least 4 characters long.</span>
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label for="category"><span i18n>Category</span></mat-label>
+    <mat-select [(ngModel)]="product.categoryId" #category="ngModel">
+      <mat-option>None</mat-option>
+      <mat-option
+        *ngFor="let category of categories$ | async"
+        [value]="category.id"
+      >
+        {{ category.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="category.invalid && (category.dirty || category.touched)">
+      <div *ngIf="category.errors.required">
+        <span i18n>Category is required.</span>
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label for="category"><span i18n>Supplier</span></mat-label>
+    <mat-select [(ngModel)]="product.supplierId" #supplier="ngModel">
+      <mat-option>None</mat-option>
+      <mat-option
+        *ngFor="let supplier of suppliers$ | async"
+        [value]="supplier.id"
+      >
+        {{ supplier.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="category.invalid && (category.dirty || category.touched)">
+      <div *ngIf="category.errors.required">
+        <span i18n>Category is required.</span>
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label for="image"><span i18n>Image</span></mat-label>
+    <input
+      matInput
+      type="text"
+      id="image"
+      required
+      pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
+      [(ngModel)]="product.imageUrl"
+      name="image"
+      #image="ngModel"
+    />
+    <mat-error *ngIf="image.invalid && (image.dirty || image.touched)">
+      <div *ngIf="image.errors.required">
+        <span i18n>Image is required.</span>
+      </div>
+      <div *ngIf="image.errors.pattern">
+        <span i18n>Invalid image link given.</span>
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label for="price"><span i18n>Price</span></mat-label>
+    <input
+      matInput
+      type="text"
+      id="price"
+      required
+      min="0"
+      pattern="^[0-9]*$"
+      [(ngModel)]="product.price"
+      name="price"
+      #price="ngModel"
+    />
+    <mat-error *ngIf="price.invalid && (price.dirty || price.touched)">
+      <div *ngIf="price.errors.required">
+        <span i18n>Price is required.</span>
+      </div>
+      <div *ngIf="price.errors.min">
+        <span i18n>Price must be positive (above 0).</span>
+      </div>
+      <div *ngIf="price.errors.pattern">
+        <span i18n>Price must be a number.</span>
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label for="weight"><span i18n>Weight</span></mat-label>
+    <input
+      matInput
+      type="text"
+      id="weight"
+      required
+      min="0"
+      pattern="^[0-9]*$"
+      [(ngModel)]="product.weight"
+      name="weight"
+      #weight="ngModel"
+    />
+    <mat-error *ngIf="weight.invalid && (weight.dirty || weight.touched)">
+      <div *ngIf="weight.errors.required">
+        <span i18n>Weight is required.</span>
+      </div>
+      <div *ngIf="weight.errors.min">
+        <span i18n>Weight must be positive (above 0).</span>
+      </div>
+      <div *ngIf="weight.errors.pattern">
+        <span i18n>Weight must be a number.</span>
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label for="description"><span i18n>Description</span></mat-label>
+    <textarea
+      matInput
+      id="description"
+      [(ngModel)]="product.description"
+      name="description"
+      #description="ngModel"
+    >
+    </textarea>
+  </mat-form-field>
+
+  <div class="mt-4">
+    <a routerLink=".."
+      ><button mat-raised-button color="basic">
+        <span i18n>Cancel</span>
+      </button></a
+    >
+    <button mat-raised-button color="primary" (click)="doSave()">
+      <span i18n>Save</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="bb6e85ec13adb830b243bd646fea56f2849be5d8" datatype="html">
+        <source>Add to </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4d1d4f8c3875d65fd8c775d6ee617c1b2f41f6df" datatype="html">
+        <source>Return</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-menu/cart-menu.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5cb0ff1e683982f8e81eca4075bd585a44439d4d" datatype="html">
+        <source>Add Product</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-add/product-add.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="607de17c2a755f65775881c19e276e7c933bcf94" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list/product-list-table/product-list-table.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list/product-list-table/product-list-table.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-fields/product-detail-fields.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-table/cart-table.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-table/cart-table.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5787fcac03eda5b96436527a54e60cfbb7c30d95" datatype="html">
+        <source>Product Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list/product-list-table/product-list-table.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-table/cart-table.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-fields/product-detail-fields.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4d6ee53858628de558a18623894a03c8673bce9e" datatype="html">
+        <source>Price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-fields/product-detail-fields.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-fields/product-detail-fields.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68e710782ccb5398b3acb8844caf0b199da2c3da" datatype="html">
+        <source>Confirm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-delete-modal/product-detail-delete-modal.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-delete-modal/product-detail-delete-modal.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-detail/product-detail-delete-modal/product-detail-delete-modal.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ca30c1aa79fb5ab487fbd2caa4ca01f2f6691d70" datatype="html">
+        <source>Quantity</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-table/cart-table.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="59706442e53ff493ed2c8e55a0ad11b10bc25bd6" datatype="html">
+        <source>Page not found.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="541087322c34e8b26954fd67ff4fc80d1a6c1b33" datatype="html">
+        <source>Name is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9f0f2f30fe5c107479f464a7429b66fcca708352" datatype="html">
+        <source>Name must be at least 4 characters long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4b14e06ecce376a4513b11c50864977ee5baba61" datatype="html">
+        <source>Category is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5f9ba9bb9faa8284bcadb1cdbc6aaf969e9c4bb" datatype="html">
+        <source>Image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ae0b2017949facacfd309798321e98e4f5b3f7ef" datatype="html">
+        <source>Image is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f7bd8f6cd68e972167156af6b234ee1cc79173bc" datatype="html">
+        <source>Invalid image link given.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ce28bb7fb59b30f00aaf5ced04645205ce810e5a" datatype="html">
+        <source>Price is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c0df6d09a4dbfba94e9ba016ac89151c35d11966" datatype="html">
+        <source>Price must be positive (above 0).</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ad17a57f51f56824b2c57728bd4c041950f1b412" datatype="html">
+        <source>Price must be a number.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-fields/product-fields.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="287d3301a32a65a1b31116bda5d3a6463158c42a" datatype="html">
+        <source>Sign in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="08c74dc9762957593b91f6eb5d65efdfc975bf48" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ebdfb88659f8133dfa9cf6f7de251c3456b4e571" datatype="html">
+        <source>Userame is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4eb39d69b74d7a56652ec84fa6826994ee26c0e5" datatype="html">
+        <source>Password is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e54ceba2087a0ca4c91224854981aafc98ebade" datatype="html">
+        <source>Login failed! Could not log you in with those
+            credentials!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login-form/login-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="48dfb134cb8d324bb45f2f9f3bd7d7afc49bc3f8" datatype="html">
+        <source>Products</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list/product-list-menu/product-list-menu.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ed74e5a5148f8cc871fd2df9fc263cba823b7a47" datatype="html">
+        <source>Cart is empty!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-empty-warning/cart-empty-warning.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1386baf7d07caa5bac3b9fa80f282a31238d8e57" datatype="html">
+        <source>Shopping Cart</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-menu/cart-menu.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a2ba884eba8ce045444989c1ce1a87c04d9f9224" datatype="html">
+        <source>Checkout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cart/cart-menu/cart-menu.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

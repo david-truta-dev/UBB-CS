@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-product-list-menu
+  [isAdmin]="authenticationService.isAdmin()"
+  [isCustomer]="authenticationService.isCustomer()"
+></app-product-list-menu>
+<app-product-list-table
+  [productHeaders]="products$ | async"
+></app-product-list-table>

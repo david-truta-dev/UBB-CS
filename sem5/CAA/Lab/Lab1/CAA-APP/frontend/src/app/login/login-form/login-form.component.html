@@ -1,0 +1,66 @@
+<div class="jumbotron col-4 offset-4">
+  <div class="content-fluid">
+    <div class="form-group">
+      <h4 class="mat-h1">
+        <span i18n>Sign in</span>&nbsp;<i class="fa fa-user"></i>
+      </h4>
+    </div>
+    <mat-divider class="mb-3"></mat-divider>
+    <form action="#">
+      <mat-form-field class="form-group">
+        <mat-label for="username"><span i18n>Username</span></mat-label>
+        <input
+          matInput
+          type="text"
+          id="username"
+          required
+          [(ngModel)]="credentials.username"
+          name="username"
+          #username="ngModel"
+        />
+        <mat-error
+          *ngIf="username.invalid && (username.dirty || username.touched)"
+        >
+          <div *ngIf="username.errors.required">
+            <span i18n>Userame is required.</span>
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-group">
+        <mat-label for="password"><span i18n>Password</span></mat-label>
+        <input
+          matInput
+          type="password"
+          id="password"
+          required
+          [(ngModel)]="credentials.password"
+          name="password"
+          #password="ngModel"
+        />
+        <mat-error
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+        >
+          <div *ngIf="password.errors.required">
+            <span i18n>Password is required.</span>
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <mat-error class="alert alert-danger" role="alert" *ngIf="error"
+        ><span i18n
+          >Login failed! Could not log you in with those credentials!</span
+        ></mat-error
+      >
+      <div class="mt-4">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          class="btn btn-lg btn-info btn-circle"
+          (click)="login.emit(credentials)"
+        >
+          <span i18n>Login</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

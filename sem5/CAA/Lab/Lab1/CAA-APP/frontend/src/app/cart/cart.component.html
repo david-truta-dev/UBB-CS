@@ -1,0 +1,9 @@
+<app-header></app-header>
+<app-cart-menu (checkout)="checkout()"></app-cart-menu>
+<app-cart-table
+  *ngIf="cartItems.size"
+  [cartItems]="cartItems"
+  (incrementQuantity)="incrementQuantity($event)"
+  (decrementQuantity)="decrementQuantity($event)"
+></app-cart-table>
+<app-cart-empty-warning *ngIf="!cartItems.size"></app-cart-empty-warning>

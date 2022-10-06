@@ -1,0 +1,15 @@
+<div>
+  <h1 class="mat-headline">
+    <span i18n>Products</span>
+    <div class="float-right">
+      <a *ngIf="isCustomer" [routerLink]="['/cart']"
+        ><button mat-raised-button color="primary">
+          <i class="fa fa-shopping-cart"></i></button
+      ></a>
+      <a *ngIf="isAdmin" [routerLink]="['/products/new']"
+        ><button mat-raised-button color="primary">Add Product</button></a
+      >
+    </div>
+  </h1>
+</div>
+<mat-divider class="mb-3"></mat-divider>

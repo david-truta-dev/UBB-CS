@@ -1,0 +1,23 @@
+<table mat-table [dataSource]="cartItems | keyvalue" class="mat-elevation-z8" id="carttable">
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> <span i18n>Category</span> </th>
+        <td mat-cell *matCellDef="let cartItem"> {{ cartItem.value.product.categoryName }} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> <span i18n>Product Name</span> </th>
+        <td mat-cell *matCellDef="let cartItem">{{ cartItem.value.product.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> <span i18n>Category</span> </th>
+        <td mat-cell *matCellDef="let cartItem"> {{ cartItem.value.product.price }}</td>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> <span i18n>Quantity</span> </th>
+        <td mat-cell *matCellDef="let cartItem"> <a href="javascript:;"
+                (click)="decrementItemQuantity(cartItem.value)"><i class="fa fa-caret-left"></i></a>
+            {{cartItem.value.quantity}} <a href="javascript:;" (click)="incrementItemQuantity(cartItem.value)"><i
+                    class="fa fa-caret-right"></i></a></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="['category', 'name', 'price', 'quantity']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['category', 'name', 'price', 'quantity'];"></tr>
+</table>
