@@ -1,0 +1,37 @@
+program ::= "{" {decllist} {stmtlist} "}"
+
+decllist ::= declaration | declaration ";" decllist
+
+declaration ::= IDENTIFIER ":" type
+
+type1 ::= "BOOLEAN" | "CHAR" | "INTEGER" | "REAL"
+
+arraydecl ::= "ARRAY" "[" nr "]" "OF" type1
+
+type  ::= type1 | arraydecl
+
+stmtlist ::= stmt | stmt ";" stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt | iostmt
+
+assignstmt ::= IDENTIFIER "=" expression ";" | IDENTIFIER "=" CONSTANT ";" | IDENTIFIER "=" IDENTIFIER ";"
+
+expression ::= expression "-" term | expression "+" term | term
+
+term ::= term "/" factor | term "*" factor | factor
+
+factor ::= IDENTIFIER | CONSTANT
+
+iostmt ::= "read" "(" IDENTIFIER ")" ";"| "write" "(" IDENTIFIER ")" ";" | "write" "(" factor ")"
+
+structstmt ::= ifstmt | whilestmt
+
+ifstmt ::= "if" "(" condition ")" "{" stmtlist "}" ["else" "{" stmtlist "}"]
+
+whilestmt ::= "while" "(" condition ")" "{" stmtlist "}"
+
+condition ::= expression RELATION expression
+
+RELATION ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
