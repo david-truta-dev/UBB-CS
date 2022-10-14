@@ -45,11 +45,10 @@
 	
 *  Sem 5 - tbc... <br />
 
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/se) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/ai) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/wp) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/dbms) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/mpp) <br />
+	☁️  [CAA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/CAA) <br />
+	📋  [FLCD](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/FLCD) <br />
+	💩   [RPA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/RPA) <br />
+	👥   [PDP](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/PDP) <br />
 
 <br />
 	
