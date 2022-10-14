@@ -25,7 +25,7 @@ Lexic:
 
         -a sequence of letters and  digits, such that the first character is a letter; the rule is:
 
-            identifier ::= letter | letter{letter}{digit} | _letter{letter}{digit}
+            identifier ::= letter | letter{letter | digit} | _letter{letter | digit}
 
             letter ::= "A" | "B" | . ..| "Z" | "a" | "b" | . ..| "z"
 
@@ -40,7 +40,7 @@ Lexic:
 
             noconst:="+"no|"-"no|no
 
-            no:=digit{no}
+            no:= digit{no}
 
         2.character
 
@@ -48,8 +48,10 @@ Lexic:
 
         3.string
 
-            constchar:= """ string """
+            constchar:= "'"char"'"
+           
+            conststring:= """string"""
 
-            string:=char{string}
+            string:= {char}
 
-            char:=letter|digit| 
+            char:= {letter|digit|specialSymbol}

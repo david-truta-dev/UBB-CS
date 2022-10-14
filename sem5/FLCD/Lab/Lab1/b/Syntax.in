@@ -1,16 +1,18 @@
-program ::= "{" {decllist} {stmtlist} "}"
+program ::= "PROGRAM:{" {decllist | stmtlist} "}"
 
-decllist ::= declaration | declaration ";" decllist
+decllist ::= declaration | declaration decllist
 
-declaration ::= IDENTIFIER ":" type
+declaration ::= IDENTIFIER ":" type ";"
 
 type1 ::= "BOOLEAN" | "CHAR" | "INTEGER" | "REAL"
 
-arraydecl ::= "ARRAY" "[" nr "]" "OF" type1
+arraydecl ::= "ARRAY" "[" CONSTANT "]" "OF" type1
 
 type  ::= type1 | arraydecl
 
-stmtlist ::= stmt | stmt ";" stmtlist
+cmpdstmt ::= "{" stmtlist "}"
+
+stmtlist ::= stmt | stmt stmtlist
 
 stmt ::= simplstmt | structstmt
 
@@ -24,7 +26,7 @@ term ::= term "/" factor | term "*" factor | factor
 
 factor ::= IDENTIFIER | CONSTANT
 
-iostmt ::= "read" "(" IDENTIFIER ")" ";"| "write" "(" IDENTIFIER ")" ";" | "write" "(" factor ")"
+iostmt ::= "read" "(" IDENTIFIER ")" ";"| "write" "(" factor ")"
 
 structstmt ::= ifstmt | whilestmt
 
