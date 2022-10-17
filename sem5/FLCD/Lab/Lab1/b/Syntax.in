@@ -6,7 +6,7 @@ declaration ::= IDENTIFIER ":" type ";"
 
 type1 ::= "BOOLEAN" | "CHAR" | "INTEGER" | "REAL"
 
-arraydecl ::= "ARRAY" "[" CONSTANT "]" "OF" type1
+arraydecl ::= IDENTIFIER ":" type1 "[" "]" ";"
 
 type  ::= type1 | arraydecl
 
@@ -22,7 +22,7 @@ assignstmt ::= IDENTIFIER "=" expression ";" | IDENTIFIER "=" CONSTANT ";" | IDE
 
 expression ::= expression "-" term | expression "+" term | term
 
-term ::= term "/" factor | term "*" factor | factor
+term ::= term "/" factor | term "*" factor | term "%" factor | factor
 
 factor ::= IDENTIFIER | CONSTANT
 
@@ -30,7 +30,7 @@ iostmt ::= "read" "(" IDENTIFIER ")" ";"| "write" "(" factor ")"
 
 structstmt ::= ifstmt | whilestmt
 
-ifstmt ::= "if" "(" condition ")" "{" stmtlist "}" ["else" "{" stmtlist "}"]
+ifstmt ::= "if" "(" condition ")" "{" stmtlist "}" ["else" "{" stmtlist "}"] |  "if" "(" condition ")" stmt ["else" "{" stmtlist "}"] |  "if" "(" condition ")"  stmt ["else" stmt ]
 
 whilestmt ::= "while" "(" condition ")" "{" stmtlist "}"
 

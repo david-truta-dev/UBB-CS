@@ -23,7 +23,7 @@ Lexic:
 
       b.identifiers:
 
-        -a sequence of letters and  digits, such that the first character is a letter; the rule is:
+        - a sequence of letters and  digits, such that the first character is a letter or underscore; the rule is:
 
             identifier ::= letter | letter{letter | digit} | _letter{letter | digit}
 
@@ -32,7 +32,6 @@ Lexic:
             digit ::= "0" | "1" |...| "9"
 
             specialSymbol ::= "." | "," | "/" | "\" | "|" | "?" | "!" | 
-
 
       c.constants:
 
