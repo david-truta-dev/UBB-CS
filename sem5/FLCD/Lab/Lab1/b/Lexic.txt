@@ -10,10 +10,10 @@ Lexic:
 
       a.Special symbols, representing:
 
-        - operators + - * / < <= = >= ==
+        - operators + - * /  % < > <= >= != == = 
             arithmetic: + - * / %
             relational: == != < > <= >=
-            logical: and or
+            logical: && ||
             asignment: =
 
         - separators [ ] { } ( ) : ; space

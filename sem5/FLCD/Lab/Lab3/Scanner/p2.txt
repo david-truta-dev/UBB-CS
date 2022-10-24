@@ -1,0 +1,15 @@
+PROGRAM:{
+    nr: int;
+    d: int;
+    d=3;
+    
+    if(nr % 2 == 0 || nr < 2)
+        return false;
+
+    while(d * d <= nr) {
+        if( nr % d == 0 )
+            return false;
+        d = d + 2;
+    }
+    return true;
+}
