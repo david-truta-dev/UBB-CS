@@ -1,8 +1,3 @@
-package ubb.pdp.Task;
-
-import ubb.pdp.Checker.Checker;
-import ubb.pdp.Main;
-
 import java.util.TimerTask;
 
 public class RunCheckerTask extends TimerTask {

@@ -1,13 +1,11 @@
-package ubb.pdp.Model;
-
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Node {
     public ReentrantLock mutex = new ReentrantLock();
 
-    private ArrayList<Node> inputs = new ArrayList<>();
-    private ArrayList<Node> secondary = new ArrayList<>(); //sum nodes
+    private final ArrayList<Node> inputs = new ArrayList<>();
+    private final ArrayList<Node> secondary = new ArrayList<>(); //sum nodes
     private int value = 0;
 
     public Node (int value){
