@@ -1,0 +1,57 @@
+---- myAlbumsApp --------------------------------------------------------------------------------
+
+Description: 
+- An app for managing photos, categorizing them by albums. 
+Each user would have a profile with albums and each album would have 0 or more photos.
+The user would be able to view the photos in albums fetched from a server and edit his profile.
+
+
+Domain details:
+  Photo:
+    int? id;
+    int? albumId;
+    String? title;
+    String? url;
+    String? thumbnailUrl;
+
+  Album:
+    int? id;
+    int? userId;
+    String? title;
+
+  User:
+    String? firstName;
+    String? lastName;
+    String? email;
+    String? phone;
+    Address? address;
+    int? year;
+	
+
+CRUD operations details:
+  Album:
+    create - creates and adds a photo to an album
+    update - updates photos, details or title from an album
+    delete - deletes an album with all photos in it
+    get - fetches all albums for a user
+
+  Photo:
+    create - creates and adds a photo to an album
+    update - updates photo title or description
+    delete - deletes a photo from an album
+    get - fetches all photos from an album
+
+  User:
+    create - creates a user profile
+    update - updates any field of the profile
+    get - fetches the profile
+
+
+Persistance details:
+  - photos and albums stored on a server.
+  - user profiles saved on a local database
+
+
+Offline Device case:
+- In case the device is offline an alert will show a message like "Failed to fetch data" for each 
+operation which requires internet.
