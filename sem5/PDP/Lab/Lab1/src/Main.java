@@ -11,17 +11,17 @@ public class Main {
 	    runChecker();
     }
 
+    private static void runChecker(){
+        Timer timer = new Timer();
+        timer.schedule(new RunCheckerTask(),3, 3000);
+    }
+
     private static void modifyInputNodes(){
         //10 threads
         for(int i = 0; i< 10; ++i){
             Timer timer = new Timer();
             timer.schedule(new ModifyInputNodesTask(),0,1000);
         }
-    }
-
-    private static void runChecker(){
-        Timer timer = new Timer();
-        timer.schedule(new RunCheckerTask(),3, 3000);
     }
 
     private static void createNodes(){

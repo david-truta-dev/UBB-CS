@@ -3,7 +3,6 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Node {
     public ReentrantLock mutex = new ReentrantLock();
-
     private final ArrayList<Node> inputs = new ArrayList<>();
     private final ArrayList<Node> secondary = new ArrayList<>(); //sum nodes
     private int value = 0;
@@ -26,7 +25,6 @@ public class Node {
         return value;
     }
 
-
     public void addSecondary(Node secondary){
         this.secondary.add(secondary);
         secondary.addInput(this);
@@ -36,7 +34,6 @@ public class Node {
     public void addInput(Node input){
         this.inputs.add(input);
     }
-
 
     public void addValue(int value){
         mutex.lock();
