@@ -1,19 +1,19 @@
-PROGRAM:{
+BEGIN
     a: int;
-    b: int;
+    12b: int;
     c: int;
     max: int;
     
     a=1;
-    b=5;
-    c="efectiv greseala";
+    12b=5;
+    c=2;
 
     if(a > b){
         max == a;
     } else {
-        max = b;
+        max = 12b;
     }
     if(max < c){
         max = c;
     }
-}
+END

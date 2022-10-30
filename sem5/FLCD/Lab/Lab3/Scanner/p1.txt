@@ -1,9 +1,9 @@
-PROGRAM:{
+BEGIN
     a: int;
     b: int;
     c: int;
     max: int;
-    
+
     a=1;
     b=5;
     c=-3;
@@ -16,4 +16,4 @@ PROGRAM:{
     if(max < c){
         max = c;
     }
-}
+END

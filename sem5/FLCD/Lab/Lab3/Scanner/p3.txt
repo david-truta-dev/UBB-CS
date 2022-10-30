@@ -1,4 +1,4 @@
-PROGRAM:{
+BEGIN
     n: int;
     nr: int;
     i: int;
@@ -13,4 +13,4 @@ PROGRAM:{
     }
 
     return sum;
-}
+END

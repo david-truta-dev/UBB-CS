@@ -1,4 +1,4 @@
-# SymbolTable Documentation
+# Scanner Documentation
 ## ~ Implemented using a hash table
 ### Hash function:
 - INPUT: element(any), index(int)

@@ -1,9 +1,12 @@
-PROGRAM:{
+BEGIN
     nr: int;
     d: int;
     d=3;
     
-    if(nr % 2 == 0 || nr < 2)
+    if(nr % 2 == 0)
+        return false;
+
+    if(nr < 2)
         return false;
 
     while(d * d <= nr) {
@@ -12,4 +15,4 @@ PROGRAM:{
         d = d + 2;
     }
     return true;
-}
+END
