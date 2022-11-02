@@ -1,8 +1,11 @@
 BEGIN
-    n: int;
+    _n: int;
     nr: int;
     i: int;
     sum: int;
+    character: string;
+
+    char="";
     
     read(n);
 

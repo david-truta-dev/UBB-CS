@@ -62,12 +62,12 @@ class Scanner:
     @staticmethod
     def write_files(symbol_table, pif):
         with open('PIF.out', 'w') as file:
-            file.write(str(pif))
+            file.write(str(pif).replace("),", "),\n"))
         with open('ST.out', 'w') as file:
             file.write(str(symbol_table))
 
     def detect_tokens(self, string):
-        line_data = re.split('("[^a-zA-Z0-9\"\']")|([^a-zA-Z0-9\"\'])', string)
+        line_data = re.split('("[^_a-zA-Z0-9\"\']")|([^_a-zA-Z0-9\"\'])', string)
         elements = [el for el in line_data if el is not None and el != '' and el != ' ']
         n = len(elements) - 1
         for i in range(n):
@@ -91,12 +91,12 @@ class Scanner:
 
     @staticmethod
     def detect_identifier(string):
-        match = re.match('^[a-zA-Z]+[a-zA-Z0-9_]*$', string)
+        match = re.match('^_?[a-zA-Z]+[a-zA-Z0-9]*$', string)
         return match is not None
 
     @staticmethod
     def detect_constant(string):
-        match_string = re.match('^\"[a-zA-Z0-9\-_ ]+\"$', string)
+        match_string = re.match('^\"[a-zA-Z0-9\-_]*\"$', string)
         if match_string is None:
             match_char = re.match('^\'[a-zA-Z0-9\-_ ]\'$', string)
             if match_char is None:

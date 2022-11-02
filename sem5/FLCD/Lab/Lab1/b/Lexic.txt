@@ -13,7 +13,6 @@ Lexic:
         - operators + - * /  % < > <= >= != == = 
             arithmetic: + - * / %
             relational: == != < > <= >=
-            logical: && ||
             asignment: =
 
         - separators [ ] { } ( ) : ; space
@@ -30,8 +29,6 @@ Lexic:
             letter ::= "A" | "B" | . ..| "Z" | "a" | "b" | . ..| "z"
 
             digit ::= "0" | "1" |...| "9"
-
-            specialSymbol ::= "." | "," | "/" | "\" | "|" | "?" | "!" | 
 
       c.constants:
 
@@ -53,4 +50,4 @@ Lexic:
 
             string:= {char}
 
-            char:= {letter|digit|specialSymbol}
+            char:= {letter|digit}

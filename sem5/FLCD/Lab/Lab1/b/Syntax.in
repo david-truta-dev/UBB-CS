@@ -1,4 +1,4 @@
-program ::= "PROGRAM:{" {decllist | stmtlist} "}"
+program ::= "BEGIN" {decllist | stmtlist} "END"
 
 decllist ::= declaration | declaration decllist
 

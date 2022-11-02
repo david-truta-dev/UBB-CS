@@ -1,4 +1,4 @@
-PROGRAM:{
+BEGIN
     a: int;
     b: int;
     c: int;
@@ -16,4 +16,6 @@ PROGRAM:{
     if(max < c){
         max = c;
     }
-}
+
+    write(max);
+END
