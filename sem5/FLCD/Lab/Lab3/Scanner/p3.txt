@@ -3,10 +3,12 @@ BEGIN
     nr: int;
     i: int;
     sum: int;
-    character: string;
+    str: string;
+    chr: char;
 
-    char="";
-    
+    str="";
+    chr='a';
+
     read(n);
 
     i=1;

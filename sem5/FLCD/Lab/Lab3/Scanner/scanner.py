@@ -16,6 +16,13 @@ class PifElement(Enum):
     IDENTIFIER = 'identifier'
 
 
+class RegularExpressions(Enum):
+    IDENTIFIER = '^_?[a-zA-Z]+[a-zA-Z0-9]*$'
+    STRING = '^\"[a-zA-Z0-9\-_]*\"$'
+    CHAR = '^\'[a-zA-Z0-9\-_ ]\'$'
+    NUMBER = '^(\+|-)?[1-9][0-9]*$|^0$'
+
+
 class Scanner:
     def __init__(self, file_string):
         self._file = file_string
@@ -56,7 +63,7 @@ class Scanner:
                             raise ValueError(
                                 'Lexical Error on line ' + str(elements.index(element)) + ' at token ' + token)
         print(self._symbolTable)
-        print(self._programInternalForm)
+        print((str(self._programInternalForm).replace("),", "),\n")))
         self.write_files(self._symbolTable, self._programInternalForm)
 
     @staticmethod
@@ -91,16 +98,16 @@ class Scanner:
 
     @staticmethod
     def detect_identifier(string):
-        match = re.match('^_?[a-zA-Z]+[a-zA-Z0-9]*$', string)
+        match = re.match(RegularExpressions.IDENTIFIER.value, string)
         return match is not None
 
     @staticmethod
     def detect_constant(string):
-        match_string = re.match('^\"[a-zA-Z0-9\-_]*\"$', string)
+        match_string = re.match(RegularExpressions.STRING.value, string)
         if match_string is None:
-            match_char = re.match('^\'[a-zA-Z0-9\-_ ]\'$', string)
+            match_char = re.match(RegularExpressions.CHAR.value, string)
             if match_char is None:
-                match_number = re.match('^(\+|-)?[1-9][0-9]*$|^0$', string)
+                match_number = re.match(RegularExpressions.NUMBER.value, string)
                 if match_number is None:
                     return ConstantType.NOTHING
                 return ConstantType.NUMBER
