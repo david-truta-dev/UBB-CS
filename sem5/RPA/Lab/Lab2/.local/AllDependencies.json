@@ -8402,15 +8402,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andrei\\.nuget\\packages\\": {}
+    "C:\\Users\\david\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Demo5-NameAge",
       "projectName": "Demo5-NameAge",
-      "projectPath": "C:\\Users\\andrei\\Facultate\\Lab2-AndreiVasil\\.local",
-      "packagesPath": "C:\\Users\\andrei\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andrei\\Facultate\\Lab2-AndreiVasil\\.local"
+      "projectPath": "C:\\Users\\david\\Documents\\GitHub\\UBB-CS\\sem5\\RPA\\Lab\\Lab2\\.local",
+      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\david\\Documents\\GitHub\\UBB-CS\\sem5\\RPA\\Lab\\Lab2\\.local"
     },
     "frameworks": {
       "net461": {
@@ -8436,7 +8436,7 @@
             "version": "[22.4.7, 22.4.7]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\david\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
