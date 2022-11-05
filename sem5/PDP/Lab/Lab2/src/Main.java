@@ -7,8 +7,8 @@ public class Main {
             throws InterruptedException {
         final ProducerConsumer pc = new ProducerConsumer();
 
-        List<Integer> vector1 = new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1));
-        List<Integer> vector2 = new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1));
+        List<Integer> vector1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 1, 1, 9, 7, 4, 1));
+        List<Integer> vector2 = new ArrayList<>(Arrays.asList(2, 7, 2, 1, 6, 9, 1, 1, 4, 1));
 
         Thread t1 = new Thread(() -> {
             try {
