@@ -1,17 +1,17 @@
 {
-  "name": "Demo5-NameAge",
-  "description": "Compute the age in years for a given person's name and birth year. Empty name and negative year are handled.",
+  "name": "GenerateNr",
+  "description": "GenerateNr",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.12.3]",
-    "UiPath.Mail.Activities": "[1.15.2]",
-    "UiPath.System.Activities": "[22.4.5]",
-    "UiPath.UIAutomation.Activities": "[22.4.7]"
+    "UiPath.Excel.Activities": "[2.11.4]",
+    "UiPath.Mail.Activities": "[1.12.3]",
+    "UiPath.System.Activities": "[21.10.5]",
+    "UiPath.UIAutomation.Activities": "[21.10.6]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
-  "studioVersion": "19.8.0.0",
+  "studioVersion": "21.10.7.0",
   "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
@@ -27,7 +27,7 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": false
+    "mustRestoreAllDependencies": true
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -40,13 +40,13 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": false
+    "modernBehavior": true
   },
-  "expressionLanguage": "VisualBasic",
+  "expressionLanguage": "VB",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "9f9861b2-b034-4910-8858-b50ba5d16265",
+      "uniqueId": "096703b7-e61b-4738-b1ad-843d27db102f",
       "input": [],
       "output": []
     }

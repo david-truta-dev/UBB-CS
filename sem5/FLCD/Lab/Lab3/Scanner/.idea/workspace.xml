@@ -2,15 +2,88 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2432ad5f-cade-4617-a3c4-f0c85d99e77b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Lab1/a/p3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab1/a/p3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOCUMENTATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/DOCUMENTATION.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PIF.out" beforeDir="false" afterPath="$PROJECT_DIR$/PIF.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ST.out" beforeDir="false" afterPath="$PROJECT_DIR$/ST.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/p1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/p3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/scanner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/AllDependencies.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/AllDependencies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/Demo5-NameAge.nuget.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/PackageBindingsMetadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/PackageBindingsMetadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/PackageCache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/PackageCache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/db/references.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/db/references.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.local/nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-1a5b880a.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-1a5b880a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-5190454b.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-5190454b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-590bb27b.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-590bb27b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-a1b2dac1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Debug/settings-a1b2dac1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Design/settings-5190454b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Design/settings-a1b2dac1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-1a5b880a.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-1a5b880a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-5190454b.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-5190454b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-590bb27b.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-590bb27b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-a1b2dac1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/.settings/Release/settings-a1b2dac1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/Main.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/Main.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/androidTest/java/com/example/lab2/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/java/com/example/lab2/FirstFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/java/com/example/lab2/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/java/com/example/lab2/SecondFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/java/com/example/lab2/adapter/ItemAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/java/com/example/lab2/data/Datasource.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/java/com/example/lab2/model/Affirmation.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/layout/content_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/layout/fragment_first.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/layout/fragment_second.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/layout/list_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/menu/menu_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values-land/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values-w1240dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values-w600dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/app/src/test/java/com/example/lab2/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/arith.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/arith.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/dif.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/diff.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/geo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/geo.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/input.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/sum.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../RPA/Lab/Lab2/sum.xaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +177,7 @@
       <updated>1666431139812</updated>
       <workItem from="1667143903890" duration="4529000" />
       <workItem from="1667564531268" duration="3609000" />
+      <workItem from="1667819374915" duration="24000" />
     </task>
     <servers />
   </component>
