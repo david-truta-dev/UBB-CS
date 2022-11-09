@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MyAlbums</string>
+    <string name="app_name">MyPhotos</string>
+    <string name="title_item_detail">Photo details</string>
 </resources>

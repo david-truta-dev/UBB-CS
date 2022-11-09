@@ -12,7 +12,7 @@ Domain details:
     int? albumId;
     String? title;
     String? url;
-    String? thumbnailUrl;
+    String? date;
 
   Album:
     int? id;
