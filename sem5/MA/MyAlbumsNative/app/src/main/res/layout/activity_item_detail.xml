@@ -42,7 +42,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteBtn"
+        android:id="@+id/add_popup_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
@@ -50,7 +50,19 @@
         android:contentDescription="Deletes the photo"
         app:backgroundTint="@color/colorPrimaryDark"
         app:layout_anchor="@+id/item_detail_container"
-        app:layout_anchorGravity="top|end"
+        app:layout_anchorGravity="end"
         app:srcCompat="@android:drawable/ic_delete" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/update_popup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:layout_margin="90dp"
+        android:contentDescription="Deletes the photo"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:layout_anchor="@+id/add_popup_btn"
+        app:layout_anchorGravity="center_vertical"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

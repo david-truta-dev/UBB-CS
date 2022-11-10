@@ -1,11 +1,18 @@
 package ro.david.truta.myAlbums
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import kotlinx.android.synthetic.main.activity_item_detail.*
+import kotlinx.android.synthetic.main.popup_window.view.*
 import ro.cojocar.dan.recyclerview.R
 import ro.david.truta.myAlbums.dummy.DummyContent
 
@@ -18,10 +25,6 @@ class ItemDetailActivity : AppCompatActivity() {
 
         // Show the Up button in the action bar.
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        deleteBtn.setOnClickListener { view ->
-            deletePhoto(intent.getStringExtra(ItemDetailFragment.ARG_ITEM_ID).toString())
-        }
 
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
@@ -39,13 +42,61 @@ class ItemDetailActivity : AppCompatActivity() {
                 .add(R.id.item_detail_container, fragment)
                 .commit()
         }
+
+        add_popup_btn.setOnClickListener {
+            deletePhoto(intent.getStringExtra(ItemDetailFragment.ARG_ITEM_ID).toString())
+        }
+
+        update_popup.setOnClickListener { view ->
+            updatePhoto(intent.getStringExtra(ItemDetailFragment.ARG_ITEM_ID).toString(), view)
+        }
     }
 
     private fun deletePhoto(id: String) {
         DummyContent.ITEM_MAP.remove(id)
         DummyContent.ITEMS.remove(DummyContent.ITEMS.find { it.id == id })
+        NavUtils.navigateUpTo(this, Intent(this, ItemListActivity::class.java));
     }
 
+    private fun updatePhoto(id: String, view: View) {
+        onButtonShowPopupWindowClick(id, view)
+    }
+
+    private fun onButtonShowPopupWindowClick(id: String, view: View?) {
+        // inflate the layout of the popup window
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val popupView: View = inflater.inflate(R.layout.popup_window, null)
+
+        // create the popup window
+        val width = LinearLayout.LayoutParams.WRAP_CONTENT
+        val height = LinearLayout.LayoutParams.WRAP_CONTENT
+        val popupWindow = PopupWindow(popupView, width, height, true)
+
+        popupView.addPhotoBtn.text = "UPDATE";
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window token
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, -300)
+
+        popupView.addPhotoBtn.setOnClickListener {
+            DummyContent.ITEM_MAP.remove(id)
+            DummyContent.ITEMS.remove(DummyContent.ITEMS.find { it.id == id })
+
+            val photo: DummyContent.Photo = DummyContent.Photo(
+                id,
+                popupView.album_name_field.text.toString(),
+                popupView.photo_title_field.text.toString(),
+                popupView.photo_url_field.text.toString(),
+                popupView.photo_date_field.text.toString()
+            );
+
+            DummyContent.ITEMS.add(photo);
+            DummyContent.ITEM_MAP[id] = photo
+
+            popupWindow.dismiss()
+            NavUtils.navigateUpTo(this, Intent(this, ItemListActivity::class.java));
+        }
+    }
 
     override fun onOptionsItemSelected(item: MenuItem) =
         when (item.itemId) {

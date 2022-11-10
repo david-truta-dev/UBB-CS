@@ -12,10 +12,13 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_item_list.*
 import kotlinx.android.synthetic.main.item_list.*
 import kotlinx.android.synthetic.main.item_list_content.view.*
+import kotlinx.android.synthetic.main.popup_window.*
+import kotlinx.android.synthetic.main.popup_window.view.*
 import ro.cojocar.dan.recyclerview.R
 import ro.david.truta.myAlbums.dummy.DummyContent
 
@@ -29,19 +32,14 @@ class ItemListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.title = title
 
-        deleteBtn.setOnClickListener { view ->
+        add_popup_btn.setOnClickListener { view ->
             onButtonShowPopupWindowClick(view)
         }
 
         setupRecyclerView(item_list)
     }
 
-    private fun setupRecyclerView(recyclerView: RecyclerView) {
-        recyclerView.adapter = SimpleItemRecyclerViewAdapter(DummyContent.ITEMS)
-    }
-
     private fun onButtonShowPopupWindowClick(view: View?) {
-
         // inflate the layout of the popup window
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val popupView: View = inflater.inflate(R.layout.popup_window, null)
@@ -55,11 +53,27 @@ class ItemListActivity : AppCompatActivity() {
         // which view you pass in doesn't matter, it is only used for the window token
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, -300)
 
-        // dismiss the popup window when touched
-//        popupView.setOnTouchListener { v, event ->
-//            popupWindow.dismiss()
-//            true
-//        }
+        popupView.addPhotoBtn.setOnClickListener {
+            val id: Int = DummyContent.ITEMS.size
+
+            val photo: DummyContent.Photo = DummyContent.Photo(
+                id.toString(),
+                popupView.album_name_field.text.toString(),
+                popupView.photo_title_field.text.toString(),
+                popupView.photo_url_field.text.toString(),
+                popupView.photo_date_field.text.toString()
+            );
+
+            DummyContent.ITEMS.add(photo);
+            DummyContent.ITEM_MAP[id.toString()] = photo
+
+            popupWindow.dismiss()
+        }
+
+    }
+
+    private fun setupRecyclerView(recyclerView: RecyclerView) {
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(DummyContent.ITEMS)
     }
 
     class SimpleItemRecyclerViewAdapter(

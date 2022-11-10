@@ -35,7 +35,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/album_name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -43,7 +43,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/photo_title_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +51,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/photo_url_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -59,12 +59,12 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/photo_date_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Date"
-            android:inputType="textPersonName" />
+            android:inputType="date" />
 
         <Button
             android:id="@+id/addPhotoBtn"

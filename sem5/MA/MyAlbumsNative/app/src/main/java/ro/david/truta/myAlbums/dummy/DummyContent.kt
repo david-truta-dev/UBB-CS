@@ -9,7 +9,7 @@ object DummyContent {
 
     val ITEM_MAP: MutableMap<String, Photo> = HashMap()
 
-    private const val COUNT = 25
+    private const val COUNT = 10
 
     init {
 
@@ -30,7 +30,7 @@ object DummyContent {
     }
 
     private fun createDummyItem(position: Int, url: String): Photo {
-        return Photo(position.toString(), 0, "Photo $position", url, "date$position")
+        return Photo(position.toString(), "album de poze șmechere", "Photo $position", url, "date$position")
     }
 
     private fun makeDetails(position: Int): String {
@@ -44,8 +44,8 @@ object DummyContent {
 
     data class Photo(
         val id: String,
-        val albumId: Int,
-        val title: String,
+        var albumName: String,
+        var title: String,
         val url: String,
         val date: String,
     ) {
