@@ -36,7 +36,7 @@ class ItemDetailFragment : Fragment() {
 
     // Show the dummy content as text in a TextView.
     item?.let {
-      rootView.item_detail.text = ("Date:  " + it.date +"\n\nAlbum Id:  "+ it.albumName +"\n\nImgUrl:  "+ it.url)
+      rootView.item_detail.text = ("Date:  " + it.date +"\n\nAlbum:  "+ it.albumName +"\n\nImgUrl:  "+ it.url)
 
 
     }
