@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ItemListActivity"
+            android:name="ro.david.truta.myAlbums.ItemListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
                 android:exported="true">
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ItemDetailActivity"
+            android:name="ro.david.truta.myAlbums.ItemDetailActivity"
             android:label="@string/title_item_detail"
-            android:parentActivityName=".ItemListActivity"
+            android:parentActivityName="ro.david.truta.myAlbums.ItemListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ro.cojocar.dan.recyclerview.ItemListActivity" />
+                android:value="ro.cojocar.dan.recyclerview.ro.david.truta.myAlbums.ItemListActivity" />
         </activity>
     </application>
 

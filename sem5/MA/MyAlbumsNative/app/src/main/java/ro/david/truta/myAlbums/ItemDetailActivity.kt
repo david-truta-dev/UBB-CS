@@ -1,4 +1,4 @@
-package ro.cojocar.dan.recyclerview
+package ro.david.truta.myAlbums
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import kotlinx.android.synthetic.main.activity_item_detail.*
-import ro.cojocar.dan.recyclerview.dummy.DummyContent
+import ro.cojocar.dan.recyclerview.R
+import ro.david.truta.myAlbums.dummy.DummyContent
 
 class ItemDetailActivity : AppCompatActivity() {
 

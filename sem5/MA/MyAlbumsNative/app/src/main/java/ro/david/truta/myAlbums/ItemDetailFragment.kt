@@ -1,4 +1,4 @@
-package ro.cojocar.dan.recyclerview
+package ro.david.truta.myAlbums
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_item_detail.*
 import kotlinx.android.synthetic.main.item_detail.view.*
-import ro.cojocar.dan.recyclerview.dummy.DummyContent
+import ro.cojocar.dan.recyclerview.R
+import ro.david.truta.myAlbums.dummy.DummyContent
 
 class ItemDetailFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package ro.cojocar.dan.recyclerview.dummy
+package ro.david.truta.myAlbums.dummy
 
 import java.util.*
 import kotlin.collections.ArrayList
