@@ -108,7 +108,6 @@ class ItemListActivity : AppCompatActivity() {
         override fun getItemCount() = values.size
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val imageView: ImageView = view.image_view
             val contentView: TextView = view.content
         }
     }

@@ -37,7 +37,12 @@ class FiniteAutomata:
             state2 = rhs.strip()
             state1, route = [value.strip() for value in lhs.strip()[1:-1].split(',')]
 
-            result.append(((state1, route), state2))
+            toAdd = ((state1, route), state2)
+            for t in result:
+                if t[0] == toAdd[0]:
+                    raise Exception('Transaction already exists')
+
+            result.append(toAdd)
 
         return result
 
@@ -45,5 +50,5 @@ class FiniteAutomata:
         return 'Q = { ' + ', '.join(self.Q) + ' }\n' \
                + 'E = { ' + ', '.join(self.E) + ' }\n' \
                + 'F = { ' + ', '.join(self.F) + ' }\n' \
-               + 'S = { ' + ', '.join([' -> '.join([str(part) for part in trans]) for trans in self.S]) + ' }\n' \
+               + 'S = { ' + ', '.join([' -> '.join([str(part) for part in trans]) for trans in self.S]) + ' }\n'\
                + 'q0 = ' + str(self.q0) + '\n'

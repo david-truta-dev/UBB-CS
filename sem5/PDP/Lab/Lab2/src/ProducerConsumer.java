@@ -8,9 +8,10 @@ public class ProducerConsumer {
 
     public void produce(List<Integer> v1, List<Integer> v2) throws InterruptedException {
         for (int i = 0; i < v1.size(); i++) {
-            synchronized (this) {
-//                while (list.size() == capacity)
-//                    wait();
+            synchronized (this)
+            {
+                while (list.size() == capacity)
+                    wait();
 
                 int product = v1.get(i) * v2.get(i);
                 list.add(product);
@@ -18,8 +19,6 @@ public class ProducerConsumer {
                 System.out.println("Producer: " + v1.get(i) + " * " + v2.get(i) + " = " + product);
 
                 notify();
-
-                Thread.sleep(100);
             }
         }
     }
@@ -37,8 +36,6 @@ public class ProducerConsumer {
 
                 System.out.println("Consumer - current sum: " + sum);
                 notify();
-
-                Thread.sleep(100);
             }
         }
     }
