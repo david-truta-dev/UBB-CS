@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int size = 9;
+        int size = 100;
         int tasks = 4;
 
         List<List<Integer>> firstMatrix = MatrixHelper.generateMatrix(size);

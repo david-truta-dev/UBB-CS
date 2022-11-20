@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:my_albums_app/screen/albums/album_details/add_edit_photo/add_edit_photo_widget.dart';
 
 import '../../../../model/photo.dart';
 import '../../../../theming/dimensions.dart';
+import 'photo_details_widget.dart';
 
 class PhotoListWidget extends StatefulWidget {
   final List<Photo> photos;
 
-  const PhotoListWidget({Key? key, required this.photos})
-      : super(key: key);
+  const PhotoListWidget({Key? key, required this.photos}) : super(key: key);
 
   @override
   State<PhotoListWidget> createState() => _PhotoListWidgetState();
 }
 
 class _PhotoListWidgetState extends State<PhotoListWidget> {
+  VoidCallback _onTapPhoto(int i) => () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => PhotoDetailsWidget(photo: widget.photos[i]),
+        ),
+      );
+
+  VoidCallback _onTapEditPhoto(int i) => () => showDialog(
+      context: context, builder: (context) => const AddEditPhotoWidget());
+
   @override
   Widget build(BuildContext context) {
     final header = Row(
@@ -67,6 +77,14 @@ class _PhotoListWidgetState extends State<PhotoListWidget> {
               ),
               subtitle: Text(
                 '${AppLocalizations.of(context)!.photoWithId}: ${widget.photos[i].id}',
+              ),
+              onTap: _onTapPhoto(i),
+              trailing: IconButton(
+                onPressed: _onTapEditPhoto(i),
+                icon: Icon(
+                  Icons.edit,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             );
           },

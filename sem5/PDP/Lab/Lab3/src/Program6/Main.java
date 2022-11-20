@@ -7,9 +7,9 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) {
-        int size = 1000;
-        int tasks = 8;
-        int threads = 8;
+        int size = 100;
+        int tasks = 4;
+        int threads = 4;
 
         List<List<Integer>> firstMatrix = MatrixHelper.generateMatrix(size);
         List<List<Integer>> secondMatrix = MatrixHelper.generateMatrix(size);

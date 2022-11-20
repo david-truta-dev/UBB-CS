@@ -1,4 +1,3 @@
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/album.dart';
 import '../../repo/album_repo.dart';
@@ -15,14 +14,6 @@ class AlbumsViewModel {
 
   void setSelectedAlbum(AlbumViewModel? album) {
     _selectedAlbum = album;
-  }
-
-  bool isEven(int id) {
-    if (id % 2 == 0) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   Future<List<AlbumViewModel>> getAlbums() async {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        int size = 9;
+        int size = 100;
         int tasks = 4;
 
         List<List<Integer>> firstMatrix = MatrixHelper.generateMatrix(size);
@@ -21,27 +21,22 @@ public class Main {
 
         Long startTime = System.currentTimeMillis();
 
-        for(int i = 0; i < tasks; i++){
+        for (int i = 0; i < tasks; i++) {
             int startIndex = i * elements;
             int endIndex = (i + 1) * elements - 1;
 
-            if (i == tasks-1) endIndex += extraElements;
+            if (i == tasks - 1) endIndex += extraElements;
 
             int finalEndIndex = endIndex;
 
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run()
-                {
-                    MatrixHelper.computeMultiplicationResultElements(startIndex, finalEndIndex, firstMatrix, secondMatrix, resultMatrix);
-                }
-            });
+            Thread t = new Thread(() ->
+                    MatrixHelper.computeMultiplicationResultElements(startIndex, finalEndIndex, firstMatrix, secondMatrix, resultMatrix));
 
             threads.add(t);
             t.start();
         }
 
-        for(Thread thread: threads){
+        for (Thread thread : threads) {
             try {
                 thread.join();
             } catch (InterruptedException e) {

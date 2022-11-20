@@ -2,28 +2,25 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:my_albums_app/api/client_api.dart';
 import 'package:my_albums_app/repo/photo_repo.dart';
-import 'package:my_albums_app/screen/albums/details/widgets/album_header_widget.dart';
-import 'package:my_albums_app/screen/albums/details/widgets/album_interatcion_widget.dart';
-import 'package:my_albums_app/screen/albums/details/widgets/photo_list_widget.dart';
-import 'package:my_albums_app/screen/albums/album_view_model.dart';
-import '../../../BLoC/bloc_provider.dart';
-import '../../../BLoC/photo_query_bloc.dart';
+import 'package:my_albums_app/screen/albums/album_details/widgets/album_header_widget.dart';
+import 'package:my_albums_app/screen/albums/album_details/widgets/album_interatcion_widget.dart';
+import 'package:my_albums_app/screen/albums/album_details/widgets/photo_list_widget.dart';
+import 'package:my_albums_app/screen/albums/albums_view_model.dart';
 import '../../../model/photo.dart';
 import '../../../theming/dimensions.dart';
-import 'photo_view_model.dart';
+import 'album_details_view_model.dart';
 
-class AlbumDetailScreen extends StatelessWidget {
-  final PhotosViewModel viewModel =
-      PhotosViewModel(PhotoRepo(ClientApi(Dio())));
+class AlbumDetailsScreen extends StatelessWidget {
+  final AlbumDetailsViewModel viewModel =
+      AlbumDetailsViewModel(PhotoRepo(ClientApi(Dio())));
   final AlbumViewModel album;
 
-  AlbumDetailScreen({Key? key, required this.album}) : super(key: key);
+  AlbumDetailsScreen({Key? key, required this.album}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(  // FutureBuilder( /// THIS IS FOR FUTURE VERSION
-        stream: BlocProvider.of<PhotoQueryBloc>(context).photoStream,
-        //future: viewModel.fetchPhotosFromAlbum(album.id), /// THIS IS FOR FUTURE VERSION
+    return FutureBuilder(
+        future: viewModel.fetchPhotosFromAlbum(album.id),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(

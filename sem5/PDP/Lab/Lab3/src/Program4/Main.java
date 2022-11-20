@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) {
-        int size = 9;
+        int size = 100;
         int tasks = 4;
         int threads = 4;
 
