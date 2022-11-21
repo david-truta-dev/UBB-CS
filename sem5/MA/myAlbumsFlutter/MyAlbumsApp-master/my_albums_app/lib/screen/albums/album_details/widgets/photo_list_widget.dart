@@ -16,6 +16,8 @@ class PhotoListWidget extends StatefulWidget {
 }
 
 class _PhotoListWidgetState extends State<PhotoListWidget> {
+  List<Photo> photos = [];
+
   VoidCallback _onTapPhoto(int i) => () => Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => PhotoDetailsWidget(photo: widget.photos[i]),
@@ -23,7 +25,20 @@ class _PhotoListWidgetState extends State<PhotoListWidget> {
       );
 
   VoidCallback _onTapEditPhoto(int i) => () => showDialog(
-      context: context, builder: (context) => const AddEditPhotoWidget());
+      context: context,
+      builder: (context) => AddEditPhotoWidget(
+            title: "Edit Photo",
+            photoId: photos[i].id,
+            albumId: photos[i].albumId!,
+          )).then((value) => setState(() {
+        photos = value;
+      }));
+
+  @override
+  void initState() {
+    super.initState();
+    photos = widget.photos;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +63,7 @@ class _PhotoListWidgetState extends State<PhotoListWidget> {
           physics: const ScrollPhysics(),
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
-          itemCount: widget.photos.length,
+          itemCount: photos.length,
           itemBuilder: (context, i) {
             return ListTile(
               minVerticalPadding: 0,
@@ -59,7 +74,7 @@ class _PhotoListWidgetState extends State<PhotoListWidget> {
                   Radius.circular(10),
                 ),
                 child: Image.network(
-                  widget.photos[i].thumbnailUrl!,
+                  photos[i].url!,
                   loadingBuilder: (BuildContext context, Widget child,
                       ImageChunkEvent? loadingProgress) {
                     if (loadingProgress == null) return child;
@@ -71,12 +86,12 @@ class _PhotoListWidgetState extends State<PhotoListWidget> {
                 ),
               ),
               title: Text(
-                widget.photos[i].title!,
+                photos[i].title!,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               subtitle: Text(
-                '${AppLocalizations.of(context)!.photoWithId}: ${widget.photos[i].id}',
+                '${AppLocalizations.of(context)!.photoWithId}: ${photos[i].id}',
               ),
               onTap: _onTapPhoto(i),
               trailing: IconButton(

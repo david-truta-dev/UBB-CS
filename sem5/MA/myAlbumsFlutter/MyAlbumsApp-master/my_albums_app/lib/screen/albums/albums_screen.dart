@@ -13,7 +13,7 @@ import 'album_details/album_details_screen.dart';
 
 class AlbumsScreen extends StatelessWidget {
   final AlbumsViewModel viewModel =
-  AlbumsViewModel(AlbumRepo(ClientApi(Dio())));
+      AlbumsViewModel(AlbumRepo(ClientApi(Dio())));
 
   AlbumsScreen({Key? key}) : super(key: key);
 
@@ -79,45 +79,46 @@ class _AlbumsListScreen extends StatefulWidget {
 }
 
 class _AlbumsListScreenState extends State<_AlbumsListScreen> {
-  VoidCallback _onAlbumTap(int i) =>
-          () =>
-          setState(() {
-            widget.viewModel.setSelectedAlbum(widget.albums[i]);
-          });
+  VoidCallback _onAlbumTap(int i) => () => setState(() {
+        widget.viewModel.setSelectedAlbum(widget.albums[i]);
+      });
 
-  VoidCallback get _onBackPressed =>
-          () =>
-          setState(() {
-            widget.viewModel.setSelectedAlbum(null);
-          });
+  VoidCallback get _onBackPressed => () => setState(() {
+        widget.viewModel.setSelectedAlbum(null);
+      });
 
-  VoidCallback get _onAddPressed =>
-          () =>
-          showDialog(context: context,
-              builder: (context) => const AddEditPhotoWidget());
+  VoidCallback _onAddPressed(int i) => () => showDialog(
+      context: context,
+      builder: (context) => AddEditPhotoWidget(
+            title: "Add Photo",
+            albumId: widget.albums[i].id,
+          )).then((value) => setState((){}));
 
   @override
   Widget build(BuildContext context) {
     return (widget.viewModel.getSelectedAlbum != null)
         ? _AlbumDetailsWidget(
-      onBackPressed: _onBackPressed,
-      onAddPressed: _onAddPressed,
-      albumViewModel: widget.viewModel.getSelectedAlbum!,
-    )
+            onBackPressed: _onBackPressed,
+            onAddPressed: _onAddPressed,
+            albumViewModel: widget.viewModel.getSelectedAlbum!,
+          )
         : _AlbumsListWidget(
-      onAlbumTap: _onAlbumTap,
-      albums: widget.albums,
-    );
+            onAlbumTap: _onAlbumTap,
+            albums: widget.albums,
+          );
   }
 }
 
 class _AlbumDetailsWidget extends StatelessWidget {
   final VoidCallback onBackPressed;
-  final VoidCallback onAddPressed;
+  final Function onAddPressed;
   final AlbumViewModel albumViewModel;
 
   const _AlbumDetailsWidget(
-      {Key? key, required this.onBackPressed, required this.albumViewModel, required this.onAddPressed})
+      {Key? key,
+      required this.onBackPressed,
+      required this.albumViewModel,
+      required this.onAddPressed})
       : super(key: key);
 
   @override
@@ -125,19 +126,16 @@ class _AlbumDetailsWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBarWidget(
         title: Text(AppLocalizations.of(context)!.details,
-            style: Theme
-                .of(context)
-                .textTheme
-                .headlineSmall),
+            style: Theme.of(context).textTheme.headlineSmall),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Theme
-              .of(context)
-              .primaryColor),
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).primaryColor),
           onPressed: onBackPressed,
         ),
         actions: [
-          IconButton(onPressed: onAddPressed, icon: const Icon(Icons.add))
+          IconButton(
+              onPressed: onAddPressed(albumViewModel.id),
+              icon: const Icon(Icons.add))
         ],
       ),
       body: AlbumDetailsScreen(album: albumViewModel),
@@ -158,10 +156,7 @@ class _AlbumsListWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBarWidget(
         title: Text(AppLocalizations.of(context)!.myAlbums,
-            style: Theme
-                .of(context)
-                .textTheme
-                .headlineSmall),
+            style: Theme.of(context).textTheme.headlineSmall),
         centerTitle: false,
       ),
       body: Center(
@@ -178,14 +173,10 @@ class _AlbumsListWidget extends StatelessWidget {
               title: Text(
                 albums[i].title,
                 overflow: TextOverflow.ellipsis,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .titleMedium,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               subtitle: Text(
-                  '${AppLocalizations.of(context)!.albumWithId}: ${albums[i]
-                      .id}'),
+                  '${AppLocalizations.of(context)!.albumWithId}: ${albums[i].id}'),
             );
           },
         ),

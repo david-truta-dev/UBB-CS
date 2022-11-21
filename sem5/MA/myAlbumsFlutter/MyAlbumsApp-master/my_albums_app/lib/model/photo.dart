@@ -10,10 +10,10 @@ class Photo {
   int? albumId;
   String? title;
   String? url;
-  String? thumbnailUrl;
+  DateTime? dateTaken;
   Key? key;
 
-  Photo({this.id, this.albumId, this.title, this.url, this.thumbnailUrl, this.key});
+  Photo({this.id, this.albumId, this.title, this.url, this.key, this.dateTaken});
 
   factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
 
@@ -27,10 +27,10 @@ class Photo {
         other.id == id &&
         other.title == title &&
         other.url == url &&
-        other.thumbnailUrl == thumbnailUrl &&
+        other.dateTaken == dateTaken &&
         other.albumId == albumId;
   }
 
   @override
-  int get hashCode => id.hashCode;
+  int get hashCode => url.hashCode;
 }
