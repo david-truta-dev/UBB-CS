@@ -6,55 +6,30 @@ class PhotoRepo {
     0: Photo(
       id: 0,
       title: "Moara cu Noroc",
-      author: "Ioan Slavici",
+      url: "https://www.w3schools.com/w3css/img_lights.jpg",
     ),
     1: Photo(
       id: 1,
-      title: "Mos Craciun si prietenii sai",
-      author: "Mircea Eliade",
+      title: "Mos Craciun",
+      url: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
     ),
     2: Photo(
       id: 2,
       title: "Punguta cu doi bani",
-      author: "Creanga efectiv",
+      url: "https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     ),
     3: Photo(
       id: 3,
       title: "Capra cu 3 yizi? plm",
-      author: "Creanga efectiv",
-    ),
-    4: Photo(
-      id: 4,
-      title: "Capra cu 3 yizi? plm",
-      author: "Creanga efectiv",
-    ),
-    5: Photo(
-      id: 5,
-      title: "Capra cu 3 yizi? plm",
-      author: "Creanga efectiv",
-    ),
-    6: Photo(
-      id: 6,
-      title: "Capra cu 3 yizi? plm",
-      author: "Creanga efectiv",
-    ),
-    7: Photo(
-      id: 7,
-      title: "Capra cu 3 yizi? plm",
-      author: "Creanga efectiv",
-    ),
-    8: Photo(
-      id: 8,
-      title: "Capra cu 3 yizi? plm",
-      author: "Creanga efectiv",
+      url: "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     ),
   };
 
   static int getNextId() => nextId++;
 
-  bool addPhoto(Photo book) {
-    if (photos.containsKey(book.id)) return false;
-    photos[book.id] = book;
+  bool addPhoto(Photo photo) {
+    if (photos.containsKey(photo.id)) return false;
+    photos[photo.id] = photo;
     return true;
   }
 
@@ -64,8 +39,8 @@ class PhotoRepo {
     return true;
   }
 
-  bool updatePhoto(Photo book) {
-    photos.update(book.id, (value) => book);
+  bool updatePhoto(Photo photo) {
+    photos.update(photo.id, (value) => photo);
     return true;
   }
 }

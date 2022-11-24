@@ -1,15 +1,17 @@
 class Photo {
   final int id;
   final String title;
-  final String author;
-  final int nrOfPages;
-  final int rating;
+  String? albumTitle;
+  final String url;
+  DateTime? dateTaken;
 
   Photo({
     required this.id,
     required this.title,
-    required this.author,
-    this.nrOfPages = 0,
-    this.rating = 1,
-  });
+    this.albumTitle,
+    required this.url,
+    this.dateTaken,
+  }) {
+    dateTaken = DateTime.now();
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 
 import '../../../models/photo.dart';
 import '../../../theme/app_colors.dart';
@@ -23,9 +23,8 @@ class PhotoListTile extends StatelessWidget {
       child: ListTile(
         minVerticalPadding: 7,
         dense: false,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        tileColor: AppColors.primaryColor.withOpacity(0.25),
         leading: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(15)),
           child: SizedBox(
@@ -33,8 +32,7 @@ class PhotoListTile extends StatelessWidget {
             width: 50,
             child: FittedBox(
               fit: BoxFit.cover,
-              child: Image.network(
-                  "https://www.w3schools.com/w3css/img_lights.jpg"),
+              child: Image.network(photo.url),
             ),
           ),
         ),
@@ -46,16 +44,13 @@ class PhotoListTile extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (photo.albumTitle?.isNotEmpty != null)
+              Text(
+                "  Album: ${photo.albumTitle}",
+                style: const TextStyle(color: Colors.grey),
+              ),
             Text(
-              "  ${photo.author}",
-              style: const TextStyle(color: Colors.grey),
-            ),
-            Text(
-              "  Nr. of pages: ${photo.nrOfPages.toString()}",
-              style: const TextStyle(color: Colors.grey),
-            ),
-            Text(
-              "  Rating: ${photo.rating.toString()}/10",
+              "  Taken: ${DateFormat('yyyy-MM-dd').format(photo.dateTaken!)}",
               style: const TextStyle(color: Colors.grey),
             ),
           ],
@@ -79,7 +74,40 @@ class PhotoListTile extends StatelessWidget {
             ),
           ],
         ),
-        tileColor: AppColors.primaryColor.withOpacity(0.25),
+        onTap: () => showDialog(
+            context: context,
+            builder: (context) => Center(
+                  child: Stack(children: [
+                    SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(child: Image.network(photo.url)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Material(
+                          color: Colors.black.withOpacity(0.5),
+                          child: IconButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            icon: const Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ]),
+                )),
       ),
     );
   }

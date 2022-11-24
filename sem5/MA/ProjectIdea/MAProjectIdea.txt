@@ -8,11 +8,11 @@ The user would be able to view the photos in albums fetched from a server and ed
 
 Domain details:
   Photo:
-    int? id;
-    int? albumId;
-    String? title;
-    String? url;
-    String? date;
+    int id;
+    String? albumTitle;
+    String title;
+    String url;
+    DateTime? date;
 
   Album:
     int? id;

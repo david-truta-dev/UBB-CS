@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../models/photo.dart';
 import '../../repo/photo_repo.dart';
@@ -14,9 +15,10 @@ class AddScreen extends StatefulWidget {
 class _AddScreenState extends State<AddScreen> {
   final AddViewModel _viewModel = AddViewModel(PhotoRepo());
   late TextFieldDescriptor _titleDescriptor;
-  late TextFieldDescriptor _authorDescriptor;
-  late TextFieldDescriptor _pagesDescriptor;
-  late TextFieldDescriptor _ratingDescriptor;
+  late TextFieldDescriptor _urlDescriptor;
+  late TextFieldDescriptor _dateDescriptor;
+  late TextFieldDescriptor _albumDescriptor;
+  DateTime selectedDate = DateTime.now();
 
   InputDecoration _getDecoration(String title) => InputDecoration(
         labelText: title,
@@ -29,15 +31,15 @@ class _AddScreenState extends State<AddScreen> {
     _titleDescriptor = TextFieldDescriptor(
         controller: TextEditingController(),
         decoration: _getDecoration("Title"));
-    _authorDescriptor = TextFieldDescriptor(
-        controller: TextEditingController(),
-        decoration: _getDecoration("Author"));
-    _pagesDescriptor = TextFieldDescriptor(
-        controller: TextEditingController(),
-        decoration: _getDecoration("Nr. of pages"));
-    _ratingDescriptor = TextFieldDescriptor(
+    _urlDescriptor = TextFieldDescriptor(
+        controller: TextEditingController(), decoration: _getDecoration("URL"));
+    _dateDescriptor = TextFieldDescriptor(
+        controller: TextEditingController()
+          ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
+        decoration: _getDecoration("Date Taken"));
+    _albumDescriptor = TextFieldDescriptor(
       controller: TextEditingController(),
-      decoration: _getDecoration("Rating"),
+      decoration: _getDecoration("Album name"),
     );
   }
 
@@ -45,7 +47,7 @@ class _AddScreenState extends State<AddScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add book"),
+        title: const Text("Add photo"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -59,38 +61,56 @@ class _AddScreenState extends State<AddScreen> {
                 style: const TextStyle(color: Colors.white),
               ),
               TextField(
-                decoration: _authorDescriptor.decoration,
-                controller: _authorDescriptor.controller,
+                decoration: _urlDescriptor.decoration,
+                controller: _urlDescriptor.controller,
                 style: const TextStyle(color: Colors.white),
               ),
               TextField(
-                decoration: _pagesDescriptor.decoration,
-                controller: _pagesDescriptor.controller,
-                keyboardType: TextInputType.number,
+                readOnly: true,
+                decoration: _dateDescriptor.decoration,
+                controller: _dateDescriptor.controller,
+                onTap: () => showDatePicker(
+                  context: context,
+                  initialDate: selectedDate,
+                  firstDate: DateTime.utc(1800, 1, 1),
+                  lastDate: DateTime.now(),
+                ).then((value) {
+                  if (value != null) {
+                    setState(() {
+                      selectedDate = value;
+                      _dateDescriptor.controller.text =
+                          DateFormat('yyyy-MM-dd').format(value);
+                    });
+                  }
+                }),
                 style: const TextStyle(color: Colors.white),
               ),
               TextField(
-                decoration: _ratingDescriptor.decoration,
-                controller: _ratingDescriptor.controller,
+                decoration: _albumDescriptor.decoration,
+                controller: _albumDescriptor.controller,
                 keyboardType: TextInputType.number,
                 style: const TextStyle(color: Colors.white),
               ),
               ElevatedButton(
                 onPressed: () {
-                  print(_viewModel.addPhoto(Photo(
-                      id: PhotoRepo.getNextId(),
-                      title: _titleDescriptor.controller.text,
-                      author: _authorDescriptor.controller.text,
-                      nrOfPages: int.parse(_pagesDescriptor.controller.text),
-                      rating: int.parse(_pagesDescriptor.controller.text))));
+                  _viewModel.addPhoto(
+                    Photo(
+                        id: PhotoRepo.getNextId(),
+                        title: _titleDescriptor.controller.text,
+                        url: _urlDescriptor.controller.text,
+                        albumTitle: _albumDescriptor.controller.text.isNotEmpty
+                            ? _albumDescriptor.controller.text
+                            : null,
+                        dateTaken: selectedDate),
+                  );
                   Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(40)),
-                child: const Text("Add book !"),
+                child: const Text("Add photo !"),
               ),
               const Icon(
-                Icons.book_outlined,
+                Icons.photo,
                 size: 200,
                 color: Colors.grey,
               )

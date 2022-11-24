@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../models/photo.dart';
 import '../../repo/photo_repo.dart';
@@ -17,9 +18,10 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   final EditViewModel _viewModel = EditViewModel(PhotoRepo());
   late TextFieldDescriptor _titleDescriptor;
-  late TextFieldDescriptor _authorDescriptor;
-  late TextFieldDescriptor _pagesDescriptor;
-  late TextFieldDescriptor _ratingDescriptor;
+  late TextFieldDescriptor _urlDescriptor;
+  late TextFieldDescriptor _dateDescriptor;
+  late TextFieldDescriptor _albumDescriptor;
+  late DateTime selectedDate;
 
   InputDecoration _getDecoration(String title) => InputDecoration(
         labelText: title,
@@ -29,19 +31,20 @@ class _EditScreenState extends State<EditScreen> {
   @override
   void initState() {
     super.initState();
+    selectedDate = widget.photo.dateTaken ?? DateTime.now();
     _titleDescriptor = TextFieldDescriptor(
         controller: TextEditingController()..text = widget.photo.title,
         decoration: _getDecoration("Title"));
-    _authorDescriptor = TextFieldDescriptor(
-        controller: TextEditingController()..text = widget.photo.author,
-        decoration: _getDecoration("Author"));
-    _pagesDescriptor = TextFieldDescriptor(
+    _urlDescriptor = TextFieldDescriptor(
+        controller: TextEditingController()..text = widget.photo.url,
+        decoration: _getDecoration("URL"));
+    _dateDescriptor = TextFieldDescriptor(
         controller: TextEditingController()
-          ..text = widget.photo.nrOfPages.toString(),
-        decoration: _getDecoration("Nr. of pages"));
-    _ratingDescriptor = TextFieldDescriptor(
-      controller: TextEditingController()..text = widget.photo.rating.toString(),
-      decoration: _getDecoration("Rating"),
+          ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
+        decoration: _getDecoration("Date Taken"));
+    _albumDescriptor = TextFieldDescriptor(
+      controller: TextEditingController()..text = widget.photo.albumTitle ?? "",
+      decoration: _getDecoration("Album name"),
     );
   }
 
@@ -63,30 +66,48 @@ class _EditScreenState extends State<EditScreen> {
                 style: const TextStyle(color: Colors.white),
               ),
               TextField(
-                decoration: _authorDescriptor.decoration,
-                controller: _authorDescriptor.controller,
+                decoration: _urlDescriptor.decoration,
+                controller: _urlDescriptor.controller,
                 style: const TextStyle(color: Colors.white),
               ),
               TextField(
-                decoration: _pagesDescriptor.decoration,
-                controller: _pagesDescriptor.controller,
-                keyboardType: TextInputType.number,
+                readOnly: true,
+                decoration: _dateDescriptor.decoration,
+                controller: _dateDescriptor.controller,
+                onTap: () => showDatePicker(
+                  context: context,
+                  initialDate: selectedDate,
+                  firstDate: DateTime.utc(1800, 1, 1),
+                  lastDate: DateTime.now(),
+                ).then((value) {
+                  if (value != null) {
+                    setState(() {
+                      selectedDate = value;
+                      _dateDescriptor.controller.text =
+                          DateFormat('yyyy-MM-dd').format(value);
+                    });
+                  }
+                }),
                 style: const TextStyle(color: Colors.white),
               ),
               TextField(
-                decoration: _ratingDescriptor.decoration,
-                controller: _ratingDescriptor.controller,
+                decoration: _albumDescriptor.decoration,
+                controller: _albumDescriptor.controller,
                 keyboardType: TextInputType.number,
                 style: const TextStyle(color: Colors.white),
               ),
               ElevatedButton(
                 onPressed: () {
-                  _viewModel.updatePhoto(Photo(
-                      id: widget.photo.id,
-                      title: _titleDescriptor.controller.text,
-                      author: _authorDescriptor.controller.text,
-                      nrOfPages: int.parse(_pagesDescriptor.controller.text),
-                      rating: int.parse(_ratingDescriptor.controller.text)));
+                  _viewModel.updatePhoto(
+                    Photo(
+                        id: widget.photo.id,
+                        title: _titleDescriptor.controller.text,
+                        url: _urlDescriptor.controller.text,
+                        albumTitle: _albumDescriptor.controller.text.isNotEmpty
+                            ? _albumDescriptor.controller.text
+                            : null,
+                        dateTaken: selectedDate),
+                  );
                   Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
