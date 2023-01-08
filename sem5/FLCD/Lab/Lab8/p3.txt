@@ -1,0 +1,16 @@
+BEGIN
+    n: int;
+    nr: int;
+    i: int;
+    sum: int;
+    
+    read(n);
+
+    i=1;
+    while(i <= n) {
+        read(nr);
+        sum = sum + nr;
+    }
+
+    return sum;
+END

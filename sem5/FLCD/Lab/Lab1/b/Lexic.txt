@@ -38,16 +38,8 @@ Lexic:
 
             no:= digit{no}
 
-        2.character
-
-            character:='letter'|'digit'
-
         3.string
-
-            constchar:= "'"char"'"
            
             conststring:= """string"""
 
-            string:= {char}
-
-            char:= {letter|digit}
+            string:= {{letter|digit}}
