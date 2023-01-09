@@ -137,6 +137,7 @@ INT_CONSTANT [+-]?{NON_ZERO_DIGIT}{DIGIT}*|0
 LETTER [a-zA-Z_]
 STRING_CONSTANT \"({LETTER}|{DIGIT})*\"
 IDENTIFIER {LETTER}({LETTER}|{DIGIT})*
+BAD_NUMBER [+-]0|0{DIGIT}+
 BAD_IDENTIFIER ({DIGIT})+({LETTER})+({LETTER}|{DIGIT})*
 
 %%
@@ -146,6 +147,8 @@ BAD_IDENTIFIER ({DIGIT})+({LETTER})+({LETTER}|{DIGIT})*
 {IDENTIFIER} {char *id = string_copy(yytext); add_to_pif(get_entry(1, "id", get_identifier_index(id))); printf("%s - identifier\n", yytext);}
 
 {BAD_IDENTIFIER} {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
+
+{BAD_NUMBER} {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
 
 {INT_CONSTANT} {char *int_const = string_copy(yytext); add_to_pif(get_entry(2, "int", get_int_index(int_const))); printf("%s - int constant\n", yytext);}
 
@@ -182,7 +185,4 @@ int main(int argc, char **argv )
     printf("IDENTIFIER SYMBOL TABLE\n\n");
     for (int i = 0; i < pointer_identifier; ++i)
     	printf("%s\n", identifier_symbol_table[i]);
-    printf("\nPIF\n\n");
-    for (int i = 0; i < pointer_pif; ++i)
-    	printf("%d %s %d\n", pif[i].code, pif[i].token, pif[i].position);
 }
