@@ -15,7 +15,7 @@ Lexic:
             relational: == != < > <= >=
             asignment: =
 
-        - separators [ ] { } ( ) : ; space
+        - separators  { } ( ) : ; space
 
         - reserved words:
             BEGIN END else if int read while write string
