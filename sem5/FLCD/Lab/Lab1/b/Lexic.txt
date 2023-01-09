@@ -18,7 +18,7 @@ Lexic:
         - separators [ ] { } ( ) : ; space
 
         - reserved words:
-            array char const else if int read while write return bool string
+            BEGIN END else if int read while write string
 
       b.identifiers:
 

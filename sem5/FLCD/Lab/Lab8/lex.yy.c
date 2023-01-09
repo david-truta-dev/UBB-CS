@@ -1751,7 +1751,7 @@ int main(int argc, char **argv )
     printf("IDENTIFIER SYMBOL TABLE\n\n");
     for (int i = 0; i < pointer_identifier; ++i)
     	printf("%s\n", identifier_symbol_table[i]);
-    printf("PIF\n\n");
+    printf("\nPIF\n\n");
     for (int i = 0; i < pointer_pif; ++i)
     	printf("%d %s %d\n", pif[i].code, pif[i].token, pif[i].position);
 }

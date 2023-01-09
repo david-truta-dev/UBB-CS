@@ -6,7 +6,7 @@ PROGRAM:{
     
     a=1;
     b=5;
-    c="efectiv greseala";
+    c="efectiv greseala;
 
     if(a > b){
         max == a;
