@@ -1,0 +1,98 @@
+CAA notes
+
+AZs - Availability Zones
+Isolated locations spanned in AWS Regions - which are actual geographical regions.
+
+Amazon DynamoDB - aws nosql db
+S3 - aws object storing service (works over http)
+aws lambda - faas (function as a service)
+
+Regions - geographical zones, they even receive new services at diff rates (i.e. ireland is the first one to receive new stuff in europe)
+
+AMI - amazon machine image (contains an os and other software)
+ssh key pair - allows u to connect to an ec2 instance
+
+CIDR - Classless Inter-Domain Routing
+- a method for allocating IP addresses and for IP routing
+- an address is described by 2 groups of bits: 
+	- the most significant bits 	-> the network prefix	
+	- the least significant bits 	-> the host identifier
+
+Classful network design 
+- network prefix is one or more 8-bit groups => block of class A, B or C addresses
+
+AWS VPC - virtual private cloud
+- lets u create a virtual network that you define, having complete control over your virtual networking environment 
+	(IP address ranges, creation of subnets, configuration of route tables and network gateways)
+- default subnets are public
+
+Security group
+- acts as a virtual firewall (controls inbound and outbound traffic)
+- when u launch an instance in a vpc => you can assign up to five security groups
+- acts at an instance level => each instance in a subnet in a vpc can be assigned a different set of security groups
+
+Load balancers
+- distribute a set of tasks over a set of resources (computing units)
+- Elastic Load Balancing (ELB), the aws service for load balancing, supports the following types of load balancers:
+	- Application 	
+		- an actual proxy between the internet and your application
+		- receives a request and makes another request (with the same data) to your application
+		- operates at layer 7 (HTTP, WebSockets)
+		- replaces the IP of the original client with its own
+	- Network
+		- kind of like a (very sophisticated) network router
+		- operates at layer 4 (TCP/UDP)
+		- does not replace the IP of the original client
+		- is cheaper than an ALB
+	- Classic -> deprecated
+	- Gateway
+		- operates at layer 3 (network)
+		- used if u need to integrate other virtual appliances such as deep packet inspection systems
+
+Auto Scaling Groups (ASG)
+- scales your ec2 instances
+- also has features such as health check replacements and scaling policies
+
+CloudFormation - ???
+
+S3 (Simple Storage Service)
+- can store data with Object or Block Storage
+	- block storage is how our computers store all the data (os and programs)
+	- object storage is one big chunk of data file: you can't update it, you need to re-upload the whole file
+- usually, s3 buckets are private by default, but if you want to host publicly facing files on it (i.e. the frontend of a website), you should make it public
+
+EBS (Elastic Block Store) - kind of works like S3
+
+CDN (Content Deliveery Network)
+- for AWS: CloudFront
+
+RDS (Relational Database Service)
+- supports multiple database engines such as MySQL, MariaDB, PostggreSQL etc.
+
+ECR (Elastic Container Registry)
+- holds your docker images
+
+ECS (Elastic Container Service)
+- used as a highly scalable, high performance container manager service (i.e. docker container cluster)
+- vasil tip: works like an asg but for containers (i think)
+
+IAM Users - set of credentials (username & password/access keys)
+Groups 	- group of users (just like on linux)
+Policies
+- documents (JSON) describing what an entity can or cannot do; there are 2 types:
+- identity-based: they specify what the entity having it attached can do
+- resource-based: 	- they are attached to resources (most commonly s3 buckets)
+					- they specify who/what has access to it and to what extend
+					- the who/what is called the principal
+Roles - can be assumed by an entity (i.e. users and resources)
+IAM Identity Center (previously AWS SSO) 	- ideally, you would always use this instead of IAM
+											- in practice, the world still heavily realies on the good old IAM
+
+Cognito (User Management service in AWS)
+- has 2 components:
+	- user pools
+	- identity pools
+
+SQS - Simple Queue Service - distributed message queuing service
+
+Lambda - FaaS (function as a service)
