@@ -17,5 +17,7 @@
         <jarDirectory url="file://$USER_HOME$/mpj/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="mpj" level="project" />
+    <orderEntry type="library" name="mpi" level="project" />
   </component>
 </module>
