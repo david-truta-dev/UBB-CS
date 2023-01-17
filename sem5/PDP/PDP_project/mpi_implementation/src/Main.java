@@ -9,7 +9,6 @@ import java.util.stream.IntStream;
 public class Main {
 
     public static void main(String[] args) {
-
         MPI.Init(args);
 
         Graph graph = new Graph("g2.txt");
@@ -41,9 +40,7 @@ public class Main {
 
         }
 
-
         MPI.Finalize();
-
     }
 
     public static Set<Integer> mainProcess(Graph graph){

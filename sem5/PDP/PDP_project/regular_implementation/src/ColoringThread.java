@@ -46,8 +46,7 @@ public class ColoringThread implements Runnable{
         }
 
         // phase 2: conflict detection, creating the set with the nodes needing to be recolored
-
-        for(int i = start; i < end; i++){
+        for(int i = start; i < end; i++) {
 
             Node currentNode = graph.getNode(i);
             for(int neighbour: currentNode.getNeighbours()){
