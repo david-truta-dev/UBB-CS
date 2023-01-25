@@ -76,17 +76,17 @@ public class Graph implements Serializable {
 
     @Override
     public String toString() {
-//        StringBuilder s = new StringBuilder();
-//        for(Node n: nodes){
-//            s.append("Node ").append(n.getLabel()).append(" - Color ").append(n.getColor()).append("\n");
-//        }
-//        return s.toString();
         StringBuilder s = new StringBuilder();
-        var colorsMap = getGroupedColors();
-        for(Integer color: colorsMap.keySet()){
-            s.append(color).append(" - ").append(colorsMap.get(color)).append("\n");
+        for(Node n: nodes){
+            s.append("Node ").append(n.getLabel()).append(" - Color ").append(n.getColor()).append("\n");
         }
         return s.toString();
+//        StringBuilder s = new StringBuilder();
+//        var colorsMap = getGroupedColors();
+//        for(Integer color: colorsMap.keySet()){
+//            s.append(color).append(" - ").append(colorsMap.get(color)).append("\n");
+//        }
+//        return s.toString();
     }
 
     public Map<Integer, Set<Integer>> getGroupedColors(){

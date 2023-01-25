@@ -12,30 +12,34 @@ public class Main {
         MPI.Init(args);
 
         Graph graph = new Graph("g2.txt");
-        //Graph graph = new Graph(500, 100);
+//        graph = new Graph(500, 100);
 
         int me = MPI.COMM_WORLD.Rank();
 
         boolean repeat = true;
 
         if(me==0){
+            long startTime = System.nanoTime();
+
             Set<Integer> conflicting = IntStream.rangeClosed(0, graph.getNrNodes()).boxed().collect(Collectors.toSet());
 
-            while (! conflicting.isEmpty()){
+            while (!conflicting.isEmpty()){
                 conflicting = mainProcess(graph);
-                //System.out.println(conflicting);
                 sendToRepeat(!conflicting.isEmpty());
             }
 
             System.out.println(graph);
             System.out.println(graph.checkColoring());
 
+            long endTime = System.nanoTime();
+
+            long duration = (endTime - startTime)/1000000;
+            System.out.printf("Execution took: %d ms", duration);
         }
         else{
             while (repeat){
                 colorProcess();
                 repeat = receiveToRepeat();
-                //System.out.println(repeat);
             }
 
         }
@@ -82,13 +86,20 @@ public class Main {
     public static void sendGraphToAllProcesses(Graph graph){
         int size = MPI.COMM_WORLD.Size();
         int nodesPerProcess = graph.getNrNodes() / (size-1);
+        int remaining = graph.getNrNodes() % (size-1);
 
+        int endOfLastP = 0;
+        int start;
         for (int i = 0; i < size - 1; i++) {
-            int start = i * nodesPerProcess;
-            int end = start + nodesPerProcess;
-            if (i == size - 2) {
-                end = graph.getNrNodes();
+            start = endOfLastP;
+            int end;
+            if (remaining > 0) {
+                end = start + nodesPerProcess + 1;
+                remaining--;
+            } else {
+                end = start + nodesPerProcess;
             }
+            endOfLastP = end;
 
             Wrapper[] message = new Wrapper[1];
             Wrapper w = new Wrapper(graph, start, end);
