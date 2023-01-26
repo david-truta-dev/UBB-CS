@@ -1,0 +1,15 @@
+{
+    int a, b, c;
+    a = 1;
+    b = 2;
+    c = 3;
+    if (a > b && a > c) {
+        print(a);
+    } else {
+        if (b > c) {
+            print(b);
+        } else {
+            print(c);
+        }
+    }
+}
