@@ -8,7 +8,7 @@
 	💩  [Computational Logic](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/cl) <br />
 	🔧  [Computer System Architecture](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/csa) <br />
 	💻  [Fundamentals of Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/fp) <br />
-	 ✏️  [Analysis](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/analysis) <br />
+	✏️  [Analysis](https://github.com/917-Truta-David/UBB-CS/tree/master/sem1/analysis) <br />
 
 <br />
 
@@ -26,7 +26,7 @@
 *  Sem 3 - 😐 <br />
 
 	🍞  [Advanced Programming Methods](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/apm) <br />
-	⚠️   [Functional & Logic Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/flp) <br />
+	⚠️  [Functional & Logic Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/flp) <br />
 	😡  [Databases](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/db) <br />
 	🌐  [Computer Networks](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/cn) <br />
 	🎲  [Probability & Statistics](https://github.com/917-Truta-David/UBB-CS/tree/master/sem3/ps) <br />
@@ -37,27 +37,30 @@
 
 	🏢  [Software Engineering](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/se) <br />
 	🍃  [Artificial Intelligence](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/ai) <br />
-	✈️   [Web Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/wp) <br />
+	✈️  [Web Programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/wp) <br />
 	😡  [DBMSs](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/dbms) <br />
 	🍆  [SDI](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/mpp) <br />
 	
 <br />
 	
-*  Sem 5 - tbc... <br />
+*  Sem 5 - 😐 <br />
 
-	☁️  [CAA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/CAA) <br />
-	📋  [FLCD](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/FLCD) <br />
-	💩   [RPA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/RPA) <br />
-	👥   [PDP](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/PDP) <br />
+	☁️  [Cloud](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/caa) <br />
+	📋  [FLCD](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/flcd) <br />
+	📱  [Mobile Applications](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/ma) <br />
+	💩  [RPA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/RPA) <br />
+	👥  [Parallel and distributed programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/pdp) <br />
+	💪  [Bodybuilding](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/bb) <br />
 
 <br />
 	
-*  Sem 6 - tbc... <br />
+*  Sem 6 - 😫 <br />
 
 
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/se) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/ai) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/wp) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/dbms) <br />
-	❔  [-](https://github.com/917-Truta-David/UBB-CS/tree/master/sem4/mpp) <br />
+	🔧  [SSVV](https://github.com/917-Truta-David/UBB-CS/tree/master/sem6/ssvv) <br />
+	📈  [Numerical Calculus](https://github.com/917-Truta-David/UBB-CS/tree/master/sem6/nc) <br />
+	📓  [Preparation of Bachelor Thesis](https://github.com/917-Truta-David/UBB-CS/tree/master/sem6/pbt) <br />
+	📧  [Network and System Administration](https://github.com/917-Truta-David/UBB-CS/tree/master/sem6/gps) <br />
+	💣  [Gestiunea proiectelor soft](https://github.com/917-Truta-David/UBB-CS/tree/master/sem6/gps) <br />
+	🔫  [Istoria informaticii](https://github.com/917-Truta-David/UBB-CS/tree/master/sem6/ii) <br />
 
