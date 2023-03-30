@@ -45,7 +45,7 @@
 	
 *  Sem 5 - 😐 <br />
 
-	☁️  [Cloud](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/caa) <br />
+	☁️  [CAA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/caa) <br />
 	📋  [FLCD](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/flcd) <br />
 	📱  [Mobile Applications](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/ma) <br />
 	💩  [RPA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/RPA) <br />
