@@ -45,11 +45,11 @@
 	
 *  Sem 5 - 😐 <br />
 
-	☁️  [CAA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/caa) <br />
-	📋  [FLCD](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/flcd) <br />
-	📱  [Mobile Applications](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/ma) <br />
+	☁️  [CAA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/CAA) <br />
+	📋  [FLCD](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/FLCD) <br />
+	📱  [Mobile Applications](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/MA) <br />
 	💩  [RPA](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/RPA) <br />
-	👥  [Parallel and distributed programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/pdp) <br />
+	👥  [Parallel and distributed programming](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/PDP) <br />
 	💪  [Bodybuilding](https://github.com/917-Truta-David/UBB-CS/tree/master/sem5/bb) <br />
 
 <br />
