@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: SSH server
+Specification-Version: 0.0
+Implementation-Title: SSH server
+Implementation-Version: 3.275.v9e17c10f2571
+Group-Id: org.jenkins-ci.modules
+Short-Name: sshd
+Long-Name: SSH server
+Url: https://github.com/jenkinsci/sshd-plugin
+Plugin-Version: 3.275.v9e17c10f2571
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Plugin-Dependencies: mina-sshd-api-core:2.9.2-50.va_0e1f42659a_a,instanc
+ e-identity:142.v04572ca_5b_265
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/sshd-plugin
+

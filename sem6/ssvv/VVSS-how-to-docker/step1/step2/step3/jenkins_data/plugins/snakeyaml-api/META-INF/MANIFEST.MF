@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: SnakeYAML API Plugin
+Specification-Version: 1.33
+Implementation-Title: SnakeYAML API Plugin
+Implementation-Version: 1.33-95.va_b_a_e3e47b_fa_4
+Group-Id: io.jenkins.plugins
+Short-Name: snakeyaml-api
+Long-Name: SnakeYAML API Plugin
+Url: https://github.com/jenkinsci/snakeyaml-api-plugin
+Plugin-Version: 1.33-95.va_b_a_e3e47b_fa_4
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Plugin-Developers: 
+Support-Dynamic-Loading: true
+Plugin-License-Name: The MIT License (MIT)
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/snakeyaml-api-plugin
+

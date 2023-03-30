@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `bitnami_testlink`.`executions`.`tcversion_id` AS `tcversion_id`,`bitnami_testlink`.`executions`.`testplan_id` AS `testplan_id`,max(`bitnami_testlink`.`executions`.`id`) AS `id` from `bitnami_testlink`.`executions` group by `bitnami_testlink`.`executions`.`tcversion_id`,`bitnami_testlink`.`executions`.`testplan_id`
+md5=16a78ced5e565eef8adb1a27209c9713
+updatable=0
+algorithm=0
+definer_user=bn_testlink
+definer_host=%
+suid=2
+with_check_option=0
+timestamp=0001677861257396993
+create-version=2
+source=SELECT tcversion_id, testplan_id, MAX(id) AS id \nFROM  executions \nGROUP BY tcversion_id,testplan_id
+client_cs_name=latin1
+connection_cl_name=latin1_swedish_ci
+view_body_utf8=select `bitnami_testlink`.`executions`.`tcversion_id` AS `tcversion_id`,`bitnami_testlink`.`executions`.`testplan_id` AS `testplan_id`,max(`bitnami_testlink`.`executions`.`id`) AS `id` from `bitnami_testlink`.`executions` group by `bitnami_testlink`.`executions`.`tcversion_id`,`bitnami_testlink`.`executions`.`testplan_id`
+mariadb-version=100338

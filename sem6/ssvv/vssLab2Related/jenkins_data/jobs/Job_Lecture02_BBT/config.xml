@@ -1,0 +1,92 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.37.0">
+      <projectUrl>https://github.com/andreeavescan/2023_Lecture02_BBT/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@5.0.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/andreeavescan/2023_Lecture02_BBT.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/main</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets>compile</targets>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+    <hudson.plugins.testlink.TestLinkBuilder plugin="testlink@3.16">
+      <testLinkName>localhost</testLinkName>
+      <testProjectName>Lecture01_Demo_BBT</testProjectName>
+      <testPlanName>Lecture02_TestPlan_BBT</testPlanName>
+      <buildName>build_$BUILD_ID</buildName>
+      <platformName></platformName>
+      <customFields>JavaClassName,JavaTestMethodName</customFields>
+      <testPlanCustomFields></testPlanCustomFields>
+      <singleBuildSteps>
+        <hudson.tasks.Maven>
+          <targets>verify</targets>
+          <usePrivateRepository>false</usePrivateRepository>
+          <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+          <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+          <injectBuildVariables>false</injectBuildVariables>
+        </hudson.tasks.Maven>
+        <hudson.tasks.Shell>
+          <command>#!/bin/bash
+mv ./target/surefire-reports/TEST-$TESTLINK_TESTCASE_JAVACLASSNAME.xml ./target/surefire-reports/TEST-$TESTLINK_TESTCASE_JAVACLASSNAME.$TESTLINK_TESTCASE_ID.xml</command>
+          <configuredLocalRules/>
+        </hudson.tasks.Shell>
+      </singleBuildSteps>
+      <transactional>false</transactional>
+      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
+      <failIfNoResults>false</failIfNoResults>
+      <failOnNotRun>false</failOnNotRun>
+      <executionOrderComparator/>
+      <failure>false</failure>
+      <resultSeekers>
+        <hudson.plugins.testlink.result.JUnitMethodNameResultSeeker>
+          <includePattern>**/TEST-*.xml</includePattern>
+          <keyCustomField>JavaTestMethodName</keyCustomField>
+          <includeNotes>true</includeNotes>
+          <attachJUnitXML>true</attachJUnitXML>
+        </hudson.plugins.testlink.result.JUnitMethodNameResultSeeker>
+      </resultSeekers>
+    </hudson.plugins.testlink.TestLinkBuilder>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/TEST-*.xml</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+      <followSymlinks>false</followSymlinks>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
+  <buildWrappers/>
+</project>

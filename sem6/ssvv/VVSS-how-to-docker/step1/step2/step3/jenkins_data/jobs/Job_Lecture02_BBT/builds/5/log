@@ -1,0 +1,41 @@
+Started by user [8mha:////4Jikxv8wZWqGtCE/EHBJViYz1/q5Tns5Q8J+RCYjVWayAAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL94pLSlNS8EgDnZMOBwgAAAA==[0mStudent
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Job_Lecture02_BBT
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Job_Lecture02_BBT/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/andreeavescan/2023_Lecture02_BBT.git # timeout=10
+Fetching upstream changes from https://github.com/andreeavescan/2023_Lecture02_BBT.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/andreeavescan/2023_Lecture02_BBT.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision be18a884e6bc99f4f462e311afa73e0374f927bd (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f be18a884e6bc99f4f462e311afa73e0374f927bd # timeout=10
+Commit message: "first commit"
+ > git rev-list --no-walk be18a884e6bc99f4f462e311afa73e0374f927bd # timeout=10
+[Job_Lecture02_BBT] $ mvn compile
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36mLecture02MaxPointsParticipantsMV:Lecture02MaxPointsParticipants[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Lecture02MaxPointsParticipants 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:resources[m [1m(default-resources)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/jenkins_home/workspace/Job_Lecture02_BBT/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:compile[m [1m(default-compile)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  16.407 s
+[[1;34mINFO[m] Finished at: 2023-03-05T18:15:44Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Preparing TestLink client API.
+ERROR: Invalid TestLink installation.
+Archiving artifacts
+Finished: FAILURE

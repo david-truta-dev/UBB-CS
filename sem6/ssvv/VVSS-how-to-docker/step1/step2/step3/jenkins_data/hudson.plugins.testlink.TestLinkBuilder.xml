@@ -1,0 +1,12 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.plugins.testlink.TestLinkBuilderDescriptor plugin="testlink@3.16">
+  <testLinkBuildType>hudson.plugins.testlink.TestLinkBuilder</testLinkBuildType>
+  <installations>
+    <hudson.plugins.testlink.TestLinkInstallation>
+      <name>localhost</name>
+      <url>http://host.docker.internal:8090/lib/api/xmlrpc/v1/xmlrpc.php</url>
+      <devKey>1a19146efb3cc122757f1f2b3d628cd0</devKey>
+      <testLinkJavaAPIProperties></testLinkJavaAPIProperties>
+    </hudson.plugins.testlink.TestLinkInstallation>
+  </installations>
+</hudson.plugins.testlink.TestLinkBuilderDescriptor>

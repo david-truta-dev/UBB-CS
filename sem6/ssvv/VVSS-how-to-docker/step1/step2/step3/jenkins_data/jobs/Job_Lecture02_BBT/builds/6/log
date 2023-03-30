@@ -1,0 +1,91 @@
+Started by user [8mha:////4Jikxv8wZWqGtCE/EHBJViYz1/q5Tns5Q8J+RCYjVWayAAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL94pLSlNS8EgDnZMOBwgAAAA==[0mStudent
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Job_Lecture02_BBT
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Job_Lecture02_BBT/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/andreeavescan/2023_Lecture02_BBT.git # timeout=10
+Fetching upstream changes from https://github.com/andreeavescan/2023_Lecture02_BBT.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/andreeavescan/2023_Lecture02_BBT.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision be18a884e6bc99f4f462e311afa73e0374f927bd (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f be18a884e6bc99f4f462e311afa73e0374f927bd # timeout=10
+Commit message: "first commit"
+ > git rev-list --no-walk be18a884e6bc99f4f462e311afa73e0374f927bd # timeout=10
+[Job_Lecture02_BBT] $ mvn compile
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36mLecture02MaxPointsParticipantsMV:Lecture02MaxPointsParticipants[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Lecture02MaxPointsParticipants 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:resources[m [1m(default-resources)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/jenkins_home/workspace/Job_Lecture02_BBT/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:compile[m [1m(default-compile)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  11.596 s
+[[1;34mINFO[m] Finished at: 2023-03-05T19:13:01Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Preparing TestLink client API.
+Using TestLink URL: http://localhost:8090/lib/api/xmlrpc/v1/xmlrpc.php
+
+FATAL: Error verifying developer key: Failed to read server's response: Connection refused (Connection refused)
+br.eti.kinoshita.testlinkjavaapi.util.TestLinkAPIException: Error verifying developer key: Failed to read server's response: Connection refused (Connection refused)
+	at br.eti.kinoshita.testlinkjavaapi.MiscService.checkDevKey(MiscService.java:64)
+	at br.eti.kinoshita.testlinkjavaapi.TestLinkAPI.<init>(TestLinkAPI.java:149)
+	at hudson.plugins.testlink.TestLinkBuilder.getTestLinkSite(TestLinkBuilder.java:331)
+	at hudson.plugins.testlink.TestLinkBuilder.perform(TestLinkBuilder.java:206)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:818)
+	at hudson.model.Build$BuildExecution.build(Build.java:199)
+	at hudson.model.Build$BuildExecution.doRun(Build.java:164)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:526)
+	at hudson.model.Run.execute(Run.java:1900)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:44)
+	at hudson.model.ResourceController.execute(ResourceController.java:107)
+	at hudson.model.Executor.run(Executor.java:449)
+Caused by: org.apache.xmlrpc.XmlRpcException: Failed to read server's response: Connection refused (Connection refused)
+	at org.apache.xmlrpc.client.XmlRpcStreamTransport.sendRequest(XmlRpcStreamTransport.java:161)
+	at org.apache.xmlrpc.client.XmlRpcHttpTransport.sendRequest(XmlRpcHttpTransport.java:143)
+	at org.apache.xmlrpc.client.XmlRpcSunHttpTransport.sendRequest(XmlRpcSunHttpTransport.java:69)
+	at org.apache.xmlrpc.client.XmlRpcClientWorker.execute(XmlRpcClientWorker.java:56)
+	at org.apache.xmlrpc.client.XmlRpcClient.execute(XmlRpcClient.java:167)
+	at org.apache.xmlrpc.client.XmlRpcClient.execute(XmlRpcClient.java:158)
+	at org.apache.xmlrpc.client.XmlRpcClient.execute(XmlRpcClient.java:147)
+	at br.eti.kinoshita.testlinkjavaapi.BaseService.executeXmlRpcCall(BaseService.java:83)
+	at br.eti.kinoshita.testlinkjavaapi.MiscService.checkDevKey(MiscService.java:61)
+	... 12 more
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at java.base/java.net.Socket.connect(Socket.java:558)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:507)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:602)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:275)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:374)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:395)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1367)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1342)
+	at org.apache.xmlrpc.client.XmlRpcSunHttpTransport.writeRequest(XmlRpcSunHttpTransport.java:104)
+	at org.apache.xmlrpc.client.XmlRpcStreamTransport.sendRequest(XmlRpcStreamTransport.java:151)
+	... 20 more
+ERROR: Error communicating with TestLink. Check your TestLink configuration.
+Archiving artifacts
+Finished: FAILURE

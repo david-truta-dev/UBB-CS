@@ -1,0 +1,171 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>student</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.plugins.git.util.BuildData plugin="git@5.0.0">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/main</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@4.1.0">
+              <sha1>be18a884e6bc99f4f462e311afa73e0374f927bd</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/main</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>10</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/andreeavescan/2023_Lecture02_BBT.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <hudson.scm.SCMRevisionState_-None/>
+    <hudson.plugins.testlink.TestLinkBuilder_-1 plugin="testlink@3.16">
+      <val_-iterativeEnvVars serialization="custom">
+        <unserializable-parents/>
+        <tree-map>
+          <default>
+            <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+          </default>
+          <int>4</int>
+          <string>TESTLINK_BUILD_NAME</string>
+          <string>build_10</string>
+          <string>TESTLINK_TESTCASE_TOTAL</string>
+          <string>1</string>
+          <string>TESTLINK_TESTPLAN_NAME</string>
+          <string>Lecture02_TestPlan_BBT</string>
+          <string>TESTLINK_TESTPROJECT_NAME</string>
+          <string>Lecture01_Demo_BBT</string>
+        </tree-map>
+      </val_-iterativeEnvVars>
+      <outer-class>
+        <testLinkName>localhost</testLinkName>
+        <testProjectName>Lecture01_Demo_BBT</testProjectName>
+        <testPlanName>Lecture02_TestPlan_BBT</testPlanName>
+        <buildName>build_$BUILD_ID</buildName>
+        <platformName></platformName>
+        <customFields></customFields>
+        <testPlanCustomFields></testPlanCustomFields>
+        <singleBuildSteps>
+          <hudson.tasks.Maven>
+            <targets>verify</targets>
+            <usePrivateRepository>false</usePrivateRepository>
+            <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+            <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+            <injectBuildVariables>false</injectBuildVariables>
+          </hudson.tasks.Maven>
+          <hudson.tasks.Shell>
+            <command>#!/bin/bash
+mv ./target/surefire-reports/TEST-$TESTLINK_TESTCASE_JAVACLASSNAME.xml ./target/surefire-reports/TEST-$TESTLINK_TESTCASE_JAVACLASSNAME.$TESTLINK_TESTCASE_ID.xml</command>
+            <configuredLocalRules/>
+          </hudson.tasks.Shell>
+        </singleBuildSteps>
+        <transactional>false</transactional>
+        <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
+        <failIfNoResults>false</failIfNoResults>
+        <failOnNotRun>false</failOnNotRun>
+        <executionOrderComparator/>
+        <failure>true</failure>
+        <resultSeekers>
+          <hudson.plugins.testlink.result.JUnitMethodNameResultSeeker>
+            <includePattern>**/TEST-*.xml</includePattern>
+            <keyCustomField>JavaTestMethodName</keyCustomField>
+            <includeNotes>true</includeNotes>
+            <attachJUnitXML>true</attachJUnitXML>
+          </hudson.plugins.testlink.result.JUnitMethodNameResultSeeker>
+        </resultSeekers>
+      </outer-class>
+    </hudson.plugins.testlink.TestLinkBuilder_-1>
+    <hudson.plugins.testlink.TestLinkBuilder_-1 plugin="testlink@3.16">
+      <val_-iterativeEnvVars serialization="custom">
+        <unserializable-parents/>
+        <tree-map>
+          <default>
+            <comparator class="java.lang.String$CaseInsensitiveComparator" reference="../../../../../hudson.plugins.testlink.TestLinkBuilder_-1/val_-iterativeEnvVars/tree-map/default/comparator"/>
+          </default>
+          <int>4</int>
+          <string>TESTLINK_BUILD_NAME</string>
+          <string>build_10</string>
+          <string>TESTLINK_TESTCASE_TOTAL</string>
+          <string>1</string>
+          <string>TESTLINK_TESTPLAN_NAME</string>
+          <string>Lecture02_TestPlan_BBT</string>
+          <string>TESTLINK_TESTPROJECT_NAME</string>
+          <string>Lecture01_Demo_BBT</string>
+        </tree-map>
+      </val_-iterativeEnvVars>
+      <outer-class reference="../../hudson.plugins.testlink.TestLinkBuilder_-1/outer-class"/>
+    </hudson.plugins.testlink.TestLinkBuilder_-1>
+    <hudson.plugins.testlink.TestLinkBuildAction plugin="testlink@3.16">
+      <result>
+        <report>
+          <passed>0</passed>
+          <failed>0</failed>
+          <blocked>0</blocked>
+          <notRun>1</notRun>
+          <buildId>2</buildId>
+          <buildName>build_10</buildName>
+          <testCases class="linked-list">
+            <hudson.plugins.testlink.result.TestCaseWrapper>
+              <customFieldAndStatus/>
+              <attachments class="linked-list"/>
+              <notes></notes>
+              <testCase>
+                <id>4</id>
+                <name>tc_3_AllParticipantsOnlyOne</name>
+                <testProjectId>1</testProjectId>
+                <steps/>
+                <testCaseStatus>DRAFT</testCaseStatus>
+                <executionType>AUTOMATED</executionType>
+                <executionOrder>1</executionOrder>
+                <fullExternalId>BBT-1</fullExternalId>
+                <versionId>5</versionId>
+                <version>1</version>
+                <customFields/>
+                <executionStatus>NOT_RUN</executionStatus>
+                <platform>
+                  <id>0</id>
+                  <name></name>
+                </platform>
+                <featureId>1</featureId>
+              </testCase>
+            </hudson.plugins.testlink.result.TestCaseWrapper>
+          </testCases>
+        </report>
+      </result>
+    </hudson.plugins.testlink.TestLinkBuildAction>
+  </actions>
+  <queueId>10</queueId>
+  <timestamp>1678047823714</timestamp>
+  <startTime>1678047824092</startTime>
+  <result>SUCCESS</result>
+  <duration>41174</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/var/jenkins_home/workspace/Job_Lecture02_BBT</workspace>
+  <hudsonVersion>2.375.3</hudsonVersion>
+  <scm class="hudson.plugins.git.GitChangeLogParser" plugin="git@5.0.0">
+    <authorOrCommitter>false</authorOrCommitter>
+    <showEntireCommitSummaryInChanges>true</showEntireCommitSummaryInChanges>
+  </scm>
+  <culprits class="java.util.Collections$UnmodifiableSet">
+    <c class="sorted-set"/>
+  </culprits>
+</build>

@@ -1,0 +1,103 @@
+Started by user [8mha:////4Jikxv8wZWqGtCE/EHBJViYz1/q5Tns5Q8J+RCYjVWayAAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL94pLSlNS8EgDnZMOBwgAAAA==[0mStudent
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Job_Lecture02_BBT
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Job_Lecture02_BBT/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/andreeavescan/2023_Lecture02_BBT.git # timeout=10
+Fetching upstream changes from https://github.com/andreeavescan/2023_Lecture02_BBT.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/andreeavescan/2023_Lecture02_BBT.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision be18a884e6bc99f4f462e311afa73e0374f927bd (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f be18a884e6bc99f4f462e311afa73e0374f927bd # timeout=10
+Commit message: "first commit"
+ > git rev-list --no-walk be18a884e6bc99f4f462e311afa73e0374f927bd # timeout=10
+[Job_Lecture02_BBT] $ mvn compile
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36mLecture02MaxPointsParticipantsMV:Lecture02MaxPointsParticipants[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Lecture02MaxPointsParticipants 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:resources[m [1m(default-resources)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/jenkins_home/workspace/Job_Lecture02_BBT/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:compile[m [1m(default-compile)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  11.341 s
+[[1;34mINFO[m] Finished at: 2023-03-05T20:24:00Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Preparing TestLink client API.
+Using TestLink URL: http://host.docker.internal:8090/lib/api/xmlrpc/v1/xmlrpc.php
+
+Found 1 automated test cases in TestLink.
+
+Sorting automated test cases by TestLink test plan execution order.
+
+Executing single Build Steps.
+
+Merging build environment variables with data retrieved from TestLink.
+
+[Job_Lecture02_BBT] $ mvn verify
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36mLecture02MaxPointsParticipantsMV:Lecture02MaxPointsParticipants[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Lecture02MaxPointsParticipants 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:resources[m [1m(default-resources)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/jenkins_home/workspace/Job_Lecture02_BBT/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:compile[m [1m(default-compile)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:testResources[m [1m(default-testResources)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/jenkins_home/workspace/Job_Lecture02_BBT/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:testCompile[m [1m(default-testCompile)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.1:test[m [1m(default-test)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running Lecture02MaxPointsParticipantsMV.[1mAppTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.338 s - in Lecture02MaxPointsParticipantsMV.[1mAppTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 4, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.0.2:jar[m [1m(default-jar)[m @ [36mLecture02MaxPointsParticipants[0;1m ---[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  19.229 s
+[[1;34mINFO[m] Finished at: 2023-03-05T20:24:23Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Merging build environment variables with data retrieved from TestLink.
+
+[Job_Lecture02_BBT] $ /bin/bash /tmp/jenkins12901451943117951060.sh
+mv: cannot stat './target/surefire-reports/TEST-.xml': No such file or directory
+Executing iterative Build Steps.
+
+Looking for the test results of TestLink test cases.
+
+Looking for test results in JUnit methods by its name.
+
+Found 1 test result(s).
+
+Archiving artifacts
+Finished: SUCCESS

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: Jakarta Mail API
+Specification-Version: 2.0
+Implementation-Title: Jakarta Mail API
+Implementation-Version: 2.0.1-3
+Group-Id: io.jenkins.plugins
+Short-Name: jakarta-mail-api
+Long-Name: Jakarta Mail API
+Url: https://github.com/jenkinsci/jakarta-mail-api-plugin
+Plugin-Version: 2.0.1-3
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Mask-Classes: com.sun.mail.
+Plugin-Dependencies: jakarta-activation-api:2.0.1-3
+Plugin-Developers: 
+Support-Dynamic-Loading: true
+Plugin-License-Name: EPL-2.0
+Plugin-License-Url: https://opensource.org/licenses/EPL-2.0
+Plugin-ScmUrl: https://github.com/jenkinsci/jakarta-mail-api-plugin
+

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: kinow
+Build-Jdk: 1.8.0_191
+Extension-Name: testlink
+Specification-Title: This plug-in integrates Jenkins to TestLink
+Specification-Vendor: Jenkins
+Implementation-Vendor: Jenkins
+Implementation-Title: testlink
+Implementation-Version: 3.16
+Group-Id: org.jenkins-ci.plugins
+Short-Name: testlink
+Long-Name: Jenkins TestLink Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/TestLink+Plugin
+Plugin-Version: 3.16
+Hudson-Version: 2.60.3
+Jenkins-Version: 2.60.3
+Plugin-Dependencies: junit:1.11
+Plugin-Developers: Bruno P. Kinoshita:kinow:brunodepaulak@yahoo.com.br
+ ,Cesar Fernandes de Almeida:cesar1983:cesar.fa@gmail.com,Floreal Toum
+ ikian:floreal:ftoumikian@april.org,Olivier Renault:orenault:orenault@
+ gmail.com,Oliver Merkel:omerkel:Merkel.Oliver@web.de,Janusz Chorko:ya
+ choor:jchorko@gmail.com
+

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: Pipeline: REST API Plugin
+Specification-Version: 2.31
+Implementation-Title: Pipeline: REST API Plugin
+Implementation-Version: 2.31
+Group-Id: org.jenkins-ci.plugins.pipeline-stage-view
+Short-Name: pipeline-rest-api
+Long-Name: Pipeline: REST API Plugin
+Url: https://github.com/jenkinsci/pipeline-stage-view-plugin/blob/master
+ /rest-api/README.md
+Plugin-Version: 2.31
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Plugin-Dependencies: workflow-api:1208.v0cc7c6e0da_9e,workflow-job:1254.
+ v3f64639b_11dd,workflow-step-api:639.v6eca_cd8c04a_a_,workflow-support:
+ 839.v35e2736cfd5c,jackson2-api:2.13.4.20221013-295.v8e29ea_354141,pipel
+ ine-graph-analysis:202.va_d268e64deb_3,pipeline-input-step:466.v6d0a_5d
+ f34f81,pipeline-stage-step:296.v5f6908f017a_5
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-stage-view-plugin
+
