@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="untitled">
+      <plugins>
+        <plugin path="$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/psywerx/hairyfotr/linter_2.12/0.1.17/linter_2.12-0.1.17.jar" />
+      </plugins>
+    </profile>
+  </component>
+</project>

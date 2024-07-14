@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(addCompilerPlugin("org.psywerx.hairyfotr" %% "linter" % "0.1.17"), None, None)[0m
+[0m[[0m[31merror[0m] [0m[0mExpected ID character[0m
+[0m[[0m[31merror[0m] [0m[0mNot a valid command: addCompilerPlugin[0m
+[0m[[0m[31merror[0m] [0m[0mExpected project ID[0m
+[0m[[0m[31merror[0m] [0m[0mExpected configuration[0m
+[0m[[0m[31merror[0m] [0m[0mExpected ':'[0m
+[0m[[0m[31merror[0m] [0m[0mExpected key[0m
+[0m[[0m[31merror[0m] [0m[0mNot a valid key: addCompilerPlugin (similar: autoCompilerPlugins, semanticdbCompilerPlugin, compileSplit)[0m
+[0m[[0m[31merror[0m] [0m[0maddCompilerPlugin("org.psywerx.hairyfotr" %% "linter" % "0.1.17")[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

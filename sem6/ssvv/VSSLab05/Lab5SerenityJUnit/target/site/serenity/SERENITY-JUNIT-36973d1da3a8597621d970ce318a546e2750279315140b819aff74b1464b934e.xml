@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="org.example.features.search.SearchByKeywordStory" skipped="0" tests="2" time="35.82" timestamp="2023-05-12 06:49:17"><testcase classname="org.example.features.search.SearchByKeywordStory" name="Searching by keyword banana should display the corresponding article"><failure message="&#10;Expected: a collection containing a string containing &quot;An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.&quot;&#10;     but: was &quot;An edible fruit produced by the pear tree, similar to an apple but typically elongated towards the stem.&quot;, was &quot;A type of fruit tree (Pyrus communis). synonym ▲&#10;Synonym: pear tree&quot;, was &quot;The wood of the pear tree (pearwood, pear wood).&quot;, was &quot;Choke pear (a torture device).&quot;, was &quot;(Jamaica) avocado, alligator pear&quot;, was &quot;A desaturated chartreuse yellow colour, like that of a pear.&#10;pear:  &quot;" type="java.lang.AssertionError">
+Expected: a collection containing a string containing "An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem."
+     but: was "An edible fruit produced by the pear tree, similar to an apple but typically elongated towards the stem.", was "A type of fruit tree (Pyrus communis). synonym ▲
+Synonym: pear tree", was "The wood of the pear tree (pearwood, pear wood).", was "Choke pear (a torture device).", was "(Jamaica) avocado, alligator pear", was "A desaturated chartreuse yellow colour, like that of a pear.
+pear:  "</failure><system-err>
+Expected: a collection containing a string containing "An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem."
+     but: was "An edible fruit produced by the pear tree, similar to an apple but typically elongated towards the stem.", was "A type of fruit tree (Pyrus communis). synonym ▲
+Synonym: pear tree", was "The wood of the pear tree (pearwood, pear wood).", was "Choke pear (a torture device).", was "(Jamaica) avocado, alligator pear", was "A desaturated chartreuse yellow colour, like that of a pear.
+pear:  "
+org.example.steps.serenity.EndUserSteps.should_see_definition(EndUserSteps.java:27)
+org.example.features.search.SearchByKeywordStory.searching_by_keyword_banana_should_display_the_corresponding_article(SearchByKeywordStory.java:37)
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</system-err></testcase><testcase classname="org.example.features.search.SearchByKeywordStory" name="Searching by keyword apple should display the corresponding article"/></testsuite>

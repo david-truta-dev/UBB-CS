@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: org.example.features.search.SearchByKeywordStory
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 39.606 s <<< FAILURE! - in org.example.features.search.SearchByKeywordStory
+org.example.features.search.SearchByKeywordStory.searching_by_keyword_banana_should_display_the_corresponding_article  Time elapsed: 25.061 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: a collection containing a string containing "An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem."
+     but: was "An edible fruit produced by the pear tree, similar to an apple but typically elongated towards the stem.", was "A type of fruit tree (Pyrus communis). synonym ▲
+Synonym: pear tree", was "The wood of the pear tree (pearwood, pear wood).", was "Choke pear (a torture device).", was "(Jamaica) avocado, alligator pear", was "A desaturated chartreuse yellow colour, like that of a pear.
+pear:  "
+	at org.example.features.search.SearchByKeywordStory.searching_by_keyword_banana_should_display_the_corresponding_article(SearchByKeywordStory.java:37)
+
