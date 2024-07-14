@@ -1,2 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.modules' artifactId='instance-identity' version='142.v04572ca_5b_265'><l:dependency name='Instance Identity' groupId='org.jenkins-ci.modules' artifactId='instance-identity' version='142.v04572ca_5b_265' url='https://github.com/jenkinsci/instance-identity-plugin'><l:description>The Jenkins Plugins Parent POM Project</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>
